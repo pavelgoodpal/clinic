@@ -25,4 +25,24 @@ public class TreatmentServiceImpl implements TreatmentService {
         return treatmentRepo.findById(id).orElseThrow(() ->
                 new TreatmentNotFoundException("Treatment not Found"));
     }
+
+    @Override
+    public Iterable<Treatment> addAll(Iterable<Treatment> entities) {
+        return treatmentRepo.saveAll(entities);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        treatmentRepo.deleteById(id);
+    }
+
+    @Override
+    public void delete(Treatment treatment) {
+        treatmentRepo.delete(treatment);
+    }
+
+    @Override
+    public Treatment update(Treatment treatment) {
+        return null;
+    }
 }

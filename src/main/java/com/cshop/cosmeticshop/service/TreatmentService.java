@@ -10,4 +10,12 @@ public interface TreatmentService {
     Iterable<Treatment> findAll();
 
     Treatment findById(Long id) throws TreatmentNotFoundException;
+
+    Iterable<Treatment> addAll(Iterable<Treatment> entities);
+
+    Treatment update(Treatment treatment);
+
+    void deleteById(Long id);
+
+    void delete(Treatment treatment);
 }
