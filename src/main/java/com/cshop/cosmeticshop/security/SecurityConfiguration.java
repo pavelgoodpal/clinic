@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.security;
 
-import com.cshop.cosmeticshop.domain.intity.userInfo.Permission;
+import com.cshop.cosmeticshop.domain.intity.constants.Permission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;

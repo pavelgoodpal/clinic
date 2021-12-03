@@ -1,7 +1,7 @@
 package com.cshop.cosmeticshop.domain.intity;
 
-import com.cshop.cosmeticshop.domain.intity.userInfo.Role;
-import com.cshop.cosmeticshop.domain.intity.userInfo.Status;
+import com.cshop.cosmeticshop.domain.intity.constants.Role;
+import com.cshop.cosmeticshop.domain.intity.constants.Status;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

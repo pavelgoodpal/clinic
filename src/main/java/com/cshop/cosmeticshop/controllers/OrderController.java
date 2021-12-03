@@ -1,6 +1,9 @@
 package com.cshop.cosmeticshop.controllers;
 
+import com.cshop.cosmeticshop.domain.dto.CartDTO;
+import com.cshop.cosmeticshop.domain.dto.TreatmentDTO;
 import com.cshop.cosmeticshop.domain.intity.Order;
+import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.service.OrderService;
 import com.cshop.cosmeticshop.domain.intity.Cart;
 import com.cshop.cosmeticshop.domain.intity.User;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller

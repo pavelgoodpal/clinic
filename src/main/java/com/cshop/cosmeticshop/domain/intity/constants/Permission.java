@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.domain.intity.userInfo;
+package com.cshop.cosmeticshop.domain.intity.constants;
 
 public enum Permission {
     READ("read"), WRITE("write");

@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.domain.intity.userInfo;
+package com.cshop.cosmeticshop.domain.intity.constants;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
