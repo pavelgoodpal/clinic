@@ -3,6 +3,7 @@ package com.cshop.cosmeticshop.domain.intity;
 import com.cshop.cosmeticshop.domain.intity.constants.Role;
 import com.cshop.cosmeticshop.domain.intity.constants.Status;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,6 +16,7 @@ import java.util.Collection;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
@@ -46,9 +48,6 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-
-    public User() {
-    }
 
     public User(String firstName, String lastName, String email, String phoneNumber, String password, Role role, Status status) {
         this.firstName = firstName;

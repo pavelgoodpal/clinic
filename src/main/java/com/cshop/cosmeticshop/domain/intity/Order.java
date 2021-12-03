@@ -1,6 +1,7 @@
 package com.cshop.cosmeticshop.domain.intity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 
 @Entity(name="orders")
 @Data
+@NoArgsConstructor
 public class Order {
 
     @Id
