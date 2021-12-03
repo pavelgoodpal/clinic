@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Home page</h1>
+<p>If you want to book treatment click <a href="/services">here</a></p>
+
+<p>Hi, you can <a th:href="@{/login}">login</a> right now!</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sing Out"/>
+</form>
+</body>
+</html>

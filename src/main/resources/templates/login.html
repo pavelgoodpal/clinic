@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Services</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Let's Login</h1>
+<form method="post" th:action="@{/login}" id="loginForm">
+<div>
+    <label for="username">Email</label><br/>
+    <input th:type="text" name="username" id="username">
+</div>
+    <br/>
+
+    <div>
+        <label for="password">Password</label><br/>
+        <input th:type="text" name="password" id="password">
+    </div>
+    <br/>
+
+    <input type="submit" value="Login">
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+
+</form>
+
+<p>If you aren't with us eyt, what are you waiting for ... just click <a th:href="@{/registration}">here</a> </p>
+
+</body>
+</html>

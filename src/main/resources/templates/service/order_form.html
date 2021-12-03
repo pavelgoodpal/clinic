@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Order form</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>Let's make appointment</h1>
+<form method="post" th:object="${treatment_order}">
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError" style="color:red">
+            Please chose treatment
+        </span>
+    </div>
+
+    <div>
+        <div>
+            <label for="phoneNumber">Phone number: </label>
+            <br/>
+            <input id="phoneNumber" type="text" th:field="*{phoneNumber}"/>
+            <span class="validationError"
+                  style="color:red"
+                  th:if="${#fields.hasErrors('phoneNumber')}"
+                  th:errors="*{phoneNumber}">Name Error</span>
+            <br/>
+        </div>
+        <br/>
+        <div>
+            <label for="email">Email: </label>
+            <br/>
+            <input id="email" type="text" th:field="*{email}"/>
+        </div>
+        <br/>
+        <div>
+            <label for="additionalInfo">Additional Information: </label>
+            <br/>
+            <input id="additionalInfo" type="text" th:field="*{additionalInfo}"/>
+        </div>
+        <br/>
+        <div>
+            <label for="startAt">Start at: </label>
+            <br/>
+            <input id="startAt" type="datetime-local" th:field="*{startAt}"/>
+        </div>
+        <br/>
+    </div>
+
+    <button>Submit</button>
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+</form>
+
+<blockquote>
+    If you want to change services <a href="/services">click hear</a>
+</blockquote>
+</body>
+</html>

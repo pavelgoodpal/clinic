@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+
+
+
+<form method="POST" th:object="${cart}">
+    <div th:if="${#fields.hasErrors()}">
+    <span class="validationError"
+          style="color:red">
+            Choose product
+    </span>
+    </div>
+    <br/>
+<div th:each="key : ${products.findAllProducts()}">
+
+    <img th:src="${key.getImaginePath()}" width="100" height="85"/>
+    <br/>
+    Name: <span th:text="${key.getName()}">Name</span>
+    <br/>
+    Price: <span th:text="${key.getPrice()}">Price</span>
+    <br/>
+    Description: <span th:text="${key.getDescription()}">Description</span>
+    <br/>
+    Composition: <span th:text="${key.getComposition()}">Composition</span>
+    <br/>
+    Producer: <span th:text="${key.getProducer()}">Producer</span>
+    <br/>
+    <div>
+        <input name="products" type="checkbox" th:value="${key.getId()}">
+
+    </div>
+</div>
+    <button>Create cart</button>
+</form>
+
+<div th:if="${!cart.getProducts().isEmpty()}">
+<h1>CART:</h1>
+<div th:each="product : ${cart.getProducts()}">
+    <span th:text="${product.getName()}"></span>
+</div>
+    <br/>
+    Price <span th:text="${cart.getTotalPrice()}"></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Services</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<form th:object="${treatment_cart}" method="post">
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError" style="color:red">
+            Please chose treatment
+        </span>
+    </div>
+
+    <div th:each="treatment : ${services}">
+        <h1><span th:text="${treatment.name}">Service Name</span></h1>
+        Price: <span th:text="${treatment.getPrice()}">Service Name</span>
+        <br/>
+        Description: <span th:text="${treatment.name}">Service Description</span>
+        <br/>
+        Treatment time: <span th:text="${treatment.getTreatmentTime()}">Service Treatment Time</span>
+        <br/>
+        <input name="services" type="checkbox" th:value="${treatment.id}">
+
+        <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+    </div>
+    <br/>
+    <button>Make an appointment</button>
+</form>
+
+<div th:if="${!treatment_cart.getTreatments().isEmpty()}">
+    <hr/>
+    <h2>Services you choose</h2>
+    <div th:each="treatment : ${treatment_cart.getTreatments()}">
+        <span th:text="${treatment.name}">treatment name</span>
+    </div>
+    <br/>
+    Price: <span th:text="${treatment_cart.getTotalPrice()}">price</span>
+</div>
+
+<br/>
+
+<p>Go home  <a href="/">page</a></p>
+<p><a th:href="@{/logout}">Log Out</a></p>
+
+</body>
+</html>

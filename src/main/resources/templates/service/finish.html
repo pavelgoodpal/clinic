@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Finish</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h2>Your Services</h2>
+<div th:each="treatment : ${treatment_cart.getTreatments()}">
+    <span th:text="${treatment.getName()}">treatment name</span>
+</div>
+<br/>
+<br/>
+<hr/>
+<p>Go <a href="/services">services</a></p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
