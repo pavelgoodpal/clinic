@@ -3,6 +3,7 @@ package com.cshop.cosmeticshop.service.impl;
 import com.cshop.cosmeticshop.domain.intity.Order;
 import com.cshop.cosmeticshop.domain.intity.User;
 import com.cshop.cosmeticshop.service.EmailService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -14,14 +15,10 @@ import java.util.Locale;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
-
-    @Autowired
-    public EmailServiceImpl(JavaMailSender emailSender) {
-        this.emailSender = emailSender;
-    }
 
     public void sendMessage(Order order, User user) {
         SimpleMailMessage message = new SimpleMailMessage();

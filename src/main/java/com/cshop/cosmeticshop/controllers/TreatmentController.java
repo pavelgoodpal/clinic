@@ -5,6 +5,7 @@ import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.domain.intity.Cart;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.TreatmentService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,16 +18,11 @@ import javax.validation.Valid;
 @Slf4j
 @RequestMapping("/services")
 @SessionAttributes({"treatment_order", "treatment_cart"})
+@RequiredArgsConstructor
 public class TreatmentController {
 
     private final TreatmentService treatmentService;
     private final CartService cartService;
-
-    @Autowired
-    public TreatmentController(TreatmentService treatmentService, CartService cartService) {
-        this.treatmentService = treatmentService;
-        this.cartService = cartService;
-    }
 
     @ModelAttribute("treatment_cart")
     public Cart serviceCart() {

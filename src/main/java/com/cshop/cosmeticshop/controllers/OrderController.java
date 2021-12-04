@@ -7,6 +7,7 @@ import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.service.OrderService;
 import com.cshop.cosmeticshop.domain.intity.Cart;
 import com.cshop.cosmeticshop.domain.intity.User;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,15 +24,10 @@ import java.util.List;
 @Controller
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequestMapping("services_order")
+@RequiredArgsConstructor
 public class OrderController {
 
     private final OrderService orderService;
-
-
-    @Autowired
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @GetMapping
     public String formOrder() {

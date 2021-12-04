@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RegistrationForm {
+public class RegistrationFormDTO {
 
     private String firstName;
 

@@ -4,16 +4,14 @@ import com.cshop.cosmeticshop.domain.intity.Cart;
 import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.repository.CartRepo;
 import com.cshop.cosmeticshop.service.CartService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class CartServiceImpl implements CartService {
 
     private final CartRepo cartRepo;
-
-    CartServiceImpl(CartRepo cartRepo) {
-        this.cartRepo = cartRepo;
-    }
 
     @Override
     public Cart saveCart(Cart cart) {

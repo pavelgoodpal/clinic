@@ -4,16 +4,14 @@ import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
 import com.cshop.cosmeticshop.repository.TreatmentRepo;
 import com.cshop.cosmeticshop.service.TreatmentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class TreatmentServiceImpl implements TreatmentService {
 
     private final TreatmentRepo treatmentRepo;
-
-    public TreatmentServiceImpl(TreatmentRepo treatmentRepo) {
-        this.treatmentRepo = treatmentRepo;
-    }
 
     @Override
     public Iterable<Treatment> findAll() {

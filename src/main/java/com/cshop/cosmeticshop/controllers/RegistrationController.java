@@ -1,7 +1,8 @@
 package com.cshop.cosmeticshop.controllers;
 
-import com.cshop.cosmeticshop.domain.dto.RegistrationForm;
+import com.cshop.cosmeticshop.domain.dto.RegistrationFormDTO;
 import com.cshop.cosmeticshop.service.UserService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,18 +17,14 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @RequestMapping("/registration")
+@RequiredArgsConstructor
 public class RegistrationController {
 
     private final UserService userService;
 
-    @Autowired
-    public RegistrationController(UserService userService) {
-        this.userService = userService;
-    }
-
     @ModelAttribute("registrationForm")
-    public RegistrationForm user() {
-        return new RegistrationForm();
+    public RegistrationFormDTO user() {
+        return new RegistrationFormDTO();
     }
 
     @GetMapping
@@ -36,7 +33,7 @@ public class RegistrationController {
     }
 
     @PostMapping
-    public String registrationProcess(@Valid RegistrationForm form, Errors errors) {
+    public String registrationProcess(@Valid RegistrationFormDTO form, Errors errors) {
         if (errors.hasErrors())
             return "registrForm";
         userService.save(form);
