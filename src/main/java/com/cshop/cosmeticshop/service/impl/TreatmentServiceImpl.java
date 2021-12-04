@@ -5,6 +5,8 @@ import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
 import com.cshop.cosmeticshop.repository.TreatmentRepo;
 import com.cshop.cosmeticshop.service.TreatmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,6 +18,11 @@ public class TreatmentServiceImpl implements TreatmentService {
     @Override
     public Iterable<Treatment> findAll() {
         return treatmentRepo.findAll();
+    }
+
+    @Override
+    public Page<Treatment> findAll(Pageable pageable) {
+        return treatmentRepo.findAll(pageable);
     }
 
     @Override

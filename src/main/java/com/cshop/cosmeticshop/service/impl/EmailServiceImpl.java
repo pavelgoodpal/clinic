@@ -5,7 +5,6 @@ import com.cshop.cosmeticshop.domain.intity.User;
 import com.cshop.cosmeticshop.service.EmailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -35,11 +34,9 @@ public class EmailServiceImpl implements EmailService {
 
 
     private String toNormalDate(LocalDateTime date) {
-        if (date.getMinute() < 10) {
-            return date.getDayOfMonth() + " of " + date.getMonth().toString().toLowerCase(Locale.ROOT) + " at " +
-                    date.getHour() + ":0" + date.getMinute();
-        }
+        var mins = (date.getMinute() < 10) ? ":0" : ":";
+        mins += date.getMinute();
         return date.getDayOfMonth() + " of " + date.getMonth().toString().toLowerCase(Locale.ROOT) + " at " +
-                date.getHour() + ":" + date.getMinute();
+                date.getHour() + mins;
     }
 }

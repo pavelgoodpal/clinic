@@ -22,12 +22,4 @@ public class Cart {
             inverseJoinColumns = @JoinColumn(name="service_id"))
     private List<Treatment> treatments = new ArrayList<>();
 
-    public void calculatePrice() {
-        totalPrice = 0L;
-        treatments.forEach(treatment -> totalPrice+= treatment.getPrice());
-    }
-
-    public void clearServices() {
-        treatments.clear();
-    }
 }

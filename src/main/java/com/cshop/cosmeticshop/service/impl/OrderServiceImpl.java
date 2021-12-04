@@ -8,7 +8,6 @@ import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.EmailService;
 import com.cshop.cosmeticshop.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 

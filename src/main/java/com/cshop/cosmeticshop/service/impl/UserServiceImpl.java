@@ -5,7 +5,6 @@ import com.cshop.cosmeticshop.domain.intity.User;
 import com.cshop.cosmeticshop.repository.UserRepo;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,8 +26,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(RegistrationFormDTO form) {
         var user = userRepo.findByEmail(form.getEmail());
-        if(user.isEmpty())
-            return userRepo.save(form.toUser(passwordEncoder));
-        return user.get();
+        return user.isEmpty() ? userRepo.save(form.toUser(passwordEncoder)) : user.get();
     }
 }
