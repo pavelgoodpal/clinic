@@ -11,7 +11,6 @@ public enum Role {
     USER(Set.of(Permission.READ)),
     ADMIN(Set.of(Permission.READ, Permission.WRITE));
 
-
     private final Set<Permission> permissions;
 
     Role(Set<Permission> permissions) {
@@ -23,8 +22,14 @@ public enum Role {
     }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getPermissions().stream()
+        var authorities = getPermissions().stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
+        authorities.add(new SimpleGrantedAuthority(this.getRole()));
+        return authorities;
+    }
+
+    public String getRole() {
+        return "ROLE_" + this.name();
     }
 }

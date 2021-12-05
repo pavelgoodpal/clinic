@@ -1,11 +1,11 @@
 package com.cshop.cosmeticshop.controllers;
 
-import com.cshop.cosmeticshop.domain.dto.RegistrationFormDTO;
+import com.cshop.cosmeticshop.domain.dto.RegistrationFormDto;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
+
+/**
+ * @author:Pave1Pal
+ * Controller for user registration
+ */
 @Slf4j
 @Controller
 @RequestMapping("/registration")
@@ -22,27 +27,35 @@ public class RegistrationController {
 
     private final UserService userService;
 
-    @ModelAttribute("registrationForm")
-    public RegistrationFormDTO user() {
-        return new RegistrationFormDTO();
-    }
 
+    /**
+     *Get method return page with registration form
+     */
     @GetMapping
-    public String registrationForm() {
-        return "registrForm";
+    public String registrationForm(Model model, RegistrationFormDto form) {
+        model.addAttribute("registration_form", form);
+        return "registration/form";
     }
 
+    /**
+     * Post method handle registration form, if form data is invalid return page with previous form,
+     * else return finish page
+     */
     @PostMapping
-    public String registrationProcess(@Valid RegistrationFormDTO form, Errors errors) {
+    public String registrationProcess(@Valid @ModelAttribute("registration_form") RegistrationFormDto form,
+                                      Errors errors) {
         if (errors.hasErrors())
-            return "registrForm";
+            return "registration/form";
         userService.save(form);
         return "redirect:/registration/finish";
     }
 
+    /**
+     * Get method return finish page
+     */
     @GetMapping("/finish")
     public String finishRegistration() {
-        return "/finishRegist";
+        return "registration/finish";
     }
 
 }

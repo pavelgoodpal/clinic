@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Locale;
 
+/**
+ * @author:Pave1Pal
+ * Class implements EmailService
+ */
 @Service
 @Slf4j
 @RequiredArgsConstructor

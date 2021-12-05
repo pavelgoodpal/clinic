@@ -7,6 +7,10 @@ import com.cshop.cosmeticshop.service.CartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author:Pave1Pal
+ * Class implements CartService
+ */
 @Service
 @RequiredArgsConstructor
 public class CartServiceImpl implements CartService {

@@ -17,9 +17,9 @@ public class Cart {
 
     private Long totalPrice;
     @ManyToMany
-    @JoinTable(name="cart_service",
+    @JoinTable(name="treatment_cart",
             joinColumns = @JoinColumn(name="cart_id"),
-            inverseJoinColumns = @JoinColumn(name="service_id"))
+            inverseJoinColumns = @JoinColumn(name="treatment_id"))
     private List<Treatment> treatments = new ArrayList<>();
 
 }

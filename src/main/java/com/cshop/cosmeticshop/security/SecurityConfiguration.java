@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.security;
 
-import com.cshop.cosmeticshop.domain.intity.constants.Permission;
+import com.cshop.cosmeticshop.domain.intity.constants.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +14,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/**
+ * @author:Pave1Pal
+ * Class for Security configuration
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -25,11 +29,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         this.userDetailsService = userDetailsService;
     }
 
+    /**
+     * method return password encoder as a bean
+     */
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder(12);
     }
 
+    /**
+     * method return DAO authentication provider as a bean
+     */
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -38,23 +48,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return daoAuthenticationProvider;
     }
 
+
+    /**
+     * This method contains authorization, login and logout rules.
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                 .antMatchers(
-                        "/services_order",
-                        "/rest/api/carts",
-                        "/rest/api/orders",
-                        "/rest/api/receptions")
+                        "/appointment-order"
+                        )
                 .hasAnyAuthority(
-                        Permission.READ.getPermission(),
-                        Permission.WRITE.getPermission())
-                .antMatchers("/rest/api/users")
-                .hasAnyAuthority(
-                        Permission.WRITE.getPermission())
-                .antMatchers("/", "/**", "/rest/api").permitAll()
-
+                        Role.ADMIN.getRole(),
+                        Role.USER.getRole())
+                .antMatchers("/", "/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -66,6 +74,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
     }
 
+    /**
+     * Method connect to the user repository to authentication
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());

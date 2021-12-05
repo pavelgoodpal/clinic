@@ -16,37 +16,53 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+/**
+ * @author:Pave1Pal
+ * Controller for displaying treatments and making appointment
+ */
 @Controller
 @Slf4j
-@RequestMapping("/services")
-@SessionAttributes({"treatment_order", "treatment_cart"})
+@RequestMapping("/treatment")
+@SessionAttributes({"treatments_order", "treatments_cart"})
 @RequiredArgsConstructor
 public class TreatmentController {
 
     private final TreatmentService treatmentService;
     private final CartService cartService;
 
-
-    @GetMapping
-    public String showServices(Model model,
-                               @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable,
-                               Cart treatmentCart,
-                               Order serviceOrder) {
-       var page = treatmentService.findAll(pageable);
-       model.addAttribute("treatment_cart", treatmentCart);
-       model.addAttribute("treatment_order", serviceOrder);
-       model.addAttribute("services", page);
-        return "service/services";
+    /**
+     * method return Cart object in model which use in view
+     */
+    @ModelAttribute("treatments_cart")
+    public Cart getTreatmentCart() {
+        return new Cart();
     }
 
+    /**
+     * Get method return page with treatments and also returning page provide opportunity to start an appointment
+     **/
+    @GetMapping
+    public String showTreatments(Model model, Order order,
+                                 @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable) {
+       var page = treatmentService.findAll(pageable);
+       model.addAttribute("treatments", page);
+       model.addAttribute("treatments_order", order);
+        return "/treatments";
+    }
+
+    /**
+     * Post method handle a form of cart with treatments and throw you to OrderController - /appointment-order.
+     * If cart with treatments is empty method return you to /treatments
+     * If validation is successful method calculate total price of cart with treatments
+     **/
     @PostMapping
-    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") Cart treatmentCart,
-                                     @ModelAttribute("treatment_order") Order serviceOrder,
+    public String appointmentProcess(@Valid @ModelAttribute("treatments_cart") Cart treatmentCart,
+                                     @ModelAttribute("treatments_order") Order serviceOrder,
                                      Errors errors) {
         if (errors.hasErrors()) {
-            return "service/services";
+            return "/treatments";
         }
         cartService.calculatePrice(treatmentCart);
-        return "redirect:/services_order";
+        return "redirect:/appointment-order";
     }
 }

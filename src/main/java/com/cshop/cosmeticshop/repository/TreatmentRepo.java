@@ -6,9 +6,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @author:Pave1Pal
+ * Repository for treatment entity
+ */
 @Repository
 public interface TreatmentRepo extends CrudRepository<Treatment, Long> {
 
+    /**
+     * method find all Treatments using Pageable interface and return Page of treatments
+     */
     Page<Treatment> findAll(Pageable pageable);
 
 }

@@ -11,7 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
-
+/**
+ * @author:Pave1Pal
+ * Class implements OrderService
+ */
 @Service
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {

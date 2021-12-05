@@ -7,13 +7,13 @@
 </head>
 <body>
 <h2>Your Services</h2>
-<div th:each="treatment : ${treatment_cart.getTreatments()}">
+<div th:each="treatment : ${treatments_cart.getTreatments()}">
     <span th:text="${treatment.getName()}">treatment name</span>
 </div>
 <br/>
 <br/>
 <hr/>
-<p>Go <a href="/services">services</a></p>
+<p>Go <a href="/treatment">treatments list</a></p>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>

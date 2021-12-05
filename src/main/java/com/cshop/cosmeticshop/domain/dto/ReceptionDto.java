@@ -4,19 +4,17 @@ import com.cshop.cosmeticshop.domain.intity.Reception;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Calendar;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class ReceptionDTO {
+public class ReceptionDto {
 
-    @NotNull
     private Calendar startAt;
-    @NotNull
+
     private Calendar finishAt;
 
-    public Reception toReception() {
-        return new Reception(startAt, finishAt);
-    }
 }

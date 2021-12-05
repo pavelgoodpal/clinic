@@ -1,8 +1,8 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import com.cshop.cosmeticshop.domain.intity.Treatment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author: Pave1Pal
@@ -11,19 +11,15 @@ import lombok.Data;
  */
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-public class TreatmentDTO {
+public class TreatmentDto {
 
+    private Long id;
     private String name;
     private Long price;
     private String description;
     private long treatmentTime;
 
-    /**
-     * Return map treatment object
-     */
-    public Treatment toTreatment() {
-        return new Treatment(name, price, description, treatmentTime);
-    }
 
 }
