@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title th:text="${treatment.name}">treatment</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+
+<div>
+    <h1><span th:text="${treatment.name}">Service Name</span></h1>
+    Price: <span th:text="${treatment.getPrice()}">Service Name</span>
+    <br/>
+    Description: <span th:text="${treatment.name}">Service Description</span>
+    <br/>
+    Treatment time: <span th:text="${treatment.getTreatmentTime()}">Service Treatment Time</span>
+</div>
+<br/>
+<a href="/treatment">Go to treatments list</a>
+
+</body>
+</html>

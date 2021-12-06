@@ -2,6 +2,8 @@ package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.dto.RegistrationFormDto;
 import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.intity.constants.Role;
+import com.cshop.cosmeticshop.domain.intity.constants.Status;
 import com.cshop.cosmeticshop.repository.UserRepo;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +31,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(RegistrationFormDto form) {
+        form.setRole(Role.USER);
+        form.setStatus(Status.ACTIVE);
         var user = userRepo.findByEmail(form.getEmail());
         return user.isEmpty() ? userRepo.save(form.toUser(passwordEncoder)) : user.get();
     }

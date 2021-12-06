@@ -15,7 +15,7 @@
     </div>
 
     <div th:each="treatment : ${treatments}">
-        <h1><span th:text="${treatment.name}">Service Name</span></h1>
+        <a th:href="@{/treatment/{id}(id=${treatment.id})}"><h1><span th:text="${treatment.name}">Service Name</span></h1></a>
         Price: <span th:text="${treatment.getPrice()}">Service Name</span>
         <br/>
         Description: <span th:text="${treatment.name}">Service Description</span>

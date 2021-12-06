@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.intity.Order;
 import com.cshop.cosmeticshop.domain.intity.Cart;
+import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.TreatmentService;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +49,17 @@ public class TreatmentController {
        model.addAttribute("treatments", page);
        model.addAttribute("treatments_order", order);
         return "/treatments";
+    }
+
+    /**
+     *Get method return page with treatment info using its id
+     */
+    @GetMapping(path = "{id}")
+    public String getTreatment(@PathVariable("id") Long id,
+                               Model model) throws TreatmentNotFoundException {
+        var treatment = treatmentService.findById(id);
+        model.addAttribute("treatment", treatment);
+        return "treatment";
     }
 
     /**
