@@ -24,7 +24,7 @@ import javax.validation.Valid;
 @Controller
 @Slf4j
 @RequestMapping("/treatment")
-@SessionAttributes({"treatments_order", "treatments_cart"})
+@SessionAttributes({"treatment_order", "treatment_cart"})
 @RequiredArgsConstructor
 public class TreatmentController {
 
@@ -34,7 +34,7 @@ public class TreatmentController {
     /**
      * method return Cart object in model which use in view
      */
-    @ModelAttribute("treatments_cart")
+    @ModelAttribute("treatment_cart")
     public Cart getTreatmentCart() {
         return new Cart();
     }
@@ -47,7 +47,7 @@ public class TreatmentController {
                                  @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable) {
        var page = treatmentService.findAll(pageable);
        model.addAttribute("treatments", page);
-       model.addAttribute("treatments_order", order);
+       model.addAttribute("treatment_order", order);
         return "/treatments";
     }
 
@@ -68,8 +68,8 @@ public class TreatmentController {
      * If validation is successful method calculate total price of cart with treatments
      **/
     @PostMapping
-    public String appointmentProcess(@Valid @ModelAttribute("treatments_cart") Cart treatmentCart,
-                                     @ModelAttribute("treatments_order") Order serviceOrder,
+    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") Cart treatmentCart,
+                                     @ModelAttribute("treatment_order") Order serviceOrder,
                                      Errors errors) {
         if (errors.hasErrors()) {
             return "/treatments";

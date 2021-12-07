@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-<form th:object="${treatments_cart}" method="post">
+<form th:object="${treatment_cart}" method="post">
 
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError" style="color:red">
@@ -30,14 +30,14 @@
     <button>Make an appointment</button>
 </form>
 
-<div th:if="${!treatments_cart.getTreatments().isEmpty()}">
+<div th:if="${!treatment_cart.getTreatments().isEmpty()}">
     <hr/>
     <h2>Services you choose</h2>
-    <div th:each="treatment : ${treatments_cart.getTreatments()}">
+    <div th:each="treatment : ${treatment_cart.getTreatments()}">
         <span th:text="${treatment.name}">treatment name</span>
     </div>
     <br/>
-    Price: <span th:text="${treatments_cart.getTotalPrice()}">price</span>
+    Price: <span th:text="${treatment_cart.getTotalPrice()}">price</span>
 </div>
 
 <br/>

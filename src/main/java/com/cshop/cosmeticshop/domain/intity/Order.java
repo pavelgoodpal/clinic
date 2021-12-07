@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Entity
 @Table(name = "orders")
 @NoArgsConstructor
 public class Order extends Identifier {

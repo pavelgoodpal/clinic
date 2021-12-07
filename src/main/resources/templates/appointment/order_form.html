@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Let's make appointment</h1>
-<form method="post" th:object="${treatments_order}">
+<form method="post" th:object="${treatment_order}">
 
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError" style="color:red">
@@ -51,14 +51,14 @@
     <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
 </form>
 
-<div th:if="${!treatments_cart.getTreatments().isEmpty()}">
+<div th:if="${!treatment_cart.getTreatments().isEmpty()}">
     <hr/>
     <h2>Services you choose</h2>
-    <div th:each="treatment : ${treatments_cart.getTreatments()}">
+    <div th:each="treatment : ${treatment_cart.getTreatments()}">
         <span th:text="${treatment.name}">treatment name</span>
     </div>
     <br/>
-    Price: <span th:text="${treatments_cart.getTotalPrice()}">price</span>
+    Price: <span th:text="${treatment_cart.getTotalPrice()}">price</span>
 </div>
 
 <blockquote>

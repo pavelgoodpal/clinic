@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.security;
+package com.cshop.cosmeticshop.configuration;
 
 import com.cshop.cosmeticshop.domain.intity.constants.Role;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,13 +56,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(
-                        "/appointment-order"
-                        )
-                .hasAnyAuthority(
-                        Role.ADMIN.getRole(),
-                        Role.USER.getRole())
-                .antMatchers("/", "/**").permitAll()
+//                .antMatchers(
+//                        "/appointment-order"
+//                        )
+//                .hasAnyAuthority(
+//                        Role.ADMIN.getRole(),
+//                        Role.USER.getRole())
+//                .antMatchers("/", "/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

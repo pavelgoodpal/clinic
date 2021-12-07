@@ -7,7 +7,7 @@
 </head>
 <body>
 <h2>Your Services</h2>
-<div th:each="treatment : ${treatments_cart.getTreatments()}">
+<div th:each="treatment : ${treatment_cart.getTreatments()}">
     <span th:text="${treatment.getName()}">treatment name</span>
 </div>
 <br/>
