@@ -1,25 +1,19 @@
 package com.cshop.cosmeticshop.domain.intity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Calendar;
 
-@Data
-@Entity(name="receptions")
+@Getter
+@Setter
+@Entity
+@Table(name = "receptions")
 @NoArgsConstructor
-public class Reception {
-
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Reception extends Identifier{
 
     private Calendar startAt;
 
     private Calendar finishAt;
 
-    public Reception(Calendar startAt, Calendar finishAt) {
-        this.startAt = startAt;
-        this.finishAt = finishAt;
-    }
 }

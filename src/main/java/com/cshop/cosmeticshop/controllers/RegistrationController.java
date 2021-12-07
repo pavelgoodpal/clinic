@@ -29,7 +29,7 @@ public class RegistrationController {
 
 
     /**
-     *Get method return page with registration form
+     * Get method return page with registration form
      */
     @GetMapping
     public String registrationForm(Model model, RegistrationFormDto form) {

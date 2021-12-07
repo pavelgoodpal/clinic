@@ -2,10 +2,7 @@ package com.cshop.cosmeticshop.domain.intity;
 
 import com.cshop.cosmeticshop.domain.intity.constants.Role;
 import com.cshop.cosmeticshop.domain.intity.constants.Status;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -15,15 +12,14 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Collection;
 
-@Data
+@Getter
+@Setter
 @Entity
+@Table(name = "users")
 @NoArgsConstructor
-@RequiredArgsConstructor()
-public class User implements UserDetails {
+@RequiredArgsConstructor
+public class User extends Identifier implements UserDetails {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @NonNull
     @NotBlank(message = "first name is required")

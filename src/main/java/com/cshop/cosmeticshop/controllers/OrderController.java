@@ -1,6 +1,7 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.intity.Order;
+import com.cshop.cosmeticshop.domain.intity.Treatment;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.OrderService;
 import com.cshop.cosmeticshop.domain.intity.Cart;
