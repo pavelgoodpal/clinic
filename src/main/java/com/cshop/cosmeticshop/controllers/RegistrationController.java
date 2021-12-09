@@ -1,6 +1,8 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.dto.RegistrationFormDto;
+import com.cshop.cosmeticshop.domain.dto.UserDto;
+import com.cshop.cosmeticshop.mapper.UserMapper;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,11 +44,11 @@ public class RegistrationController {
      * else return finish page
      */
     @PostMapping
-    public String registrationProcess(@Valid @ModelAttribute("registration_form") RegistrationFormDto form,
+    public String registrationProcess(@Valid @ModelAttribute("registration_form") UserDto userDto,
                                       Errors errors) {
         if (errors.hasErrors())
             return "registration/form";
-        userService.save(form);
+        userService.save(UserMapper.INSTANCE.UserDtoToUser(userDto));
         return "redirect:/registration/finish";
     }
 

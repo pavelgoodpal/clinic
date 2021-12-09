@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.repository;
 
-import com.cshop.cosmeticshop.domain.intity.Treatment;
+import com.cshop.cosmeticshop.domain.entity.Treatment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
  * Repository for treatment entity
  */
 @Repository
-public interface TreatmentRepo extends CrudRepository<Treatment, Long> {
+public interface TreatmentRepository extends CrudRepository<Treatment, Long> {
 
     /**
      * method find all Treatments using Pageable interface and return Page of treatments

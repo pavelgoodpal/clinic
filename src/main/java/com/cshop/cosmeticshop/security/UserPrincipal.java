@@ -1,11 +1,10 @@
 package com.cshop.cosmeticshop.security;
 
-import com.cshop.cosmeticshop.domain.intity.User;
-import com.cshop.cosmeticshop.domain.intity.constants.Status;
+import com.cshop.cosmeticshop.domain.entity.User;
+import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 

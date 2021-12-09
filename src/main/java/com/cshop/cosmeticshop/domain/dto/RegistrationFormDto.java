@@ -1,12 +1,11 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import com.cshop.cosmeticshop.domain.intity.constants.Role;
-import com.cshop.cosmeticshop.domain.intity.constants.Status;
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.constants.Role;
+import com.cshop.cosmeticshop.domain.entity.constants.Status;
+import com.cshop.cosmeticshop.domain.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.EnumType;
@@ -46,14 +45,4 @@ public class RegistrationFormDto {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    public User toUser(PasswordEncoder passwordEncoder) {
-        return new User(
-                firstName,
-                lastName,
-                email,
-                phoneNumber,
-                password,
-                role,
-                status);
-    }
 }

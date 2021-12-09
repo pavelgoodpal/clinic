@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.repository;
 
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
  * Repository for user entity
  */
 @Repository
-public interface UserRepo extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
      * method find user by email address in repository

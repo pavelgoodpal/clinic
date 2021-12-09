@@ -1,10 +1,8 @@
-package com.cshop.cosmeticshop.domain.intity;
+package com.cshop.cosmeticshop.domain.entity;
 
-import com.cshop.cosmeticshop.domain.intity.constants.Role;
-import com.cshop.cosmeticshop.domain.intity.constants.Status;
+import com.cshop.cosmeticshop.domain.entity.constants.Role;
+import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -16,38 +14,30 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class User extends Identifier {
 
 
-    @NonNull
     @NotBlank(message = "first name is required")
     private String firstName;
 
-    @NonNull
     @NotBlank(message = "last name is required")
     @Size(min = 2, max = 40, message = "Incorrect last name")
     private String lastName;
 
-    @NonNull
     @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
             message = "invalid email")
     private String email;
 
-    @NonNull
     @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
             message = "invalid phone number")
     private String phoneNumber;
 
-    @NonNull
     @Size(min = 4, message = "Your password must be bigger than 4")
     private String password;
 
-    @NonNull
     @Enumerated(value = EnumType.STRING)
     private Role role;
 
-    @NonNull
     @Enumerated(value = EnumType.STRING)
     private Status status;
 

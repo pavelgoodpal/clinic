@@ -1,8 +1,7 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import com.cshop.cosmeticshop.domain.intity.User;
-import com.cshop.cosmeticshop.domain.intity.constants.Role;
-import com.cshop.cosmeticshop.domain.intity.constants.Status;
+import com.cshop.cosmeticshop.domain.entity.constants.Role;
+import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,9 +24,4 @@ public class UserDto {
     private Role role;
 
     private Status status;
-
-
-    public static User toUser() {
-        return new User();
-    }
 }

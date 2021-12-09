@@ -1,13 +1,15 @@
 package com.cshop.cosmeticshop.controllers;
 
-import com.cshop.cosmeticshop.domain.intity.Order;
+import com.cshop.cosmeticshop.domain.dto.CartDto;
+import com.cshop.cosmeticshop.domain.dto.OrderDto;
+import com.cshop.cosmeticshop.mapper.CartMapper;
+import com.cshop.cosmeticshop.mapper.OrderMapper;
+import com.cshop.cosmeticshop.security.UserPrincipal;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.OrderService;
-import com.cshop.cosmeticshop.domain.intity.Cart;
-import com.cshop.cosmeticshop.domain.intity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.annotation.ServletSecurity;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+
 
 /**
  * @author:Pave1Pal
@@ -25,10 +27,11 @@ import javax.validation.constraints.NotNull;
 @Slf4j
 @Controller
 @ServletSecurity
+@PreAuthorize("hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')")
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequestMapping("appointment-order")
 @RequiredArgsConstructor
-public class OrderController {
+public class AppointmentController {
 
     private final OrderService orderService;
     private final CartService cartService;
@@ -36,7 +39,6 @@ public class OrderController {
     /**
      * Get method return page with form fo filling order data
      **/
-    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping
     public String formOrder() {
         return "appointment/order_form";
@@ -50,18 +52,18 @@ public class OrderController {
      * Finally, method return appointment finish page in response.
      **/
     @PostMapping
-    public String submitOrder(@Valid @ModelAttribute("treatment_order") Order order,
-                              @ModelAttribute("treatment_cart") Cart cart,
+    public String submitOrder(@Valid @ModelAttribute("treatment_order") OrderDto orderDto,
+                              @ModelAttribute("treatment_cart") CartDto cartDto,
                               SessionStatus sessionStatus,
                               Errors errors,
-                              @AuthenticationPrincipal User user) {
+                              @AuthenticationPrincipal UserPrincipal userPrincipal) {
 
         if (errors.hasErrors()) {
             return "appointment/order_form";
         }
-
-        var savedCart = cartService.saveCart(cart);
-        orderService.saveOrder(order, savedCart, user);
+        var cart = cartService.saveCart(CartMapper.INSTANCE.CartDtoToCart(cartDto));
+        var order = OrderMapper.INSTANCE.orderDtoToOrder(orderDto);
+        orderService.saveOrder(order, cart, userPrincipal.getUser());
         sessionStatus.setComplete();
         return "appointment/finish";
     }

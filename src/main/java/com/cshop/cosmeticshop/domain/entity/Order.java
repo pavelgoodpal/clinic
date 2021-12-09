@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.domain.intity;
+package com.cshop.cosmeticshop.domain.entity;
 
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;

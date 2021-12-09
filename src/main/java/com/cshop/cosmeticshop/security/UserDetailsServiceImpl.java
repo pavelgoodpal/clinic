@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.security;
 
-import com.cshop.cosmeticshop.repository.UserRepo;
+import com.cshop.cosmeticshop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserRepo userRepo;
+    private final UserRepository userRepository;
 
 
     /**
@@ -25,7 +25,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-         var user = userRepo.findByEmail(email).orElseThrow(() ->
+         var user = userRepository.findByEmail(email).orElseThrow(() ->
                 new UsernameNotFoundException("User Not Found"));
         return new UserPrincipal(user);
     }

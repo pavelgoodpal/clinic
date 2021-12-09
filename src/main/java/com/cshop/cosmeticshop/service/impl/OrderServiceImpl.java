@@ -1,9 +1,9 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.intity.Order;
-import com.cshop.cosmeticshop.domain.intity.Cart;
-import com.cshop.cosmeticshop.repository.OrderRepo;
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.Order;
+import com.cshop.cosmeticshop.domain.entity.Cart;
+import com.cshop.cosmeticshop.repository.OrderRepository;
+import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.EmailService;
 import com.cshop.cosmeticshop.service.OrderService;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-    private final OrderRepo orderRepo;
+    private final OrderRepository orderRepository;
     private final CartService cartService;
     private final EmailService emailService;
 
@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
         order.findFinishTime();
         order.setUser(user);
         emailService.sendMessage(order, user);
-        return orderRepo.save(order);
+        return orderRepository.save(order);
     }
 
 }

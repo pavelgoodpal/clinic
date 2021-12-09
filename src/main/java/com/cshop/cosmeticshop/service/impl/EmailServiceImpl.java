@@ -1,7 +1,7 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.intity.Order;
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.Order;
+import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.service.EmailService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

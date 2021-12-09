@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.domain.intity.constants;
+package com.cshop.cosmeticshop.domain.entity.constants;
 
 public enum Permission {
     READ("PERMISSION_READ"),

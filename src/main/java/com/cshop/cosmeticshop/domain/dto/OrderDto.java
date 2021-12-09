@@ -1,7 +1,7 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import com.cshop.cosmeticshop.domain.intity.Cart;
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.Cart;
+import com.cshop.cosmeticshop.domain.entity.User;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 

@@ -1,7 +1,6 @@
 package com.cshop.cosmeticshop.service;
 
-import com.cshop.cosmeticshop.domain.dto.RegistrationFormDto;
-import com.cshop.cosmeticshop.domain.intity.User;
+import com.cshop.cosmeticshop.domain.entity.User;
 
 /**
  * @author:Pave1Pal
@@ -17,5 +16,5 @@ public interface UserService {
     /**
      * Save user form registration form
      */
-    User save(RegistrationFormDto form);
+    User save(User user);
 }

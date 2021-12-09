@@ -1,9 +1,9 @@
 package com.cshop.cosmeticshop.controllers;
 
-import com.cshop.cosmeticshop.domain.intity.Order;
-import com.cshop.cosmeticshop.domain.intity.Cart;
+import com.cshop.cosmeticshop.domain.dto.CartDto;
+import com.cshop.cosmeticshop.domain.dto.OrderDto;
 import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
-import com.cshop.cosmeticshop.service.CartService;
+import com.cshop.cosmeticshop.service.CartDtoService;
 import com.cshop.cosmeticshop.service.TreatmentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,21 +29,22 @@ import javax.validation.Valid;
 public class TreatmentController {
 
     private final TreatmentService treatmentService;
-    private final CartService cartService;
+    private final CartDtoService cartDtoService;
 
     /**
      * method return Cart object in model which use in view
+     * @return
      */
     @ModelAttribute("treatment_cart")
-    public Cart getTreatmentCart() {
-        return new Cart();
+    public CartDto getTreatmentCart() {
+        return new CartDto();
     }
 
     /**
      * Get method return page with treatments and also returning page provide opportunity to start an appointment
      **/
     @GetMapping
-    public String showTreatments(Model model, Order order,
+    public String showTreatments(Model model, OrderDto order,
                                  @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable) {
        var page = treatmentService.findAll(pageable);
        model.addAttribute("treatments", page);
@@ -68,13 +69,13 @@ public class TreatmentController {
      * If validation is successful method calculate total price of cart with treatments
      **/
     @PostMapping
-    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") Cart treatmentCart,
-                                     @ModelAttribute("treatment_order") Order serviceOrder,
+    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") CartDto treatmentCart,
+                                     @ModelAttribute("treatment_order") OrderDto serviceOrder,
                                      Errors errors) {
         if (errors.hasErrors()) {
             return "/treatments";
         }
-        cartService.calculatePrice(treatmentCart);
+        cartDtoService.calculateTotalPrice(treatmentCart);
         return "redirect:/appointment-order";
     }
 }

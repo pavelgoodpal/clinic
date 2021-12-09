@@ -1,13 +1,13 @@
 package com.cshop.cosmeticshop.repository;
 
-import com.cshop.cosmeticshop.domain.intity.Order;
+import com.cshop.cosmeticshop.domain.entity.Cart;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  * @author:Pave1Pal
- * Repository for Order entity
+ * Repository for Cart entity
  */
 @Repository
-public interface OrderRepo extends CrudRepository<Order, Long> {
+public interface CartRepository extends CrudRepository<Cart, Long> {
 }

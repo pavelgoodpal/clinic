@@ -1,6 +1,6 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import com.cshop.cosmeticshop.domain.intity.Treatment;
+import com.cshop.cosmeticshop.domain.entity.Treatment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
