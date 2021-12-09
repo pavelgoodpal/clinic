@@ -7,7 +7,7 @@ import com.cshop.cosmeticshop.domain.intity.Cart;
 import com.cshop.cosmeticshop.domain.intity.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.annotation.ServletSecurity;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * @author:Pave1Pal
@@ -27,7 +28,6 @@ import javax.validation.Valid;
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequestMapping("appointment-order")
 @RequiredArgsConstructor
-@PreAuthorize("hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')")
 public class OrderController {
 
     private final OrderService orderService;
@@ -36,6 +36,7 @@ public class OrderController {
     /**
      * Get method return page with form fo filling order data
      **/
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
     @GetMapping
     public String formOrder() {
         return "appointment/order_form";

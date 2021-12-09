@@ -10,7 +10,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 
 @Getter
 @Setter
@@ -18,7 +17,7 @@ import java.util.Collection;
 @Table(name = "users")
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class User extends Identifier implements UserDetails {
+public class User extends Identifier {
 
 
     @NonNull
@@ -52,35 +51,33 @@ public class User extends Identifier implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.role.getAuthorities();
-    }
-
-    @Override
-    public String getUsername() {
-        return getPhoneNumber();
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return status.equals(Status.ACTIVE);
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return status.equals(Status.ACTIVE);
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return status.equals(Status.ACTIVE);
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return status.equals(Status.ACTIVE);
-    }
-
-
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        return this.role.getAuthorities();
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return getPhoneNumber();
+//    }
+//
+//    @Override
+//    public boolean isAccountNonExpired() {
+//        return status.equals(Status.ACTIVE);
+//    }
+//
+//    @Override
+//    public boolean isAccountNonLocked() {
+//        return status.equals(Status.ACTIVE);
+//    }
+//
+//    @Override
+//    public boolean isCredentialsNonExpired() {
+//        return status.equals(Status.ACTIVE);
+//    }
+//
+//    @Override
+//    public boolean isEnabled() {
+//        return status.equals(Status.ACTIVE);
+//    }
 }
