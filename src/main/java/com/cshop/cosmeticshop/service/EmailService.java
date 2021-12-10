@@ -12,5 +12,5 @@ public interface EmailService {
     /**
      * Sending message using order and user information
      */
-    void sendMessage(Order order, User user);
+    void sendMessage(Order order);
 }

@@ -23,14 +23,14 @@ public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
 
-    public void sendMessage(Order order, User user) {
+    public void sendMessage(Order order) {
         SimpleMailMessage message = new SimpleMailMessage();
         var date = order.getStartAt();
         message.setTo(order.getEmail());
         message.setSubject("Cosmetologist appointment");
 
         message.setText("We very happy that you use our service!!!\n" +
-                user.getFirstName() +", You have got an appointment to " + toNormalDate(date) + ".\n" +
+                order.getUser().getFirstName() +", You have got an appointment to " + toNormalDate(date) + ".\n" +
                 "Please do not late and have a good day!");
 
         emailSender.send(message);

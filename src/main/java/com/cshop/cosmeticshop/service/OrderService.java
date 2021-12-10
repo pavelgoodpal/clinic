@@ -10,8 +10,5 @@ import com.cshop.cosmeticshop.domain.entity.User;
  */
 public interface OrderService {
 
-    /**
-     * Save order in data storage. Input parameters is order, cart and user
-     */
-    Order saveOrder(Order order, Cart cart, User user);
+    Order saveOrder(Order order);
 }

@@ -28,6 +28,7 @@ import javax.validation.Valid;
 public class RegistrationController {
 
     private final UserService userService;
+    private final UserMapper userMapper;
 
 
     /**
@@ -48,7 +49,7 @@ public class RegistrationController {
                                       Errors errors) {
         if (errors.hasErrors())
             return "registration/form";
-        userService.save(UserMapper.INSTANCE.UserDtoToUser(userDto));
+        userService.save(userMapper.UserDtoToUser(userDto));
         return "redirect:/registration/finish";
     }
 

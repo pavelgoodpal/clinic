@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.security;
 
 import com.cshop.cosmeticshop.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Service;
  * @author:Pave1Pal
  * Class implements UserDetailsService
  */
-@Service("userDetailsService")
+@Primary
+@Service
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 

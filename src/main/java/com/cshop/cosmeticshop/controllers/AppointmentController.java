@@ -35,6 +35,8 @@ public class AppointmentController {
 
     private final OrderService orderService;
     private final CartService cartService;
+    private final CartMapper cartMapper;
+    private final OrderMapper orderMapper;
 
     /**
      * Get method return page with form fo filling order data
@@ -61,9 +63,13 @@ public class AppointmentController {
         if (errors.hasErrors()) {
             return "appointment/order_form";
         }
-        var cart = cartService.saveCart(CartMapper.INSTANCE.CartDtoToCart(cartDto));
-        var order = OrderMapper.INSTANCE.orderDtoToOrder(orderDto);
-        orderService.saveOrder(order, cart, userPrincipal.getUser());
+        var cart = cartService.saveCart(cartMapper.CartDtoToCart(cartDto));
+        var order = orderMapper.orderDtoToOrder(orderDto);
+
+        order.setCart(cart);
+        order.setUser(userPrincipal.getUser());
+
+        orderService.saveOrder(order);
         sessionStatus.setComplete();
         return "appointment/finish";
     }

@@ -42,15 +42,8 @@ public class Order extends Identifier {
             inverseJoinColumns = @JoinColumn(name="user_id"))
     private User user;
 
-
-    public void findFinishTime() {
-        finishAt = startAt;
-        cart.getTreatments().forEach(service ->
-                finishAt = finishAt.plusMinutes(service.getTreatmentTime()));
-    }
-
     @PrePersist
-    public void prePersist() {
+    private void prePersist() {
         this.creationTime = LocalDateTime.now();
     }
 

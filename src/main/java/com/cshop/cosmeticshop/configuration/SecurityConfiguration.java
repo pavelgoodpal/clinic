@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.configuration;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -19,14 +20,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
-
-    @Autowired
-    public SecurityConfiguration(@Qualifier("userDetailsService") UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
 
     /**
      * method return password encoder as a bean
@@ -55,13 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-//                .antMatchers(
-//                        "/appointment-order"
-//                        )
-//                .hasAnyAuthority(
-//                        Role.ADMIN.getRole(),
-//                        Role.USER.getRole())
-//                .antMatchers("/", "/**").permitAll()
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
