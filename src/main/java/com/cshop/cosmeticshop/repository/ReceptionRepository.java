@@ -5,8 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author:Pave1Pal
  * Repository for Reception entity
+ * @author Pave1Pal
  */
 @Repository
 public interface ReceptionRepository extends CrudRepository<Reception, Long> {

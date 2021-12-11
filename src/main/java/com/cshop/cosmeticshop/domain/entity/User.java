@@ -5,10 +5,15 @@ import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+/**
+ * User entity
+ * @author Pave1Pal
+ */
 @Getter
 @Setter
 @Entity
@@ -24,8 +29,7 @@ public class User extends Identifier {
     @Size(min = 2, max = 40, message = "Incorrect last name")
     private String lastName;
 
-    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
-            message = "invalid email")
+    @Email(message = "invalid email")
     private String email;
 
     @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
@@ -41,33 +45,4 @@ public class User extends Identifier {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-//    @Override
-//    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        return this.role.getAuthorities();
-//    }
-//
-//    @Override
-//    public String getUsername() {
-//        return getPhoneNumber();
-//    }
-//
-//    @Override
-//    public boolean isAccountNonExpired() {
-//        return status.equals(Status.ACTIVE);
-//    }
-//
-//    @Override
-//    public boolean isAccountNonLocked() {
-//        return status.equals(Status.ACTIVE);
-//    }
-//
-//    @Override
-//    public boolean isCredentialsNonExpired() {
-//        return status.equals(Status.ACTIVE);
-//    }
-//
-//    @Override
-//    public boolean isEnabled() {
-//        return status.equals(Status.ACTIVE);
-//    }
 }

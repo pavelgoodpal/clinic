@@ -7,14 +7,16 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 /**
- * @author:Pave1Pal
  * Repository for user entity
+ * @author Pave1Pal
  */
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
     /**
-     * method find user by email address in repository
+     * Find user by email address in repository
+     * @param email String email adder
+     * @return Optional<User>
      */
     Optional<User> findByEmail(String email);
 

@@ -1,8 +1,6 @@
 package com.cshop.cosmeticshop.configuration;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -15,8 +13,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * @author:Pave1Pal
  * Class for Security configuration
+ * @author Pave1Pal
  */
 @Configuration
 @EnableWebSecurity
@@ -26,7 +24,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
     /**
-     * method return password encoder as a bean
+     * Create password encoder in application context
+     * @return BCryptPasswordEncoder as a bean
      */
     @Bean
     public PasswordEncoder encoder() {
@@ -34,7 +33,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * method return DAO authentication provider as a bean
+     * Create DAO authentication provider in application context
+     * @return daoAuthenticationProvider as a bean
      */
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
@@ -46,7 +46,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
     /**
-     * This method contains authorization, login and logout rules.
+     * This method contains login and logout rules.
+     * @param http HttpSecurity
+     * @throws Exception exception
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -66,6 +68,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * Method connect to the user repository to authentication
+     * @param auth AuthenticationManagerBuilder
+     * @throws Exception exception
      */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

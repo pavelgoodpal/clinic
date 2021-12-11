@@ -5,6 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Calendar;
 
+/**
+ * Reception entity
+ * @author Pave1Pal
+ */
 @Getter
 @Setter
 @Entity

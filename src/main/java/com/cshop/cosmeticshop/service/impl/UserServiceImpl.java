@@ -1,6 +1,5 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.dto.RegistrationFormDto;
 import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;

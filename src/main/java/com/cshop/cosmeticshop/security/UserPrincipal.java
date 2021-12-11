@@ -8,6 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+/**
+ * Class implements UserDetails
+ * @author Pave1Pal
+ */
 @Getter
 @Setter
 @NoArgsConstructor

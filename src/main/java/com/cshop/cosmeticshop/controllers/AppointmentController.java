@@ -21,8 +21,8 @@ import javax.validation.Valid;
 
 
 /**
- * @author:Pave1Pal
  * Controller to making order for appointment.
+ * @author Pave1Pal
  */
 @Slf4j
 @Controller
@@ -39,20 +39,23 @@ public class AppointmentController {
     private final OrderMapper orderMapper;
 
     /**
-     * Get method return page with form fo filling order data
-     **/
+     * Get method for start making order.
+     * @return html page with order form
+     */
     @GetMapping
     public String formOrder() {
         return "appointment/order_form";
     }
 
     /**
-     * Post method handle order form and cart with treatments.
-     * If order form is invalid return /appointment/order_form.
-     * If validation is successful method save data about order and cart
-     * in repository.
-     * Finally, method return appointment finish page in response.
-     **/
+     * Post method save order information.
+     * @param orderDto order form comes from request
+     * @param cartDto cart with treatments comes from request
+     * @param sessionStatus session status information
+     * @param errors errors in order form
+     * @param userPrincipal user info after logging
+     * @return If in form are errors return previous page. Return finish appointment page
+     */
     @PostMapping
     public String submitOrder(@Valid @ModelAttribute("treatment_order") OrderDto orderDto,
                               @ModelAttribute("treatment_cart") CartDto cartDto,

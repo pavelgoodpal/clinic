@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 /**
- * @author:Pave1Pal
- * Controller for displaying treatments and making appointment
+ * Controller for displaying treatments and start making appointment
+ * @author Pave1Pal
  */
 @Controller
 @Slf4j
@@ -33,7 +33,7 @@ public class TreatmentController {
 
     /**
      * method return Cart object in model which use in view
-     * @return
+     * @return cart object
      */
     @ModelAttribute("treatment_cart")
     public CartDto getTreatmentCart() {
@@ -41,8 +41,12 @@ public class TreatmentController {
     }
 
     /**
-     * Get method return page with treatments and also returning page provide opportunity to start an appointment
-     **/
+     * Get method return page with treatments and also provide opportunity to start an appointment
+     * @param model model for view
+     * @param order order for start making appointment
+     * @param pageable parameters of page
+     * @return page with treatments
+     */
     @GetMapping
     public String showTreatments(Model model, OrderDto order,
                                  @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable) {
@@ -52,8 +56,13 @@ public class TreatmentController {
         return "/treatments";
     }
 
+
     /**
-     *Get method return page with treatment info using its id
+     * Get method return page with treatment info using its id
+     * @param id treatment id
+     * @param model model for view
+     * @return page with treatment information
+     * @throws TreatmentNotFoundException if treatment not found
      */
     @GetMapping(path = "{id}")
     public String getTreatment(@PathVariable("id") Long id,
@@ -64,13 +73,13 @@ public class TreatmentController {
     }
 
     /**
-     * Post method handle a form of cart with treatments and throw you to OrderController - /appointment-order.
-     * If cart with treatments is empty method return you to /treatments
-     * If validation is successful method calculate total price of cart with treatments
-     **/
+     * Post method to calculate total price of cart and return page to start appointment
+     * @param treatmentCart cart with treatments
+     * @param errors errors in cart
+     * @return If cart has errors return treatments page. Else return page to start appointment
+     */
     @PostMapping
     public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") CartDto treatmentCart,
-                                     @ModelAttribute("treatment_order") OrderDto serviceOrder,
                                      Errors errors) {
         if (errors.hasErrors()) {
             return "/treatments";

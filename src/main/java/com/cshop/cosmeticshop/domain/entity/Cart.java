@@ -8,6 +8,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Cart entity
+ * @author Pave1Pal
+ */
 @Getter
 @Setter
 @Entity

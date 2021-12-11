@@ -9,7 +9,12 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
-@Data
+/**
+ * DTO class for Order
+ * @author Pave1Pal
+ */
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderDto {

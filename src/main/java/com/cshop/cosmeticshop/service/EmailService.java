@@ -4,13 +4,14 @@ import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.User;
 
 /**
- * @author:Pave1Pal
  * Service layer for Email
+ * @author Pave1Pal
  */
 public interface EmailService {
 
     /**
-     * Sending message using order and user information
+     * Sending message using order information
+     * @param order order data
      */
     void sendMessage(Order order);
 }

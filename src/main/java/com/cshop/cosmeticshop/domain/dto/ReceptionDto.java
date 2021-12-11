@@ -1,12 +1,15 @@
 package com.cshop.cosmeticshop.domain.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Calendar;
 
-@Data
+/**
+ * DTO class for Reception
+ * @author Pave1Pal
+ */
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReceptionDto {

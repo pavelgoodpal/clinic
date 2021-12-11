@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * @author:Pave1Pal
  * Class implements UserDetailsService
+ * @author Pave1Pal
  */
 @Primary
 @Service
@@ -22,8 +22,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 
     /**
-     * Method find user by email in user repository. If user in repository return user implemented UserDetail.
-     * If user not found in repository thore UsernameNotFoundException
+     * Find user by email in repository and return his permissions.
+     * @param email String email address of user
+     * @return UserDetails - permissions and roles of user
+     * @throws UsernameNotFoundException If user not found
      */
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
