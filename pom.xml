@@ -129,6 +129,12 @@
                             <arg>
                                 -Amapstruct.verbose=true
                             </arg>
+                            <arg>
+                                -Amapstruct.unmappedTargetPolicy=ERROR
+                            </arg>
+                            <arg>
+                                -Amapstruct.injectionStrategy=CONSTRUCTOR
+                            </arg>
                         </compilerArgs>
                     </configuration>
                 </plugin>

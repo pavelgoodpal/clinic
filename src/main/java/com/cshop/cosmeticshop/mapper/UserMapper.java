@@ -16,13 +16,12 @@ public interface UserMapper {
      * @param user User convert into UserDto
      * @return UserDto
      */
-    UserDto UserToUserDto(User user);
+    UserDto toDto(User user);
 
     /**
      * Convert User into UserDto
      * @param userDto UserDto convert into User
      * @return User
      */
-    User UserDtoToUser(UserDto userDto);
-
+    User fromDto(UserDto userDto);
 }

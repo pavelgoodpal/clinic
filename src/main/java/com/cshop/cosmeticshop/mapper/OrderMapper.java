@@ -16,12 +16,12 @@ public interface OrderMapper {
      * @param order Order convert into OrderDto
      * @return OrderDto
      */
-    OrderDto orderToOrderDto(Order order);
+    OrderDto toDto(Order order);
 
     /**
      * Convert OrderDto into Order
      * @param orderDto OrderDto convert into Order
      * @return OrderDto
      */
-    Order orderDtoToOrder(OrderDto orderDto);
+    Order fromDto(OrderDto orderDto);
 }

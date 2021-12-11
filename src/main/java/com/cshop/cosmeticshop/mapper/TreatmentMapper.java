@@ -16,12 +16,12 @@ public interface TreatmentMapper {
      * @param treatmentDto TreatmentDto convert into Treatment
      * @return TreatmentDto
      */
-    Treatment TreatmentDtoToTreatment(TreatmentDto treatmentDto);
+    Treatment fromDto(TreatmentDto treatmentDto);
 
     /**
      * Convert Treatment into TreatmentDto
      * @param treatment Treatment convert into TreatmentDto
      * @return Treatment
      */
-    TreatmentDto TreatmentToTreatmentDto(Treatment treatment);
+    TreatmentDto toDto(Treatment treatment);
 }

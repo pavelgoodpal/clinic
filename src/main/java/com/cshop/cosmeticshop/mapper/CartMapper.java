@@ -16,12 +16,12 @@ public interface CartMapper {
      * @param cart Cart convert into CartDto
      * @return CartDto
      */
-    CartDto CartToCartDto(Cart cart);
+    CartDto toDto(Cart cart);
 
     /**
      * Convert CartDto into Cart
      * @param cartDto CartDto convert into Cart
      * @return Cart
      */
-    Cart CartDtoToCart(CartDto cartDto);
+    Cart fromDto(CartDto cartDto);
 }

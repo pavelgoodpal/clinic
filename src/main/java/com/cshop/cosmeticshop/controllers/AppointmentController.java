@@ -66,8 +66,8 @@ public class AppointmentController {
         if (errors.hasErrors()) {
             return "appointment/order_form";
         }
-        var cart = cartService.saveCart(cartMapper.CartDtoToCart(cartDto));
-        var order = orderMapper.orderDtoToOrder(orderDto);
+        var cart = cartService.saveCart(cartMapper.fromDto(cartDto));
+        var order = orderMapper.fromDto(orderDto);
 
         order.setCart(cart);
         order.setUser(userPrincipal.getUser());
@@ -76,6 +76,4 @@ public class AppointmentController {
         sessionStatus.setComplete();
         return "appointment/finish";
     }
-
-
 }
