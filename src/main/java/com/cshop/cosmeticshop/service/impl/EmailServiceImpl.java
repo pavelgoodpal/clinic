@@ -10,11 +10,13 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Locale;
 
 /**
- * @author:Pave1Pal
  * Class implements EmailService
+ * @author Pave1Pal
  */
 @Service
 @Slf4j
@@ -23,24 +25,23 @@ public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
 
+    /**
+     * Sent email using order information
+     * @param order order data
+     */
     public void sendMessage(Order order) {
         SimpleMailMessage message = new SimpleMailMessage();
-        var date = order.getStartAt();
+
+        var localDate = order.getStartAt();
+        String date = localDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+
         message.setTo(order.getEmail());
         message.setSubject("Cosmetologist appointment");
-
-        message.setText("We very happy that you use our service!!!\n" +
-                order.getUser().getFirstName() +", You have got an appointment to " + toNormalDate(date) + ".\n" +
-                "Please do not late and have a good day!");
-
+        message.setText(
+                "We very happy that you use our service!!!\n" +
+                order.getUser().getFirstName() +", You have got an appointment to " + date + ".\n" +
+                "Please do not late and have a good day!"
+        );
         emailSender.send(message);
-    }
-
-
-    private String toNormalDate(LocalDateTime date) {
-        var mins = (date.getMinute() < 10) ? ":0" : ":";
-        mins += date.getMinute();
-        return date.getDayOfMonth() + " of " + date.getMonth().toString().toLowerCase(Locale.ROOT) + " at " +
-                date.getHour() + mins;
     }
 }

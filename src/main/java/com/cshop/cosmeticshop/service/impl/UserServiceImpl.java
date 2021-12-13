@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User save(User newUser) {
+    public User create(User newUser) {
         var foundedUser = userRepository.findByEmail(newUser.getEmail());
         if (foundedUser.isEmpty()) {
             newUser.setRole(Role.USER);

@@ -54,4 +54,7 @@ public class UserPrincipal implements UserDetails {
     public boolean isEnabled() {
         return user.getStatus().equals(Status.ACTIVE);
     }
+
+
+
 }

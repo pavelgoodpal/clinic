@@ -3,13 +3,15 @@ package com.cshop.cosmeticshop.controllers;
 import com.cshop.cosmeticshop.domain.dto.CartDto;
 import com.cshop.cosmeticshop.domain.dto.OrderDto;
 import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
-import com.cshop.cosmeticshop.service.CartDtoService;
+import com.cshop.cosmeticshop.mapper.CartMapper;
+import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.TreatmentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -23,13 +25,14 @@ import javax.validation.Valid;
  */
 @Controller
 @Slf4j
-@RequestMapping("/treatment")
+@RequestMapping("/treatments")
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequiredArgsConstructor
 public class TreatmentController {
 
     private final TreatmentService treatmentService;
-    private final CartDtoService cartDtoService;
+    private final CartMapper cartMapper;
+    private final CartService cartService;
 
     /**
      * method return Cart object in model which use in view
@@ -37,7 +40,8 @@ public class TreatmentController {
      */
     @ModelAttribute("treatment_cart")
     public CartDto getTreatmentCart() {
-        return new CartDto();
+        return cartMapper.toDto(cartService.findUserActiveCart());
+
     }
 
     /**
@@ -74,17 +78,22 @@ public class TreatmentController {
 
     /**
      * Post method to calculate total price of cart and return page to start appointment
-     * @param treatmentCart cart with treatments
+     * @param cartDto cart with treatments
+     * @param model model
      * @param errors errors in cart
      * @return If cart has errors return treatments page. Else return page to start appointment
      */
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @PostMapping
-    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") CartDto treatmentCart,
+    public String appointmentProcess(@Valid @ModelAttribute("treatment_cart") CartDto cartDto,
+                                     Model model,
                                      Errors errors) {
         if (errors.hasErrors()) {
             return "/treatments";
         }
-        cartDtoService.calculateTotalPrice(treatmentCart);
-        return "redirect:/appointment-order";
+        var savedCart = cartService.saveActiveCart(cartMapper.fromDto(cartDto));
+        var savedCartDto = cartMapper.toDto(savedCart);
+        model.addAttribute("treatment_cart", savedCartDto);
+        return "redirect:/appointment-orders";
     }
 }

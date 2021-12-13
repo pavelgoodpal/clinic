@@ -15,5 +15,5 @@ public interface OrderService {
      * @param order Order
      * @return saved order
      */
-    Order saveOrder(Order order);
+    Order saveOrder(Order order, Cart cart);
 }

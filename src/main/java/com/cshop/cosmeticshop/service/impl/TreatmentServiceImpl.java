@@ -20,11 +20,6 @@ public class TreatmentServiceImpl implements TreatmentService {
     private final TreatmentRepository treatmentRepository;
 
     @Override
-    public Iterable<Treatment> findAll() {
-        return treatmentRepository.findAll();
-    }
-
-    @Override
     public Page<Treatment> findAll(Pageable pageable) {
         return treatmentRepository.findAll(pageable);
     }
@@ -33,25 +28,5 @@ public class TreatmentServiceImpl implements TreatmentService {
     public Treatment findById(Long id) throws TreatmentNotFoundException {
         return treatmentRepository.findById(id).orElseThrow(() ->
                 new TreatmentNotFoundException("Treatment not Found"));
-    }
-
-    @Override
-    public Iterable<Treatment> addAll(Iterable<Treatment> entities) {
-        return treatmentRepository.saveAll(entities);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        treatmentRepository.deleteById(id);
-    }
-
-    @Override
-    public void delete(Treatment treatment) {
-        treatmentRepository.delete(treatment);
-    }
-
-    @Override
-    public Treatment update(Treatment treatment) {
-        return null;
     }
 }

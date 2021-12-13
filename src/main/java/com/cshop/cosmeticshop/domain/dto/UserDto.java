@@ -1,5 +1,7 @@
 package com.cshop.cosmeticshop.domain.dto;
 
+import com.cshop.cosmeticshop.domain.entity.Cart;
+import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.Data;
@@ -11,6 +13,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * DTO class for User
@@ -42,4 +45,8 @@ public class UserDto {
     private Role role;
 
     private Status status;
+
+    private List<Order> orders;
+
+    private List<Cart> carts;
 }

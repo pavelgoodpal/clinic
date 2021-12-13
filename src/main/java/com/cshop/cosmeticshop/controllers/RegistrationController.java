@@ -54,7 +54,7 @@ public class RegistrationController {
                                       Errors errors) {
         if (errors.hasErrors())
             return "registration/form";
-        userService.save(userMapper.fromDto(form));
+        userService.create(userMapper.fromDto(form));
         return "redirect:/registration/finish";
     }
 

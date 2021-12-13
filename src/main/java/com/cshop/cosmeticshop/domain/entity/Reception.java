@@ -14,7 +14,7 @@ import java.util.Calendar;
 @Entity
 @Table(name = "receptions")
 @NoArgsConstructor
-public class Reception extends Identifier{
+public class Reception extends BaseEntity {
 
     private Calendar startAt;
 

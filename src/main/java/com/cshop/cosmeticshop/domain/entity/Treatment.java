@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "treatments")
 @NoArgsConstructor
-public class Treatment extends Identifier {
+public class Treatment extends BaseEntity {
 
     @Size(min=2)
     @NotBlank

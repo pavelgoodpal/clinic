@@ -3,12 +3,14 @@ package com.cshop.cosmeticshop.domain.entity;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * User entity
@@ -19,7 +21,7 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-public class User extends Identifier {
+public class User extends BaseEntity {
 
 
     @NotBlank(message = "first name is required")
@@ -45,4 +47,11 @@ public class User extends Identifier {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    private List<Cart> carts;
 }

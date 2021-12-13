@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +30,7 @@ import javax.validation.Valid;
 @ServletSecurity
 @PreAuthorize("hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')")
 @SessionAttributes({"treatment_order", "treatment_cart"})
-@RequestMapping("appointment-order")
+@RequestMapping("appointment-orders")
 @RequiredArgsConstructor
 public class AppointmentController {
 
@@ -53,26 +54,21 @@ public class AppointmentController {
      * @param cartDto cart with treatments comes from request
      * @param sessionStatus session status information
      * @param errors errors in order form
-     * @param userPrincipal user info after logging
      * @return If in form are errors return previous page. Return finish appointment page
      */
     @PostMapping
     public String submitOrder(@Valid @ModelAttribute("treatment_order") OrderDto orderDto,
                               @ModelAttribute("treatment_cart") CartDto cartDto,
                               SessionStatus sessionStatus,
-                              Errors errors,
-                              @AuthenticationPrincipal UserPrincipal userPrincipal) {
+                              Errors errors) {
 
         if (errors.hasErrors()) {
             return "appointment/order_form";
         }
-        var cart = cartService.saveCart(cartMapper.fromDto(cartDto));
+        var cart = cartMapper.fromDto(cartDto);
         var order = orderMapper.fromDto(orderDto);
 
-        order.setCart(cart);
-        order.setUser(userPrincipal.getUser());
-
-        orderService.saveOrder(order);
+        orderService.saveOrder(order, cart);
         sessionStatus.setComplete();
         return "appointment/finish";
     }

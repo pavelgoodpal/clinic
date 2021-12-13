@@ -39,6 +39,9 @@ public class OrderDto {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime creationTime;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDateTime lastModifiedDate;
+
     private Cart cart;
 
     private User user;
