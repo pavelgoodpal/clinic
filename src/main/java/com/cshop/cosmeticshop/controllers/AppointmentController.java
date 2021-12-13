@@ -35,7 +35,6 @@ import javax.validation.Valid;
 public class AppointmentController {
 
     private final OrderService orderService;
-    private final CartService cartService;
     private final CartMapper cartMapper;
     private final OrderMapper orderMapper;
 

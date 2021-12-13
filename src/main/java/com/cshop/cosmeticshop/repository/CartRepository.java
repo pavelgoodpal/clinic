@@ -16,10 +16,10 @@ import java.util.List;
 public interface CartRepository extends CrudRepository<Cart, Long> {
 
     /**
-     * Find carts using user info and status of it
+     * Find cart using user and status of cart
      * @param user from UserPrincipal
      * @param status status of cart
-     * @return list of carts depends on status
+     * @return list of carts
      */
     List<Cart> findCartByUserAndStatusOrderByCreationTimeDesc(User user, CartStatus status);
 }

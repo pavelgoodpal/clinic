@@ -12,6 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Class implements CartService
  * @author Pave1Pal
@@ -42,7 +44,7 @@ public class CartServiceImpl implements CartService {
             var carts = cartRepository.findCartByUserAndStatusOrderByCreationTimeDesc(
                     userPrincipal.getUser(), CartStatus.ACTIVE);
             if (!carts.isEmpty()) {
-                return carts.get(0);
+                return getFirstAndMakeAnotherDone(carts);
             }
         }
         return new Cart();
@@ -74,5 +76,22 @@ public class CartServiceImpl implements CartService {
             price += treatment.getPrice();
         }
         cart.setTotalPrice(price);
+    }
+
+    /**
+     * Return the earliest active cart, if carts list greater than one make another status carts done
+     * @param carts active carts
+     * @return the earliest active cart
+     */
+    private Cart getFirstAndMakeAnotherDone(List<Cart> carts) {
+        if (carts.size() > 1) {
+            Cart cart;
+            for (int i = 1; i < carts.size(); i++) {
+                cart = carts.get(i);
+                cart.setStatus(CartStatus.DONE);
+                cartRepository.save(cart);
+            }
+        }
+        return carts.get(0);
     }
 }
