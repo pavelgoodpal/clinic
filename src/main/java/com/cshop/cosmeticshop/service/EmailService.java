@@ -1,7 +1,6 @@
 package com.cshop.cosmeticshop.service;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
-import com.cshop.cosmeticshop.domain.entity.User;
 
 /**
  * Service layer for Email
@@ -13,5 +12,5 @@ public interface EmailService {
      * Sending message using order information
      * @param order order data
      */
-    void sendMessage(Order order);
+    void sendOrderMessage(Order order);
 }

@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 /**
- * @author:Pave1Pal
  * Service layer for Treatment entity
+ * @author: Pave1Pal
  */
 public interface TreatmentService {
 

@@ -5,7 +5,6 @@ import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.Treatment;
 import com.cshop.cosmeticshop.repository.OrderRepository;
 import com.cshop.cosmeticshop.service.CartService;
-import com.cshop.cosmeticshop.service.EmailService;
 import com.cshop.cosmeticshop.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,6 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final CartService cartService;
-    private final EmailService emailService;
 
 
     @Override
@@ -32,9 +30,7 @@ public class OrderServiceImpl implements OrderService {
         var updatedCart = cartService.updateToNoActiveCart(cart);
         order.setCart(updatedCart);
         calculateFinishTime(order);
-        var savedOrder = orderRepository.save(order);
-        emailService.sendMessage(savedOrder);
-        return savedOrder;
+        return orderRepository.save(order);
     }
 
     /**

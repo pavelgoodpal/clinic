@@ -48,5 +48,5 @@ public class UserDto {
 
     private List<Order> orders;
 
-    private List<Cart> carts;
+    private Cart cart;
 }

@@ -2,6 +2,8 @@ package com.cshop.cosmeticshop.domain.entity;
 
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -51,7 +53,6 @@ public class User extends BaseEntity {
             CascadeType.DETACH, CascadeType.REFRESH})
     private List<Order> orders;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Cart> carts;
+    @OneToOne
+    private Cart cart;
 }

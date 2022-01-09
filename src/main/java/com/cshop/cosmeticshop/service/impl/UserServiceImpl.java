@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.service.impl;
 
+import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * @author:Pave1Pal
+ * @author: Pave1Pal
  * Class implements UserService
  */
 @Service
@@ -21,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final CurrentUserServiceImpl authService;
 
     @Override
     public User findByEmail(String email) throws UsernameNotFoundException {
@@ -39,5 +41,12 @@ public class UserServiceImpl implements UserService {
             return userRepository.save(newUser);
         }
         return foundedUser.get();
+    }
+
+    @Override
+    public User updateUserCart(Cart cart) {
+        var user = authService.getUser();
+        user.setCart(cart);
+        return userRepository.save(user);
     }
 }

@@ -47,7 +47,11 @@
 <br/>
 
 <p>Go home  <a href="/">page</a></p>
-<p><a th:href="@{/logout}">Log Out</a></p>
+
+<br/>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sing Out"/>
+</form>
 
 </body>
 </html>

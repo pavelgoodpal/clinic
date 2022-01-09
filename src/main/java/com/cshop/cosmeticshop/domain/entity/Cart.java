@@ -36,16 +36,13 @@ public class Cart extends BaseEntity {
     @LastModifiedDate
     private LocalDateTime lastModifiedTime;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @ManyToMany
     @JoinTable(name="treatment_cart",
             joinColumns = @JoinColumn(name="cart_id"),
             inverseJoinColumns = @JoinColumn(name="treatment_id"))
     private List<Treatment> treatments = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "cart_user",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    @OneToOne
     @CreatedBy
     private User user;
 

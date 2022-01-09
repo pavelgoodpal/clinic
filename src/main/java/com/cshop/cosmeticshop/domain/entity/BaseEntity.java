@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.domain.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.Hibernate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,10 +27,13 @@ public abstract class BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || this.getClass() != o.getClass()) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
             return false;
         }
-        BaseEntity that = (BaseEntity) o;
+        final BaseEntity that = (BaseEntity) o;
         return Objects.equals(Id, that.Id);
     }
 
