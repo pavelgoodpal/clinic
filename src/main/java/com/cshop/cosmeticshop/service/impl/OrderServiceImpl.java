@@ -6,7 +6,9 @@ import com.cshop.cosmeticshop.domain.entity.Treatment;
 import com.cshop.cosmeticshop.repository.OrderRepository;
 import com.cshop.cosmeticshop.service.CartService;
 import com.cshop.cosmeticshop.service.OrderService;
+import com.cshop.cosmeticshop.service.OutBoxService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,14 +25,18 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final CartService cartService;
+    private final OutBoxService outBoxService;
 
 
     @Override
+    @SneakyThrows
     public Order saveOrder(Order order, Cart cart) {
         var updatedCart = cartService.updateToNoActiveCart(cart);
         order.setCart(updatedCart);
         calculateFinishTime(order);
-        return orderRepository.save(order);
+        Order savedOrder = orderRepository.save(order);
+        outBoxService.save(savedOrder);
+        return savedOrder;
     }
 
     /**

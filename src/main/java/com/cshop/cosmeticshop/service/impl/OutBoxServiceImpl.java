@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.service.impl;
 
+import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.OutBox;
 import com.cshop.cosmeticshop.domain.model.OrderPayload;
 import com.cshop.cosmeticshop.mapper.OrderPayloadMapper;
@@ -18,7 +19,8 @@ public class OutBoxServiceImpl implements OutBoxService {
     private final OrderPayloadMapper mapper;
 
     @Override
-    public OutBox create(OrderPayload payload) throws JsonProcessingException {
+    public OutBox save(Order order) throws JsonProcessingException {
+        OrderPayload payload = OrderPayload.createFromOrder(order);
         OutBox info = new OutBox();
         info.setPayload(mapper.toJson(payload));
         info.setEventType("CREATE");
