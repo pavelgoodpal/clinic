@@ -7,11 +7,20 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+/**
+ * Model for convert needed info from Order to OrderPayload
+ * @author Pave1Pal
+ */
 @Getter
 @Setter
 @NoArgsConstructor
 public class OrderPayload {
 
+    /**
+     * Factory method to create OrderPayload from Order
+     * @param order Order
+     * @return OrderPayload from order
+     */
     static public OrderPayload createFromOrder(Order order) {
         OrderPayload payload = new OrderPayload();
         payload.setId(order.getId());

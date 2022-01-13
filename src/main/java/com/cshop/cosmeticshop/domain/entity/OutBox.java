@@ -12,6 +12,10 @@ import javax.persistence.EntityListeners;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
+/**
+ * OutBox entity
+ * @author Pave1Pal
+ */
 @Entity
 @Getter
 @Setter
