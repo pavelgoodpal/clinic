@@ -21,7 +21,7 @@ public class OrderAspect {
     }
 
 
-    @After(value = "createOrderPointCut() && args(order, cart)")
+    @After(value = "createOrderPointCut() && args(order, cart)", argNames = "order,cart")
     public void after(Order order, Cart cart) {
         emailService.sendOrderMessage(order);
     }

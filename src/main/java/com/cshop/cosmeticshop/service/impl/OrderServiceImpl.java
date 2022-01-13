@@ -45,8 +45,7 @@ public class OrderServiceImpl implements OrderService {
                 .stream()
                 .flatMap(Collection::stream)
                 .map(Treatment::getTreatmentTime)
-                .reduce(order.getStartAt(),
-                        LocalDateTime::plusMinutes,
+                .reduce(order.getStartAt(), LocalDateTime::plusMinutes,
                         (r,l) -> r)
         );
     }
