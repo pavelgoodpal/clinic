@@ -4,7 +4,6 @@ package com.cshop.cosmeticshop.exception;
  * @author Pave1Pal
  */
 public class TreatmentNotFoundException extends Exception{
-
     public TreatmentNotFoundException(String string) {
         super(string);
     }

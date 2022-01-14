@@ -31,5 +31,5 @@ public class OutBox extends BaseEntity{
 
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime createdTime;
+    private LocalDateTime creationTime;
 }
