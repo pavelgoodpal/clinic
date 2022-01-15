@@ -3,7 +3,6 @@ package com.cshop.cosmeticshop.controllers;
 import com.cshop.cosmeticshop.exception.TreatmentNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Slf4j
 @Controller
-@ControllerAdvice
 public class ExceptionHandlingController {
 
     /**
@@ -27,7 +25,7 @@ public class ExceptionHandlingController {
     @ExceptionHandler(TreatmentNotFoundException.class)
     public ModelAndView handleTreatmentNotFoundException(HttpServletRequest request, TreatmentNotFoundException exception) {
         log.info("Request: " + request.getRequestURI() + " raised " + exception);
-        ModelAndView modelAndView = new ModelAndView("error");
+        ModelAndView modelAndView = new ModelAndView("error/treatment_not_found");
         modelAndView.addObject("exception", exception);
         modelAndView.addObject("url", request.getRequestURI());
         return modelAndView;

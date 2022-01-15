@@ -31,5 +31,5 @@ public class Treatment extends BaseEntity {
     private String description;
 
     @NotNull(message = "choose how long treatment will be")
-    private long treatmentTime;
+    private Long treatmentTime;
 }

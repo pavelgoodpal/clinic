@@ -5,6 +5,9 @@ import com.cshop.cosmeticshop.domain.dto.OrderDto;
 import com.cshop.cosmeticshop.mapper.CartMapper;
 import com.cshop.cosmeticshop.mapper.OrderMapper;
 import com.cshop.cosmeticshop.service.OrderService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +31,9 @@ import javax.validation.Valid;
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequestMapping("appointment-orders")
 @RequiredArgsConstructor
+@Tag(name = "Appointment", description = "Controller manages appointment process")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 public class AppointmentController {
 
     private final OrderService orderService;
@@ -38,6 +44,8 @@ public class AppointmentController {
      * Get method for start making order.
      * @return html page with order form
      */
+    @Operation(description = "Return order form in view")
+    @ApiResponse(responseCode = "200", description = "Form view was returned")
     @GetMapping
     public String formOrder() {
         return "appointment/order_form";
@@ -51,6 +59,8 @@ public class AppointmentController {
      * @param errors errors in order form
      * @return If in form are errors return previous page. Return finish appointment page
      */
+    @Operation(description = "Save order form")
+    @ApiResponse(responseCode = "200", description = "Save order form and return finish appointment view")
     @PostMapping
     public String submitOrder(@Valid @ModelAttribute("treatment_order") OrderDto orderDto,
                               @ModelAttribute("treatment_cart") CartDto cartDto,

@@ -17,6 +17,7 @@
         <java.version>11</java.version>
         <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
         <lombok.version>1.18.20</lombok.version>
+        <napstruct.version>1.6.4</napstruct.version>
     </properties>
 
     <dependencies>
@@ -103,6 +104,12 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${napstruct.version}</version>
         </dependency>
 
     </dependencies>

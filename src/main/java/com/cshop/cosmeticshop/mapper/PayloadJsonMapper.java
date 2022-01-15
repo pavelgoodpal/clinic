@@ -1,15 +1,15 @@
 package com.cshop.cosmeticshop.mapper;
 
-import com.cshop.cosmeticshop.domain.model.OrderPayload;
+import com.cshop.cosmeticshop.domain.dto.PayloadDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javax.validation.Payload;
 
 /**
  * Mapper for OrderPayload and Json string
- * @
+ * @author Pave1Pal
  */
-public interface OrderPayloadMapper {
+public interface PayloadJsonMapper {
 
     /**
      * Map OrderPayload to json
@@ -17,7 +17,7 @@ public interface OrderPayloadMapper {
      * @return order payload json
      * @throws JsonProcessingException if it can be
      */
-    String toJson(OrderPayload payload) throws JsonProcessingException;
+    String toJson(PayloadDTO payload) throws JsonProcessingException;
 
     /**
      * Map json to OrderPayload

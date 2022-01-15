@@ -3,6 +3,9 @@ package com.cshop.cosmeticshop.controllers;
 import com.cshop.cosmeticshop.domain.dto.UserDto;
 import com.cshop.cosmeticshop.mapper.UserMapper;
 import com.cshop.cosmeticshop.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -18,12 +21,16 @@ import javax.validation.Valid;
 
 /**
  * Controller for user registration
+ *
  * @author Pave1Pal
  */
 @Slf4j
 @Controller
 @RequestMapping("/registration")
 @RequiredArgsConstructor
+@Tag(name = "Registration", description = "Controller manages registration process")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 public class RegistrationController {
 
     private final UserService userService;
@@ -36,6 +43,8 @@ public class RegistrationController {
      * @param form form for registration
      * @return form page
      */
+    @Operation(description = "Return registration form in view")
+    @ApiResponse(responseCode = "200", description = "Form view was returned")
     @GetMapping
     public String registrationForm(Model model, UserDto form) {
         model.addAttribute("registration_form", form);
@@ -49,6 +58,8 @@ public class RegistrationController {
      * @param errors errors in form
      * @return If form has errors return form page. Else return finish registration page
      */
+    @Operation(description = "Save registration form")
+    @ApiResponse(responseCode = "200", description = "Save registration form and return finish registration view")
     @PostMapping
     public String registrationProcess(@Valid @ModelAttribute("registration_form") UserDto form,
                                       Errors errors) {
@@ -62,6 +73,8 @@ public class RegistrationController {
      * Get method to return finish page
      * @return finish registration page
      */
+    @Operation(description = "Return finish registration view")
+    @ApiResponse(responseCode = "200", description = "Finish registration view was returned")
     @GetMapping("/finish")
     public String finishRegistration() {
         return "registration/finish";

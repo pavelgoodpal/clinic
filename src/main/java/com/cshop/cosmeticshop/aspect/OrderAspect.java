@@ -4,7 +4,6 @@ import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.EmailService;
-import com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

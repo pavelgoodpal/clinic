@@ -25,4 +25,24 @@ public interface TreatmentService {
      * @return treatment
      */
     Treatment findById(Long id) throws TreatmentNotFoundException;
+
+    /**
+     * Create new treatment in data storage.
+     * @param treatment treatment
+     * @return saved treatment in data storage
+     */
+    Treatment create(Treatment treatment);
+
+    /**
+     * Update treatment info in data storage.
+     * @param treatment treatment
+     * @return updated treatment
+     */
+    Treatment update(Treatment treatment);
+
+    /**
+     * Delete treatment by id from data storage.
+     * @param id of treatment
+     */
+    void delete(Long id);
 }

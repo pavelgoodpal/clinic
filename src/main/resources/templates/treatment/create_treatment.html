@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Treatment</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<h1>
+    Create new Treatment
+</h1>
+
+<form th:object="${treatment_form}" method="POST" action="/treatments">
+    <div>
+        <label for="name">Name: </label>
+        <br/>
+        <input id="name" type="text" name="name"/>
+    </div>
+    <div>
+        <label for="price">Price: </label>
+        <br/>
+        <input id="price" type="number" name="price"/>
+    </div>
+    <div>
+        <label for="description">Description: </label>
+        <br/>
+        <input id="description" type="text" name="description"/>
+    </div>
+    <div>
+        <label for="treatmentTime">Treatment time: </label>
+        <br/>
+        <input id="treatmentTime" type="number" name="treatmentTime"/>
+    </div>
+    <br/>
+    <button>Create</button>
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+</form>
+
+</body>
+</html>

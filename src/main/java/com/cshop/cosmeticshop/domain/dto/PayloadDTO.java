@@ -1,4 +1,4 @@
-package com.cshop.cosmeticshop.domain.model;
+package com.cshop.cosmeticshop.domain.dto;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
 import lombok.Getter;
@@ -14,15 +14,15 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class OrderPayload {
+public class PayloadDTO {
 
     /**
      * Factory method to create OrderPayload from Order
      * @param order Order
      * @return OrderPayload from order
      */
-    static public OrderPayload createFromOrder(Order order) {
-        OrderPayload payload = new OrderPayload();
+    static public PayloadDTO createFromOrder(Order order) {
+        PayloadDTO payload = new PayloadDTO();
         payload.setId(order.getId());
         payload.setEmail(order.getEmail());
         payload.setStartAt(order.getStartAt());

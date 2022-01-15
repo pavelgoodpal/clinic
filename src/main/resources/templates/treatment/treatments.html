@@ -6,7 +6,7 @@
     <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-<form th:object="${treatment_cart}" method="post">
+<form th:object="${treatment_cart}" method="post" action="/treatments/appointment">
 
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError" style="color:red">
@@ -52,6 +52,13 @@
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sing Out"/>
 </form>
+
+<br/>
+<hr/>
+<div th:if="${user.getRole().getRole().equals('ROLE_ADMIN')}">
+    <a href="/treatments/create">Create new treatment</a>
+</div>
+
 
 </body>
 </html>

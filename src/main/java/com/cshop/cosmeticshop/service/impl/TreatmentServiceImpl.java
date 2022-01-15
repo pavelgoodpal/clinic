@@ -29,4 +29,19 @@ public class TreatmentServiceImpl implements TreatmentService {
         return treatmentRepository.findById(id).orElseThrow(() ->
                 new TreatmentNotFoundException("Treatment not Found"));
     }
+
+    @Override
+    public Treatment create(Treatment treatment) {
+        return treatmentRepository.save(treatment);
+    }
+
+    @Override
+    public Treatment update(Treatment treatment) {
+        return treatmentRepository.save(treatment);
+    }
+
+    @Override
+    public void delete(Long id) {
+        treatmentRepository.deleteById(id);
+    }
 }
