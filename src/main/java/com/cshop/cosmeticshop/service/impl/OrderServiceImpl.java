@@ -10,6 +10,7 @@ import com.cshop.cosmeticshop.service.OutBoxService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -30,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @SneakyThrows
+    @Transactional
     public Order saveOrder(Order order, Cart cart) {
         var updatedCart = cartService.updateToNoActiveCart(cart);
         order.setCart(updatedCart);

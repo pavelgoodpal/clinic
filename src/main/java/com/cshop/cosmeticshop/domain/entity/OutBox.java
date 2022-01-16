@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.domain.entity;
 
+import com.cshop.cosmeticshop.domain.entity.constants.EventType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,9 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 /**
@@ -22,12 +21,15 @@ import java.time.LocalDateTime;
 @Table(name = "outbox")
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class OutBox extends BaseEntity{
+public class OutBox extends BaseEntity {
 
 
-    private String eventType;
+    @Enumerated(value = EnumType.STRING)
+    private EventType eventType;
 
     private String payload;
+
+    private String destination;
 
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

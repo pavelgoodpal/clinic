@@ -1,15 +1,14 @@
 package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
+import com.cshop.cosmeticshop.domain.entity.OutBox;
 import com.cshop.cosmeticshop.service.EmailService;
+import com.cshop.cosmeticshop.service.OutBoxService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
-
-import java.time.format.DateTimeFormatter;
-
 
 /**
  * Class implements EmailService
@@ -21,28 +20,27 @@ import java.time.format.DateTimeFormatter;
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender emailSender;
+    private final OutBoxService outBoxService;
 
     @Override
-    public void sendOrderMessage(Order order) {
-        var mailMessage = makeMailMessage(order);
-        emailSender.send(mailMessage);
+    public void sendAllMessages() {
+        var outBoxList = outBoxService.findAll();
+        if (!outBoxList.isEmpty()) {
+            outBoxList.forEach(this::sendMessage);
+        }
     }
 
     /**
-     * Make mail message form order
-     * @param order which transform to message
-     * @return SimpleMailMessage
+     * Make SimpleMailMessage using OutBox information than sent it and delete sent outbox info.
+     *
+     * @param outBox consist message information
      */
-    private SimpleMailMessage makeMailMessage(Order order) {
-        var date = order.getStartAt().format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+    private void sendMessage(OutBox outBox) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
-        mailMessage.setTo(order.getEmail());
         mailMessage.setSubject("Cosmetologist appointment");
-        mailMessage.setText(
-                "We very happy that you use our service!!!\n" +
-                order.getUser().getFirstName() + ", You have got an appointment to " + date + ".\n" +
-                "Please do not late and have a good day!"
-        );
-        return mailMessage;
+        mailMessage.setTo(outBox.getDestination());
+        mailMessage.setText(outBox.getPayload());
+        emailSender.send(mailMessage);
+        outBoxService.delete(outBox);
     }
 }
