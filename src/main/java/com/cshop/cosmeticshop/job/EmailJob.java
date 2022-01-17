@@ -15,8 +15,9 @@ public class EmailJob {
 
     private final EmailService emailService;
 
-    @Scheduled(fixedDelay = 15, timeUnit = TimeUnit.SECONDS)
+    @Scheduled(cron = "30 * * * * ?")
     public void sendEmail() {
+        log.info("job");
         emailService.sendAllMessages();
     }
 }
