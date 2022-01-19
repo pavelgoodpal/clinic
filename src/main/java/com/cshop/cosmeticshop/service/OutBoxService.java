@@ -18,7 +18,7 @@ public interface OutBoxService {
      * @return OutBox - information in table
      * @throws JsonProcessingException if it take place
      */
-    OutBox save(Order order) throws JsonProcessingException;
+    OutBox buildEmail(Order order);
 
     /**
      * Find all outbox info in outbox data storage

@@ -4,6 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
+import com.cshop.cosmeticshop.validation.annotation.PhoneNumber;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.Getter;
@@ -50,8 +51,7 @@ public class UserDto {
             required = true,
             pattern = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
             maxLength = 12)
-    @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
-            message = "invalid phone number")
+    @PhoneNumber
     private String phoneNumber;
 
     @Schema(description = "Password",

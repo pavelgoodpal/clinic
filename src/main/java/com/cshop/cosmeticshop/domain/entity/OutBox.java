@@ -8,7 +8,11 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+import javax.persistence.EnumType;
 import java.time.LocalDateTime;
 
 /**

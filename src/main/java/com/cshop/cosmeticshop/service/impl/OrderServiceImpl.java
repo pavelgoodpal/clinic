@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
         order.setCart(updatedCart);
         calculateFinishTime(order);
         Order savedOrder = orderRepository.save(order);
-        outBoxService.save(savedOrder);
+        outBoxService.buildEmail(savedOrder);
         return savedOrder;
     }
 

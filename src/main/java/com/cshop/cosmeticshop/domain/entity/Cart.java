@@ -10,13 +10,22 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.Table;
+import javax.persistence.OneToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.Enumerated;
+import javax.persistence.EnumType;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Cart entity
+ *
  * @author Pave1Pal
  */
 @Getter
@@ -37,9 +46,9 @@ public class Cart extends BaseEntity {
     private LocalDateTime lastModifiedTime;
 
     @ManyToMany
-    @JoinTable(name="treatment_cart",
-            joinColumns = @JoinColumn(name="cart_id"),
-            inverseJoinColumns = @JoinColumn(name="treatment_id"))
+    @JoinTable(name = "treatment_cart",
+            joinColumns = @JoinColumn(name = "cart_id"),
+            inverseJoinColumns = @JoinColumn(name = "treatment_id"))
     private List<Treatment> treatments = new ArrayList<>();
 
     @OneToOne

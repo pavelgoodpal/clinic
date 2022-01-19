@@ -1,6 +1,8 @@
 package com.cshop.cosmeticshop.domain.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,6 +12,7 @@ import javax.validation.constraints.Size;
 
 /**
  * Treatment entity
+ *
  * @author Pave1Pal
  */
 @Getter
@@ -19,7 +22,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class Treatment extends BaseEntity {
 
-    @Size(min=2)
+    @Size(min = 2)
     @NotBlank
     private String name;
 
@@ -27,7 +30,7 @@ public class Treatment extends BaseEntity {
     private Long price;
 
     @NotBlank
-    @Size(min=5, message="description must be greater than 5 charsets")
+    @Size(min = 5, message = "description must be greater than 5 charsets")
     private String description;
 
     @NotNull(message = "choose how long treatment will be")

@@ -1,10 +1,8 @@
 package com.cshop.cosmeticshop.aspect;
 
-import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.OutBoxService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -24,10 +22,10 @@ public class OrderAspect {
     }
 
 
-    @AfterReturning(value = "createOrderPointCut() && args(order, cart)")
-    public void after(Order order, Cart cart) throws JsonProcessingException {
+    @AfterReturning(pointcut = "createOrderPointCut()", returning = "order")
+    public void afterOrderReturning(Order order) {
         order.setUser(currentUserService.getUser());
-        outBoxService.save(order);
+        outBoxService.buildEmail(order);
     }
 
 }
