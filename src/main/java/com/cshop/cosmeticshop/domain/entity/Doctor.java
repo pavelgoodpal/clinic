@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter
@@ -19,4 +20,7 @@ public class Doctor extends User {
             joinColumns = @JoinColumn(name = "doctor_id"),
             inverseJoinColumns = @JoinColumn(name = "work_week_id"))
     private WorkWeek workWeek;
+
+    @NotBlank
+    private String speciality;
 }

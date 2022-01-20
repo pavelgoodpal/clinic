@@ -46,4 +46,7 @@ public class DoctorDto {
     private Status status;
 
     private WorkWeek workWeek;
+
+    @NotBlank
+    private String speciality;
 }

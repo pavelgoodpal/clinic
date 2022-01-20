@@ -4,7 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.Admin;
 import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.exception.AdminNotFoundException;
-import com.cshop.cosmeticshop.exception.DoctorNotFoundExcepting;
+import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import com.cshop.cosmeticshop.repository.AdminRepository;
 import com.cshop.cosmeticshop.repository.DoctorRepository;
 import com.cshop.cosmeticshop.security.UserPrincipal;
@@ -34,9 +34,9 @@ public class CurrentUserServiceImpl implements CurrentUserService {
     }
 
     @Override
-    public Doctor getDoctor() throws DoctorNotFoundExcepting {
+    public Doctor getDoctor() throws DoctorNotFoundException {
         User user = getUser();
         return doctorRepository.findById(user.getId())
-                .orElseThrow(() -> new DoctorNotFoundExcepting("Admin not found " + user.getId()));
+                .orElseThrow(() -> new DoctorNotFoundException("Admin not found " + user.getId()));
     }
 }
