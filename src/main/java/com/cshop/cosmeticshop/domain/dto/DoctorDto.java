@@ -1,33 +1,27 @@
-package com.cshop.cosmeticshop.domain.entity;
+package com.cshop.cosmeticshop.domain.dto;
 
+import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import com.cshop.cosmeticshop.validation.annotation.PhoneNumber;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.List;
 
-/**
- * User entity
- *
- * @author Pave1Pal
- */
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
-@Table(name = "users")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="user_type",
-        discriminatorType = DiscriminatorType.INTEGER)
-public class User extends BaseEntity {
-
+@AllArgsConstructor
+@Schema(name = "Doctor", description = "Info about doctor")
+public class DoctorDto {
 
     @NotBlank(message = "first name is required")
     private String firstName;
@@ -51,10 +45,5 @@ public class User extends BaseEntity {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Order> orders;
-
-    @OneToOne
-    private Cart cart;
+    private WorkWeek workWeek;
 }

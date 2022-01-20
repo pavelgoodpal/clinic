@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
     public User create(User newUser) {
         var foundedUser = userRepository.findByEmail(newUser.getEmail());
         if (foundedUser.isEmpty()) {
-            newUser.setRole(Role.USER);
+            newUser.setRole(Role.CUSTOMER);
             newUser.setStatus(Status.ACTIVE);
             var encodedPassword = passwordEncoder.encode(newUser.getPassword());
             newUser.setPassword(encodedPassword);
