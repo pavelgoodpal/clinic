@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
@@ -21,9 +18,16 @@ public class WorkDay extends BaseEntity{
 
     @Enumerated(EnumType.STRING)
     private DayOfWeek dayOfWeek;
+
     @DateTimeFormat
     private LocalDateTime startAt;
 
     @DateTimeFormat
     private LocalDateTime finishAt;
+
+    @ManyToOne(targetEntity = WorkWeek.class)
+    @JoinTable(name = "work_week_work_day",
+            joinColumns = @JoinColumn(name = "work_day_id"),
+            inverseJoinColumns = @JoinColumn(name = "work_week_id"))
+    private WorkWeek workWeek;
 }

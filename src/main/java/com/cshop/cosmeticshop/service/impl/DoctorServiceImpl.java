@@ -5,7 +5,6 @@ import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import com.cshop.cosmeticshop.repository.DoctorRepository;
-import com.cshop.cosmeticshop.service.AdminService;
 import com.cshop.cosmeticshop.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -17,16 +16,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DoctorServiceImpl implements DoctorService {
 
-    private final AdminService adminService;
     private final DoctorRepository doctorRepository;
 
     @Override
     public Doctor create(Doctor doctor) {
         doctor.setStatus(Status.ACTIVE);
         doctor.setRole(Role.DOCTOR);
-        Doctor savedDoctor = doctorRepository.save(doctor);
-        adminService.addDoctor(savedDoctor);
-        return savedDoctor;
+        return doctorRepository.save(doctor);
     }
 
     @Override

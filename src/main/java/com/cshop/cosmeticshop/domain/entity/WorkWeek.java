@@ -15,10 +15,10 @@ import java.util.List;
 @Table(name = "work_weeks")
 public class WorkWeek extends BaseEntity{
 
-    @OneToOne
-    private User doctor;
+    @OneToOne(targetEntity = Doctor.class)
+    private Doctor doctor;
 
-    @OneToMany(mappedBy = "work_week",
+    @OneToMany(mappedBy = "workWeek",
             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     private List<WorkDay> workDays;
 

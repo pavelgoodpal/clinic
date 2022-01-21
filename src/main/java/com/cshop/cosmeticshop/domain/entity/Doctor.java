@@ -12,13 +12,10 @@ import javax.validation.constraints.NotBlank;
 @Setter
 @Table(name = "doctors")
 @NoArgsConstructor
-@DiscriminatorValue("2")
+@DiscriminatorValue("doctor")
 public class Doctor extends User {
 
     @OneToOne
-    @JoinTable(name = "doctor_work_week",
-            joinColumns = @JoinColumn(name = "doctor_id"),
-            inverseJoinColumns = @JoinColumn(name = "work_week_id"))
     private WorkWeek workWeek;
 
     @NotBlank
