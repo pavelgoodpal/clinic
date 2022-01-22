@@ -1,10 +1,8 @@
 package com.cshop.cosmeticshop.service;
 
 
-import com.cshop.cosmeticshop.domain.entity.Admin;
 import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.User;
-import com.cshop.cosmeticshop.exception.AdminNotFoundException;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 
 /**
@@ -17,8 +15,6 @@ public interface CurrentUserService {
      * @return authorized user
      */
     User getUser();
-
-    Admin getAdmin() throws AdminNotFoundException;
 
     Doctor getDoctor() throws DoctorNotFoundException;
 }

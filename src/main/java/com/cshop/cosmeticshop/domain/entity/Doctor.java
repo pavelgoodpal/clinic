@@ -10,7 +10,6 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Getter
 @Setter
-@Table(name = "doctors")
 @NoArgsConstructor
 @DiscriminatorValue("doctor")
 public class Doctor extends User {

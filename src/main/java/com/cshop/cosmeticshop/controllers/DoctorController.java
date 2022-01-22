@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.annotation.ServletSecurity;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -32,7 +33,8 @@ public class DoctorController {
     private final DoctorService doctorService;
 
     @GetMapping(path = "registration")
-    public String getRegistrationForm() {
+    public String getRegistrationForm(Model model) {
+        model.addAttribute("doctor", new DoctorDto());
         return "registration/doctor_form";
     }
 
@@ -43,7 +45,7 @@ public class DoctorController {
 
     @GetMapping
     public String getDoctors(Model model,
-                             @PageableDefault(sort = {"first_name"},
+                             @PageableDefault(sort = {"firstName"},
                                      direction = Sort.Direction.DESC) Pageable pageable) {
         List<Doctor> doctors = doctorService.getAllDoctors(pageable);
         model.addAttribute("doctors", doctors);
@@ -58,11 +60,17 @@ public class DoctorController {
     }
 
     @PostMapping
-    public String postDoctor(@Valid @ModelAttribute("doctor") DoctorDto doctorDto, Errors errors) {
+    public String postDoctor(@Valid @ModelAttribute("doctor") DoctorDto doctorDto,
+                             Model model,
+                             Errors errors) {
         if (errors.hasErrors()) {
             return "registration/doctor_form";
         }
-        doctorService.create(doctorMapper.fromDto(doctorDto));
+        Optional.ofNullable(doctorDto)
+                .map(doctorMapper::fromDto)
+                .map(doctorService::create)
+                .map(doctor -> model.addAttribute("saved_doctor", doctor))
+                .orElseThrow();
         return "redirect:doctors/registration/finish";
     }
 }

@@ -1,5 +1,7 @@
 package com.cshop.cosmeticshop.domain.dto;
 
+import com.cshop.cosmeticshop.domain.entity.Cart;
+import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
@@ -12,9 +14,11 @@ import lombok.Setter;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +26,8 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @Schema(name = "Doctor", description = "Info about doctor")
 public class DoctorDto {
+
+    private Long id;
 
     @NotBlank(message = "first name is required")
     private String firstName;
@@ -49,4 +55,8 @@ public class DoctorDto {
 
     @NotBlank
     private String speciality;
+
+    private List<Order> orders;
+
+    private Cart cart;
 }

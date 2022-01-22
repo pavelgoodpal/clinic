@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sing Up</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
 
+<form method="post" th:object="${doctor}" action="/doctors">
+    <div>
+        <label for="firstName">First name: </label>
+        <input id="firstName" type="text" name="firstName">
+        <br/><br/>
+        <label for="last name">Last name: </label>
+        <input id="last name" type="text" name="lastName">
+        <br/><br/>
+        <label for="email">Email: </label>
+        <input id="email" type="text" name="email">
+        <br/><br/>
+        <label for="phoneNumber">Phone number: </label>
+        <input id="phoneNumber" type="text" name="phoneNumber">
+        <br/><br/>
+        <label for="password">Password: </label>
+        <input id="password" type="text" name="password">
+        <br/><br/>
+        <label for="speciality">Speciality: </label>
+        <input id="speciality" type="text" name="speciality">
+    </div>
+
+    <input type="submit" value="Create Account">
+
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+
+</form>
 </body>
 </html>

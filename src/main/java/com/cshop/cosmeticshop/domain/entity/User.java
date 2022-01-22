@@ -26,6 +26,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="d_type",
         discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("null")
 public class User extends BaseEntity {
 
 
