@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.service;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.OutBox;
+import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
@@ -18,7 +19,15 @@ public interface OutBoxService {
      * @return OutBox - information in table
      * @throws JsonProcessingException if it take place
      */
-    OutBox buildEmail(Order order);
+    OutBox buildOrderEmail(Order order);
+
+    /**
+     * Save work week information in outbox table
+     *
+     * @param workWeek of doctor
+     * @return outbox data from work week
+     */
+    OutBox buildWorkWeekEmail(WorkWeek workWeek);
 
     /**
      * Find all outbox info in outbox data storage

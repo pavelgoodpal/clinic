@@ -6,5 +6,5 @@ package com.cshop.cosmeticshop.service;
  */
 public interface EmailService {
 
-    void sendAllMessages();
+    void sendAllEmailMessages();
 }

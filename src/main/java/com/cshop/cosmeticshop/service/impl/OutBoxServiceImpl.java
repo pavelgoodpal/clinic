@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.OutBox;
+import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.EventType;
 import com.cshop.cosmeticshop.repository.OutBoxRepository;
 import com.cshop.cosmeticshop.service.OutBoxService;
@@ -22,12 +23,22 @@ public class OutBoxServiceImpl implements OutBoxService {
     private final static DateTimeFormatter timeFormat =  DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
 
     @Override
-    public OutBox buildEmail(Order order) {
+    public OutBox buildOrderEmail(Order order) {
         String payload = buildEmailFromOrder(order);
         OutBox outBox = new OutBox();
         outBox.setPayload(payload);
         outBox.setDestination(order.getEmail());
         outBox.setEventType(EventType.CREATE_ORDER_EMAIL);
+        return outBoxRepository.save(outBox);
+    }
+
+    @Override
+    public OutBox buildWorkWeekEmail(WorkWeek workWeek) {
+        String payload = buildEmailFromWorkWeek(workWeek);
+        OutBox outBox = new OutBox();
+        outBox.setPayload(payload);
+        outBox.setDestination(workWeek.getDoctor().getEmail());
+        outBox.setEventType(EventType.SET_DOCTOR_WORK_WEEK);
         return outBoxRepository.save(outBox);
     }
 
@@ -70,6 +81,38 @@ public class OutBoxServiceImpl implements OutBoxService {
                 outBoxList.addAll((outBoxRepository.findAll(PageRequest.of(i, 25)).getContent()));
             }
         }
+    }
+
+    /**
+     * Build Email payload text from work week of doctor.
+     *
+     * @param workWeek doctor work week
+     * @return information are converted to String
+     */
+    private String buildEmailFromWorkWeek(WorkWeek workWeek) {
+        return  "Hello " + workWeek.getDoctor().getFirstName() + "!\n" +
+                "Your work week is presented below.\n" +
+
+                "Monday    : Start  - " + workWeek.getMondayStart() + "\n" +
+                "            Finish - " + workWeek.getMondayFinish() + "\n" +
+
+                "Tuesday   : Start  - " + workWeek.getTuesdayStart() + "\n" +
+                "            Finish - " + workWeek.getTuesdayFinish() + "\n" +
+
+                "Wednesday : Start  - " + workWeek.getWednesdayStart() + "\n" +
+                "            Finish - " + workWeek.getWednesdayFinish() + "\n" +
+
+                "Thursday  : Start  - " + workWeek.getThursdayStart() + "\n" +
+                "            Finish - " + workWeek.getThursdayFinish() + "\n" +
+
+                "Friday    : Start  - " + workWeek.getFridayStart() + "\n" +
+                "            Finish - " + workWeek.getFridayFinish() + "\n" +
+
+                "Saturday  : Start  - " + workWeek.getSaturdayStart() + "\n" +
+                "            Finish - " + workWeek.getSaturdayFinish() + "\n" +
+
+                "Sunday    : Start  - " + workWeek.getSundayStart() + "\n" +
+                "            Finish - " + workWeek.getSundayFinish() + "\n";
     }
 
 }

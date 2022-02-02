@@ -15,7 +15,6 @@ public class EmailJob {
 
     @Scheduled(cron = "${cron.expression}")
     public void sendEmail() {
-        log.info("job");
-        emailService.sendAllMessages();
+        emailService.sendAllEmailMessages();
     }
 }

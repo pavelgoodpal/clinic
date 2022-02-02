@@ -25,7 +25,7 @@ public class OrderAspect {
     @AfterReturning(pointcut = "createOrderPointCut()", returning = "order")
     public void afterOrderReturning(Order order) {
         order.setUser(currentUserService.getUser());
-        outBoxService.buildEmail(order);
+        outBoxService.buildOrderEmail(order);
     }
 
 }

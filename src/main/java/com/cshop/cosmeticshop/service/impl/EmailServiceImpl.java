@@ -1,6 +1,5 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.OutBox;
 import com.cshop.cosmeticshop.service.EmailService;
 import com.cshop.cosmeticshop.service.OutBoxService;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Class implements EmailService
+ *
  * @author Pave1Pal
  */
 @Service
@@ -23,10 +23,10 @@ public class EmailServiceImpl implements EmailService {
     private final OutBoxService outBoxService;
 
     @Override
-    public void sendAllMessages() {
+    public void sendAllEmailMessages() {
         var outBoxList = outBoxService.findAll();
         if (!outBoxList.isEmpty()) {
-            outBoxList.forEach(this::sendMessage);
+            outBoxList.forEach(this::sendEmailMessage);
         }
     }
 
@@ -35,7 +35,7 @@ public class EmailServiceImpl implements EmailService {
      *
      * @param outBox consist message information
      */
-    private void sendMessage(OutBox outBox) {
+    private void sendEmailMessage(OutBox outBox) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setSubject("Cosmetologist appointment");
         mailMessage.setTo(outBox.getDestination());

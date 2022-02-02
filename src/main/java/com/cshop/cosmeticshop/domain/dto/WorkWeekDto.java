@@ -1,23 +1,22 @@
-package com.cshop.cosmeticshop.domain.entity;
+package com.cshop.cosmeticshop.domain.dto;
 
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.time.LocalTime;
 
-@Entity
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-@Table(name = "work_weeks")
-public class WorkWeek extends BaseEntity {
+public class WorkWeekDto {
+
+    private Long id;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalTime mondayStart;
@@ -61,7 +60,6 @@ public class WorkWeek extends BaseEntity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     private LocalTime sundayFinish;
 
-    @OneToOne(targetEntity = Doctor.class)
     private Doctor doctor;
 
     @Enumerated(EnumType.STRING)

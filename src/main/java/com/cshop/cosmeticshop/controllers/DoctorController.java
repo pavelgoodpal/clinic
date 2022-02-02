@@ -1,11 +1,15 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.dto.DoctorDto;
+import com.cshop.cosmeticshop.domain.dto.WorkWeekDto;
 import com.cshop.cosmeticshop.domain.entity.Doctor;
+import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import com.cshop.cosmeticshop.mapper.DoctorMapper;
+import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.service.DoctorService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -31,6 +35,7 @@ public class DoctorController {
 
     private final DoctorMapper doctorMapper;
     private final DoctorService doctorService;
+    private final WorkWeekMapper workWeekMapper;
 
     @GetMapping(path = "registration")
     public String getRegistrationForm(Model model) {
@@ -61,7 +66,6 @@ public class DoctorController {
 
     @PostMapping
     public String postDoctor(@Valid @ModelAttribute("doctor") DoctorDto doctorDto,
-                             Model model,
                              Errors errors) {
         if (errors.hasErrors()) {
             return "registration/doctor_form";
@@ -69,8 +73,25 @@ public class DoctorController {
         Optional.ofNullable(doctorDto)
                 .map(doctorMapper::fromDto)
                 .map(doctorService::create)
-                .map(doctor -> model.addAttribute("saved_doctor", doctor))
                 .orElseThrow();
         return "redirect:doctors/registration/finish";
+    }
+
+    @GetMapping(path = "{id}/work-week")
+    public String getWorkWeekForm(Model model) {
+        model.addAttribute("workWeek", new WorkWeek());
+        return "/doctor/work_week";
+    }
+
+    @PostMapping(path = "{id}/work-week")
+    public String postWorkWeek(@ModelAttribute("workWeek") WorkWeekDto workWeekDto,
+                               @PathVariable("id") Long id,
+                               Errors errors) {
+        if(errors.hasErrors()) {
+            return "/doctor/work_week";
+        }
+        WorkWeek workWeek = workWeekMapper.fromDto(workWeekDto);
+        doctorService.setWorkWeekToDoctor(workWeek, id);
+        return "redirect:/doctors/" + id;
     }
 }

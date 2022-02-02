@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Doctor</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-
+First name: <span th:text="${doctor.firstName}">First name</span><br/>
+Last name: <span th:text="${doctor.lastName}">Last name</span><br/>
+Speciality: <span th:text="${doctor.speciality}">Speciality</span><br/>
+<a th:href="@{/doctors/{id}/work-week (id=${doctor.id})}">Set Schedule</a>
 </body>
 </html>
