@@ -17,6 +17,7 @@ create table work_weeks
     saturday_finish time null,
     sunday_start time null,
     sunday_finish time null,
+    activation_code varchar(40) null,
     constraint fk_work_week_doctor_id foreign key (doctor_id) references users(id)
 );
 

@@ -112,7 +112,9 @@ public class OutBoxServiceImpl implements OutBoxService {
                 "            Finish - " + workWeek.getSaturdayFinish() + "\n" +
 
                 "Sunday    : Start  - " + workWeek.getSundayStart() + "\n" +
-                "            Finish - " + workWeek.getSundayFinish() + "\n";
-    }
+                "            Finish - " + workWeek.getSundayFinish() + "\n\n" +
 
+                "If you accept this work week schedule click on link below\n" +
+                "http://localhost:8080/work-weeks/activation-code/" + workWeek.getActivationCode();
+    }
 }

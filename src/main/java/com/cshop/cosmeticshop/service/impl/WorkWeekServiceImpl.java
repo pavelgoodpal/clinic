@@ -2,10 +2,14 @@ package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
+import com.cshop.cosmeticshop.exception.WorkWeekNotFoundException;
 import com.cshop.cosmeticshop.repository.WorkWeekRepository;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +20,17 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     @Override
     public WorkWeek create(WorkWeek workWeek) {
         workWeek.setStatus(WorkWeekStatus.DENIED);
+        workWeek.setActivationCode(UUID.randomUUID());
+        return workWeekRepository.save(workWeek);
+    }
+
+    @SneakyThrows
+    @Override
+    public WorkWeek activate(UUID activationCode) {
+        WorkWeek workWeek = workWeekRepository.findByActivationCode(activationCode)
+                .orElseThrow(() -> new WorkWeekNotFoundException(activationCode.toString()));
+        workWeek.setStatus(WorkWeekStatus.ACCEPTED);
+        workWeek.setActivationCode(null);
         return workWeekRepository.save(workWeek);
     }
 }
