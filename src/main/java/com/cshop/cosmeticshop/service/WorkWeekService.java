@@ -8,6 +8,10 @@ import java.util.UUID;
 public interface WorkWeekService {
     WorkWeek create(WorkWeek workWeek);
 
+    WorkWeek update(Long id, WorkWeek workWeek);
+
+    WorkWeek get(Long id);
+
     @SneakyThrows
     WorkWeek activate(UUID activationCode);
 }

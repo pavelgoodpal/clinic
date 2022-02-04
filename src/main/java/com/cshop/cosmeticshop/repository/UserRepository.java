@@ -1,9 +1,11 @@
 package com.cshop.cosmeticshop.repository;
 
 import com.cshop.cosmeticshop.domain.entity.User;
+import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -20,4 +22,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
      */
     Optional<User> findByEmail(String email);
 
+    List<User> findByRole(Role role);
 }

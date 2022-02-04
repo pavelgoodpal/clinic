@@ -7,6 +7,7 @@ import com.cshop.cosmeticshop.repository.DoctorRepository;
 import com.cshop.cosmeticshop.security.UserPrincipal;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,9 @@ public class CurrentUserServiceImpl implements CurrentUserService {
         return principal.getUser();
     }
 
+    @SneakyThrows
     @Override
-    public Doctor getDoctor() throws DoctorNotFoundException {
+    public Doctor getDoctor() {
         User user = getUser();
         return doctorRepository.findById(user.getId())
                 .orElseThrow(() -> new DoctorNotFoundException("Admin not found " + user.getId()));

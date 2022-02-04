@@ -1,10 +1,9 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.entity.Order;
-import com.cshop.cosmeticshop.domain.entity.OutBox;
-import com.cshop.cosmeticshop.domain.entity.WorkWeek;
+import com.cshop.cosmeticshop.domain.entity.*;
 import com.cshop.cosmeticshop.domain.entity.constants.EventType;
 import com.cshop.cosmeticshop.repository.OutBoxRepository;
+import com.cshop.cosmeticshop.service.AdminService;
 import com.cshop.cosmeticshop.service.OutBoxService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -20,7 +20,9 @@ import java.util.List;
 public class OutBoxServiceImpl implements OutBoxService {
 
     private final OutBoxRepository outBoxRepository;
-    private final static DateTimeFormatter timeFormat =  DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
+    private final AdminService adminService;
+
+    private final static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
 
     @Override
     public OutBox buildOrderEmail(Order order) {
@@ -33,8 +35,8 @@ public class OutBoxServiceImpl implements OutBoxService {
     }
 
     @Override
-    public OutBox buildWorkWeekEmail(WorkWeek workWeek) {
-        String payload = buildEmailFromWorkWeek(workWeek);
+    public OutBox buildCreateWorkWeekEmail(WorkWeek workWeek) {
+        String payload = buildWorkWeekEmailForDoctor(workWeek);
         OutBox outBox = new OutBox();
         outBox.setPayload(payload);
         outBox.setDestination(workWeek.getDoctor().getEmail());
@@ -43,12 +45,28 @@ public class OutBoxServiceImpl implements OutBoxService {
     }
 
     @Override
+    public OutBox buildUpdateWorkWeekEmailForDoctor(WorkWeek workWeek) {
+        OutBox outBox = new OutBox();
+        outBox.setEventType(EventType.UPDATE_DOCTOR_WORK_WEEK);
+        outBox.setPayload(buildWorkWeekEmailForDoctor(workWeek));
+        outBox.setDestination(workWeek.getDoctor().getEmail());
+        return outBoxRepository.save(outBox);
+    }
+
+    @Override
+    public List<OutBox> buildUpdateWorkWeekEmailForAdmins(WorkWeek workWeek) {
+        return adminService.getAdmins().stream()
+                .map(admin -> buildWorkWeekOutBoxForAdmin(admin, workWeek))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<OutBox> findAll() {
-         Page<OutBox> page = outBoxRepository.findAll(PageRequest.of(0, 25));
-         List<OutBox> outBoxList = page.getContent();
-         int pageNumber = page.getTotalPages();
-         addResiduaryContent(pageNumber, outBoxList);
-         return outBoxList;
+        Page<OutBox> page = outBoxRepository.findAll(PageRequest.of(0, 25));
+        List<OutBox> outBoxList = page.getContent();
+        int pageNumber = page.getTotalPages();
+        addResiduaryContent(pageNumber, outBoxList);
+        return outBoxList;
     }
 
     @Override
@@ -89,11 +107,47 @@ public class OutBoxServiceImpl implements OutBoxService {
      * @param workWeek doctor work week
      * @return information are converted to String
      */
-    private String buildEmailFromWorkWeek(WorkWeek workWeek) {
-        return  "Hello " + workWeek.getDoctor().getFirstName() + "!\n" +
+    private String buildWorkWeekEmailForDoctor(WorkWeek workWeek) {
+        return "Hello " + workWeek.getDoctor().getFirstName() + "!\n" +
                 "Your work week is presented below.\n" +
+                convertWorkWeekToText(workWeek);
+    }
 
-                "Monday    : Start  - " + workWeek.getMondayStart() + "\n" +
+    /**
+     * Build text for email sending for admin
+     *
+     * @param workWeek doctor work week
+     * @return text for admin about doctor work week
+     */
+    private String buildWorkWeekEmailForAdmin(WorkWeek workWeek) {
+        Doctor doctor = workWeek.getDoctor();
+        return "Doctor " + doctor.getFirstName() + " " + doctor.getLastName() + " change work week schedule\n" +
+                convertWorkWeekToText(workWeek);
+    }
+
+    /**
+     * Build and save outbox info about doctor work week for admin
+     *
+     * @param admin who receive email
+     * @param workWeek doctor
+     * @return saved OutBox object
+     */
+    private OutBox buildWorkWeekOutBoxForAdmin(User admin, WorkWeek workWeek) {
+        OutBox outBox = new OutBox();
+        outBox.setPayload(buildWorkWeekEmailForAdmin(workWeek));
+        outBox.setDestination(admin.getEmail());
+        outBox.setEventType(EventType.UPDATE_DOCTOR_WORK_WEEK);
+        return outBoxRepository.save(outBox);
+    }
+
+    /**
+     * Make from WorkWeek object String containing work week info
+     *
+     * @param workWeek work week for doctor
+     * @return String with work week schedule
+     */
+    private String convertWorkWeekToText(WorkWeek workWeek) {
+        return "Monday    : Start  - " + workWeek.getMondayStart() + "\n" +
                 "            Finish - " + workWeek.getMondayFinish() + "\n" +
 
                 "Tuesday   : Start  - " + workWeek.getTuesdayStart() + "\n" +
@@ -113,7 +167,6 @@ public class OutBoxServiceImpl implements OutBoxService {
 
                 "Sunday    : Start  - " + workWeek.getSundayStart() + "\n" +
                 "            Finish - " + workWeek.getSundayFinish() + "\n\n" +
-
                 "If you accept this work week schedule click on link below\n" +
                 "http://localhost:8080/work-weeks/activation-code/" + workWeek.getActivationCode();
     }

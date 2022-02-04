@@ -10,5 +10,51 @@ First name: <span th:text="${doctor.firstName}">First name</span><br/>
 Last name: <span th:text="${doctor.lastName}">Last name</span><br/>
 Speciality: <span th:text="${doctor.speciality}">Speciality</span><br/>
 <a th:href="@{/doctors/{id}/work-week (id=${doctor.id})}">Set Schedule</a>
+
+<div id="workWeek" th:if="${!(doctor.getWorkWeek() == null)}">
+    <h2>WORK WEEK</h2>
+    <div>
+        <table>
+            <tr>
+                <td>Day of week</td><td>Start</td><td>Finish</td>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td><span th:text="${doctor.workWeek.mondayStart}">Monday start</span></td>
+                <td><span th:text="${doctor.workWeek.mondayFinish}">Monday finish</span></td>
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td><span th:text="${doctor.workWeek.tuesdayStart}">Tuesday start</span></td>
+                <td><span th:text="${doctor.workWeek.tuesdayFinish}">Tuesday finish</span></td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td><span th:text="${doctor.workWeek.wednesdayStart}">Wednesday start</span></td>
+                <td><span th:text="${doctor.workWeek.wednesdayFinish}">Wednesday finish</span></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td><span th:text="${doctor.workWeek.tuesdayStart}">Thursday start</span></td>
+                <td><span th:text="${doctor.workWeek.tuesdayStart}">Thursday finish</span></td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td><span th:text="${doctor.workWeek.fridayStart}">Friday start</span></td>
+                <td><span th:text="${doctor.workWeek.fridayFinish}">Friday finish</span></td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td><span th:text="${doctor.workWeek.saturdayStart}">Saturday start</span></td>
+                <td><span th:text="${doctor.workWeek.saturdayFinish}">Saturday finish</span></td>
+            </tr>
+            <tr>
+                <td>Sunday</td>
+                <td><span th:text="${doctor.workWeek.sundayStart}">Sunday start</span></td>
+                <td><span th:text="${doctor.workWeek.saturdayFinish}">Sunday finish</span></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

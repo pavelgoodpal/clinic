@@ -22,6 +22,7 @@ import javax.validation.Valid;
 
 /**
  * Controller to making order for appointment.
+ *
  * @author Pave1Pal
  */
 @Slf4j

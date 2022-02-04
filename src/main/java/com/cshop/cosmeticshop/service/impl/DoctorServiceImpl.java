@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -40,8 +39,9 @@ public class DoctorServiceImpl implements DoctorService {
         return doctorRepository.findAll(pageable).getContent();
     }
 
+    @SneakyThrows
     @Override
-    public Doctor findById(Long id) throws DoctorNotFoundException {
+    public Doctor findById(Long id) {
         return doctorRepository.findById(id).orElseThrow(() -> new DoctorNotFoundException("Doctor not found " + id));
     }
 

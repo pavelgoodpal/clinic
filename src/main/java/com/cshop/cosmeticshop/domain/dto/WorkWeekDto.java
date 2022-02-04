@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.time.LocalTime;
+import java.util.UUID;
 
 @NoArgsConstructor
 @Getter
@@ -64,4 +65,6 @@ public class WorkWeekDto {
 
     @Enumerated(EnumType.STRING)
     private WorkWeekStatus status;
+
+    private UUID activationCode;
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Account</title>
+</head>
+<body>
+<div th:if="${user.role.getRole().equals('ROLE_ADMIN')}">
+    <p>
+        Working <a href="/doctors">Doctors</a>
+    </p>
+</div>
+
+<div th:if="${user.role.getRole().equals('ROLE_DOCTOR')}">
+    <p>
+        Job <a th:href="@{/doctors/{id}(id=${user.id})}">information</a>
+    </p>
+</div>
+
+</body>
+</html>

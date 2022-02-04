@@ -9,10 +9,16 @@
 <h1>Home page</h1>
 <p>If you want to book treatment click <a href="/treatments">here</a></p>
 
+<p>Check our <a href="/doctors">doctors</a></p>
+
 <p>Hi, you can <a th:href="@{/login}">login</a> right now!</p>
+
+<p><a href="personal-account">Personal Account</a></p>
 
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sing Out"/>
 </form>
+
+<hr/>
 </body>
 </html>

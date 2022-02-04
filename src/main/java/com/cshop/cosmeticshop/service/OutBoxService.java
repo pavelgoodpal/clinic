@@ -27,7 +27,23 @@ public interface OutBoxService {
      * @param workWeek of doctor
      * @return outbox data from work week
      */
-    OutBox buildWorkWeekEmail(WorkWeek workWeek);
+    OutBox buildCreateWorkWeekEmail(WorkWeek workWeek);
+
+    /**
+     * Build and save outbox info about work week.
+     *
+     * @param workWeek for doctor
+     * @return outBox info which will be sent to doctor
+     */
+    OutBox buildUpdateWorkWeekEmailForDoctor(WorkWeek workWeek);
+
+    /**
+     * Build and save outbox info about doctor work week for admins
+     *
+     * @param workWeek for doctor
+     * @return  List of outBox info which will be sent to admins
+     */
+    List<OutBox> buildUpdateWorkWeekEmailForAdmins(WorkWeek workWeek);
 
     /**
      * Find all outbox info in outbox data storage
