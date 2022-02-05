@@ -13,8 +13,9 @@ import org.springframework.stereotype.Service;
 
 
 /**
- * @author: Pave1Pal
- * Class implements UserService
+ * Class implements UserService.
+ *
+ * @author Pave1Pal
  */
 @Service
 @RequiredArgsConstructor

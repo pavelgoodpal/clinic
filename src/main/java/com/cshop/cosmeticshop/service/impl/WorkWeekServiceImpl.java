@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.UUID;
 
+/**
+ * Implements WorkWeekService interface.
+ *
+ * @author Pave1Pal
+ */
 @Service
 @RequiredArgsConstructor
 public class WorkWeekServiceImpl implements WorkWeekService {
@@ -31,7 +36,7 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     public WorkWeek update(Long id, WorkWeek workWeek) {
         return Optional.of(id)
                 .map(this::get)
-                .map(current -> workWeekMapper.marge(current, workWeek))
+                .map(current -> workWeekMapper.merge(current, workWeek))
                 .map(target -> {
                     target.setStatus(WorkWeekStatus.DENIED);
                     target.setActivationCode(UUID.randomUUID());

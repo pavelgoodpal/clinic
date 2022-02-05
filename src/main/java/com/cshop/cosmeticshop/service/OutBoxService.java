@@ -8,7 +8,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 
 /**
- * Service to control outbox info
+ * Service to control outbox info.
+ *
  * @author Pave1Pal
  */
 public interface OutBoxService {

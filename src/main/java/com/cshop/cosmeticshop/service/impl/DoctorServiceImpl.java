@@ -17,6 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * Class implements DoctorService interface.
+ *
+ * @author Pave1Pal
+ */
 @Service
 @RequiredArgsConstructor
 public class DoctorServiceImpl implements DoctorService {

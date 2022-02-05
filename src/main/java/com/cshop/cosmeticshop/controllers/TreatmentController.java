@@ -28,6 +28,7 @@ import javax.validation.Valid;
 
 /**
  * Controller for displaying treatments and start making appointment
+ *
  * @author Pave1Pal
  */
 @Controller
@@ -50,6 +51,7 @@ public class TreatmentController {
 
     /**
      * Method return Cart object in model which use in view
+     *
      * @return cart object
      */
     @ModelAttribute("treatment_cart")
@@ -60,8 +62,9 @@ public class TreatmentController {
 
     /**
      * Get method return page with treatments and also provide opportunity to start an appointment
-     * @param model model for view
-     * @param order order for start making appointment
+     *
+     * @param model    model for view
+     * @param order    order for start making appointment
      * @param pageable parameters of page
      * @return page with treatments
      */
@@ -70,17 +73,18 @@ public class TreatmentController {
     @GetMapping
     public String showTreatments(Model model, OrderDto order,
                                  @PageableDefault(sort = {"price"}, direction = Sort.Direction.ASC) Pageable pageable) {
-       var page = treatmentService.findAll(pageable);
-       model.addAttribute("user", currentUserService.getUser());
-       model.addAttribute("treatments", page);
-       model.addAttribute("treatment_order", order);
+        var page = treatmentService.findAll(pageable);
+        model.addAttribute("user", currentUserService.getUser());
+        model.addAttribute("treatments", page);
+        model.addAttribute("treatment_order", order);
         return "/treatment/treatments";
     }
 
 
     /**
      * Get method return page with treatment info using its id
-     * @param id treatment id
+     *
+     * @param id    treatment id
      * @param model model for view
      * @return page with treatment information
      * @throws TreatmentNotFoundException if treatment not found
@@ -98,6 +102,7 @@ public class TreatmentController {
 
     /**
      * Delete treatment by id.
+     *
      * @param id of treatment
      * @return treatment/treatments view
      */
@@ -112,6 +117,7 @@ public class TreatmentController {
 
     /**
      * Return view with form to create treatment.
+     *
      * @return View with form to create treatment
      */
     @Operation(description = "Return view with creation treatment form")
@@ -124,8 +130,9 @@ public class TreatmentController {
 
     /**
      * Post method to create new treatment
+     *
      * @param treatmentDto form
-     * @param errors in form
+     * @param errors       in form
      * @return if has errors return treatment/create_treatment view, else redirect to treatments path
      */
     @Operation(description = "Create new treatment")
@@ -143,9 +150,10 @@ public class TreatmentController {
 
     /**
      * Post method to calculate total price of cart and return page to start appointment
+     *
      * @param cartDto cart with treatments
-     * @param model model
-     * @param errors errors in cart
+     * @param model   model
+     * @param errors  errors in cart
      * @return If cart has errors return treatments page. Else return page to start appointment
      */
     @Operation(description = "Save cart with chosen treatments and start appointment process returning order form view")

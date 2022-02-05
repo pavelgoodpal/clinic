@@ -9,7 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Exception handler class
+ * Exception handler class.
+ *
  * @author Pav1Pal
  */
 @Slf4j
@@ -18,7 +19,8 @@ public class ExceptionHandlingController {
 
     /**
      * Handel TreatmentNotFoundException
-     * @param request of error
+     *
+     * @param request   of error
      * @param exception which is handled
      * @return view with exception info
      */

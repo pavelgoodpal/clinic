@@ -1,12 +1,11 @@
 package com.cshop.cosmeticshop.service.impl;
 
-import com.cshop.cosmeticshop.domain.entity.BaseEntity;
 import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Treatment;
 import com.cshop.cosmeticshop.domain.entity.constants.CartStatus;
 import com.cshop.cosmeticshop.repository.CartRepository;
-import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.CartService;
+import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -45,7 +44,8 @@ public class CartServiceImpl implements CartService {
     }
 
     /**
-     * Calculate total price of cart with treatments
+     * Calculate total price of cart with treatments.
+     *
      * @param cart with treatments
      */
     private Long calculateTotalPrice(Cart cart) {

@@ -10,8 +10,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
- * @author:Pave1Pal
- * Class implements TreatmentService
+ * Class implements TreatmentService.
+ *
+ * @author Pave1Pal
  */
 @Service
 @RequiredArgsConstructor

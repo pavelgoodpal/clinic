@@ -11,6 +11,11 @@ import lombok.SneakyThrows;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+/**
+ * Class implements CurrentUserService.
+ *
+ * @author Pave1Pal
+ */
 @Service
 @RequiredArgsConstructor
 public class CurrentUserServiceImpl implements CurrentUserService {

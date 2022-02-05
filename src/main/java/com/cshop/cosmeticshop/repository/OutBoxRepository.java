@@ -7,12 +7,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * Repository for OutBox entity
+ * Repository for OutBox entity.
+ *
  * @author Pave1Pal
  */
 @Repository
 public interface OutBoxRepository extends JpaRepository<OutBox, Long> {
 
+    /**
+     * Find all OutBox using pageable interface.
+     *
+     * @param pageable page parameters
+     * @return Page of OutBox
+     */
     Page<OutBox> findAll(Pageable pageable);
 
 }

@@ -55,7 +55,7 @@ public class OutBoxServiceImpl implements OutBoxService {
 
     @Override
     public List<OutBox> buildUpdateWorkWeekEmailForAdmins(WorkWeek workWeek) {
-        return adminService.getAdmins().stream()
+        return adminService.getAllAdmins().stream()
                 .map(admin -> buildWorkWeekOutBoxForAdmin(admin, workWeek))
                 .collect(Collectors.toList());
     }

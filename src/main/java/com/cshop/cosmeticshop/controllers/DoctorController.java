@@ -85,7 +85,7 @@ public class DoctorController {
     /**
      * Get method for returning doctor view
      *
-     * @param id of doctor
+     * @param id    of doctor
      * @param model
      * @return view with doctor info
      */
@@ -100,7 +100,7 @@ public class DoctorController {
      * Post method to create new doctor.
      *
      * @param doctorDto doctor form
-     * @param errors errors in form
+     * @param errors    errors in form
      * @return finish view. If form has errors return view with form
      */
     @PostMapping
@@ -132,15 +132,15 @@ public class DoctorController {
      * Post method for create work week for doctor.
      *
      * @param workWeekDto form containing work week info
-     * @param id of doctor
-     * @param errors in form
+     * @param id          of doctor
+     * @param errors      in form
      * @return view with doctor info. If form has errors return previous form
      */
     @PostMapping(path = "{id}/work-week")
     public String postWorkWeek(@ModelAttribute("workWeek") WorkWeekDto workWeekDto,
                                @PathVariable("id") Long id,
                                Errors errors) {
-        if(errors.hasErrors()) {
+        if (errors.hasErrors()) {
             return "/doctor/work_week";
         }
         WorkWeek workWeek = workWeekMapper.fromDto(workWeekDto);

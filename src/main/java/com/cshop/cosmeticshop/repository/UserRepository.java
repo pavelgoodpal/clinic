@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Repository for user entity
+ * Repository for user entity.
+ *
  * @author Pave1Pal
  */
 @Repository

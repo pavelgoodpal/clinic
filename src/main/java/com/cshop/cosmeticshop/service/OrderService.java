@@ -5,7 +5,8 @@ import com.cshop.cosmeticshop.domain.entity.Order;
 
 
 /**
- * Service layer for Order entity
+ * Service layer for Order entity.
+ *
  * @author Pave1Pal
  */
 public interface OrderService {

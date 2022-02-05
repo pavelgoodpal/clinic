@@ -39,8 +39,9 @@ public class RegistrationController {
 
     /**
      * Get method to start registration
+     *
      * @param model model object for MVC
-     * @param form form for registration
+     * @param form  form for registration
      * @return form page
      */
     @Operation(description = "Return registration form in view")
@@ -54,7 +55,8 @@ public class RegistrationController {
 
     /**
      * Post method to save user in repository
-     * @param form  registration form
+     *
+     * @param form   registration form
      * @param errors errors in form
      * @return If form has errors return form page. Else return finish registration page
      */
@@ -71,6 +73,7 @@ public class RegistrationController {
 
     /**
      * Get method to return finish page
+     *
      * @return finish registration page
      */
     @Operation(description = "Return finish registration view")

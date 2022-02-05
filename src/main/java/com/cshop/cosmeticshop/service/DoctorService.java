@@ -9,14 +9,44 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service for Doctors.
+ *
+ * @author Pave1Pal
+ */
 public interface DoctorService {
 
+    /**
+     * Create new Doctor.
+     *
+     * @param doctor who will be created
+     * @return created Doctor
+     */
     Doctor create(Doctor doctor);
 
+    /**
+     * Find all doctors using pageable interface.
+     *
+     * @param pageable page parameters
+     * @return list of doctors
+     */
     List<Doctor> getAllDoctors(Pageable pageable);
 
+    /**
+     * Find doctor by id.
+     *
+     * @param id of doctor
+     * @return found Doctor
+     */
     @SneakyThrows
     Doctor findById(Long id);
 
+    /**
+     * Set workWeek to doctor using doctor id.
+     *
+     * @param workWeek of doctor
+     * @param id of doctor
+     * @return set workWeek
+     */
     WorkWeek setWorkWeekToDoctor(WorkWeek workWeek, Long id);
 }

@@ -43,6 +43,7 @@ public class AppointmentController {
 
     /**
      * Get method for start making order.
+     *
      * @return html page with order form
      */
     @Operation(description = "Return order form in view")
@@ -54,10 +55,11 @@ public class AppointmentController {
 
     /**
      * Post method save order information.
-     * @param orderDto order form comes from request
-     * @param cartDto cart with treatments comes from request
+     *
+     * @param orderDto      order form comes from request
+     * @param cartDto       cart with treatments comes from request
      * @param sessionStatus session status information
-     * @param errors errors in order form
+     * @param errors        errors in order form
      * @return If in form are errors return previous page. Return finish appointment page
      */
     @Operation(description = "Save order form")
