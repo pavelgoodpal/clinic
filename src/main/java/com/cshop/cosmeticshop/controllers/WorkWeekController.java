@@ -2,6 +2,9 @@ package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.service.WorkWeekService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,9 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
 @RequestMapping("work-weeks")
+@Tag(name = "WorkWeek", description = "Controller manages doctor work week")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 public class WorkWeekController {
 
     private final WorkWeekService workWeekService;
@@ -29,6 +35,8 @@ public class WorkWeekController {
      * @param activationCode which activate work week
      * @return view of success activation
      */
+    @Operation(description = "Activate doctor work week")
+    @ApiResponse(responseCode = "200", description = "returns activation work week page")
     @GetMapping(path = "/activation-code/{uuid}")
     public String activate(@PathVariable("uuid") UUID activationCode) {
         workWeekService.activate(activationCode);
@@ -38,10 +46,12 @@ public class WorkWeekController {
     /**
      * Get method returns view with work week.
      *
-     * @param id of work week
+     * @param id    of work week
      * @param model for view
      * @return view with work week info
      */
+    @Operation(description = "Get doctor work week in page by work week id")
+    @ApiResponse(responseCode = "200", description = "Returns work week info")
     @GetMapping("/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         model.addAttribute("oldWorkWeek", workWeekService.get(id));
@@ -52,10 +62,12 @@ public class WorkWeekController {
     /**
      * Post method for updating work week data.
      *
-     * @param id of updated work week
+     * @param id          of updated work week
      * @param newWorkWeek form with updated fields
      * @return view of successful update
      */
+    @Operation(description = "Update work week using its id")
+    @ApiResponse(responseCode = "200", description = "returns updated page")
     @PostMapping("/{id}/update")
     public String update(@PathVariable("id") Long id, @ModelAttribute("newWorkWeek") WorkWeek newWorkWeek) {
         workWeekService.update(id, newWorkWeek);
@@ -67,6 +79,8 @@ public class WorkWeekController {
      *
      * @return successful work week update view
      */
+    @Operation(description = "Returns finish update page")
+    @ApiResponse(responseCode = "200", description = "returns finish update page")
     @GetMapping("/updated")
     public String finishUpdate() {
         return "/work_week/updated";

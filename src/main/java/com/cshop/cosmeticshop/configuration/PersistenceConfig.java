@@ -13,6 +13,7 @@ import java.util.Optional;
 
 /**
  * Configuration for persistence
+ *
  * @author Pave1Pal
  */
 @Configuration
@@ -23,6 +24,7 @@ public class PersistenceConfig {
 
     /**
      * Return AuditorAware as a bean
+     *
      * @return AuditorAware
      */
     @Bean

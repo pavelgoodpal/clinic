@@ -44,18 +44,19 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * Calculate time when treatments will end using order data
+     *
      * @param order Order information
      */
     private void calculateFinishTime(Order order) {
         order.setFinishAt(
                 Optional.of(order)
-                .map(Order::getCart)
-                .map(Cart::getTreatments)
-                .stream()
-                .flatMap(Collection::stream)
-                .map(Treatment::getTreatmentTime)
-                .reduce(order.getStartAt(), LocalDateTime::plusMinutes,
-                        (r,l) -> r)
+                        .map(Order::getCart)
+                        .map(Cart::getTreatments)
+                        .stream()
+                        .flatMap(Collection::stream)
+                        .map(Treatment::getTreatmentTime)
+                        .reduce(order.getStartAt(), LocalDateTime::plusMinutes,
+                                (r, l) -> r)
         );
     }
 }

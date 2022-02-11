@@ -8,6 +8,9 @@ import com.cshop.cosmeticshop.mapper.DoctorMapper;
 import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.DoctorService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +38,9 @@ import java.util.Optional;
 @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_DOCTOR')")
 @RequestMapping("doctors")
 @RequiredArgsConstructor
+@Tag(name = "Doctor", description = "Controller manages doctor")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 public class DoctorController {
 
     private final DoctorMapper doctorMapper;
@@ -48,6 +54,8 @@ public class DoctorController {
      * @param model for view
      * @return registration form
      */
+    @Operation(description = "Returns registration doctor from in view")
+    @ApiResponse(responseCode = "200", description = "Returns registration doctor form view")
     @GetMapping(path = "registration")
     public String getRegistrationForm(Model model) {
         model.addAttribute("doctor", new DoctorDto());
@@ -59,6 +67,8 @@ public class DoctorController {
      *
      * @return registration finish view
      */
+    @Operation(description = "Returns finish registration view")
+    @ApiResponse(responseCode = "200", description = "Returns finish registration view")
     @GetMapping(path = "registration/finish")
     public String getFinishRegistration() {
         return "registration/finish";
@@ -67,10 +77,12 @@ public class DoctorController {
     /**
      * Get method returning view with doctors info.
      *
-     * @param model
+     * @param model    model for view
      * @param pageable parameters for finding doctors
      * @return view with doctors info
      */
+    @Operation(description = "Returns page with doctors")
+    @ApiResponse(responseCode = "200", description = "Returns page with doctors")
     @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
     @GetMapping
     public String getDoctors(Model model,
@@ -86,9 +98,11 @@ public class DoctorController {
      * Get method for returning doctor view
      *
      * @param id    of doctor
-     * @param model
+     * @param model model for view
      * @return view with doctor info
      */
+    @Operation(description = "Returns doctor info by id")
+    @ApiResponse(responseCode = "200", description = "Returns found doctor")
     @GetMapping(path = "{id}")
     public String getDoctor(@PathVariable("id") Long id, Model model) {
         Doctor doctor = doctorService.findById(id);
@@ -103,6 +117,8 @@ public class DoctorController {
      * @param errors    errors in form
      * @return finish view. If form has errors return view with form
      */
+    @Operation(description = "Create doctor")
+    @ApiResponse(responseCode = "200", description = "Creates new doctor")
     @PostMapping
     public String postDoctor(@Valid @ModelAttribute("doctor") DoctorDto doctorDto,
                              Errors errors) {
@@ -122,6 +138,8 @@ public class DoctorController {
      * @param model model for view
      * @return view with form to create work week schedule for doctor
      */
+    @Operation(description = "Gets page with doctor work week form")
+    @ApiResponse(responseCode = "200", description = "returns work week form for doctor")
     @GetMapping(path = "{id}/work-week")
     public String getWorkWeekForm(Model model) {
         model.addAttribute("workWeek", new WorkWeek());
@@ -136,6 +154,8 @@ public class DoctorController {
      * @param errors      in form
      * @return view with doctor info. If form has errors return previous form
      */
+    @Operation(description = "Create work week for doctor using doctor id")
+    @ApiResponse(responseCode = "200", description = "Create doctor work week and return page with doctor info")
     @PostMapping(path = "{id}/work-week")
     public String postWorkWeek(@ModelAttribute("workWeek") WorkWeekDto workWeekDto,
                                @PathVariable("id") Long id,
@@ -143,8 +163,10 @@ public class DoctorController {
         if (errors.hasErrors()) {
             return "/doctor/work_week";
         }
-        WorkWeek workWeek = workWeekMapper.fromDto(workWeekDto);
-        doctorService.setWorkWeekToDoctor(workWeek, id);
+        Optional.ofNullable(workWeekDto)
+                .map(workWeekMapper::fromDto)
+                .map(workWeek -> doctorService.setWorkWeekToDoctor(workWeek, id))
+                .orElseThrow();
         return "redirect:/doctors/" + id;
     }
 }

@@ -16,6 +16,7 @@ public interface OutBoxService {
 
     /**
      * Save order information in outbox table
+     *
      * @param order info
      * @return OutBox - information in table
      * @throws JsonProcessingException if it take place
@@ -42,7 +43,7 @@ public interface OutBoxService {
      * Build and save outbox info about doctor work week for admins
      *
      * @param workWeek for doctor
-     * @return  List of outBox info which will be sent to admins
+     * @return List of outBox info which will be sent to admins
      */
     List<OutBox> buildUpdateWorkWeekEmailForAdmins(WorkWeek workWeek);
 

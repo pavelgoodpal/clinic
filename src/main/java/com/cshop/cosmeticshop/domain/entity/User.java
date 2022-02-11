@@ -7,11 +7,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.InheritanceType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Table;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.EnumType.*;
 
 /**
  * User entity
@@ -26,7 +38,7 @@ import java.util.List;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="d_type",
         discriminatorType = DiscriminatorType.STRING)
-@DiscriminatorValue("null")
+@DiscriminatorValue("user")
 public class User extends BaseEntity {
 
 
@@ -46,14 +58,13 @@ public class User extends BaseEntity {
     @Size(min = 4, message = "Your password must be bigger than 4")
     private String password;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(value = STRING)
     private Role role;
 
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(value = STRING)
     private Status status;
 
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "user", cascade = {PERSIST, MERGE, DETACH, REFRESH})
     private List<Order> orders;
 
     @OneToOne

@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Class for Security configuration
+ *
  * @author Pave1Pal
  */
 @Configuration
@@ -25,6 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * Create password encoder in application context
+     *
      * @return BCryptPasswordEncoder as a bean
      */
     @Bean
@@ -34,6 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * Create DAO authentication provider in application context
+     *
      * @return daoAuthenticationProvider as a bean
      */
     @Bean
@@ -47,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * This method contains login and logout rules.
+     *
      * @param http HttpSecurity
      * @throws Exception exception
      */
@@ -68,6 +72,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     /**
      * Method connect to the user repository to authentication
+     *
      * @param auth AuthenticationManagerBuilder
      * @throws Exception exception
      */
@@ -75,7 +80,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(daoAuthenticationProvider());
     }
-
 
 
 }

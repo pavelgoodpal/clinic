@@ -55,12 +55,11 @@ public class WorkWeekAspect {
     @AfterReturning(pointcut = "updateWorkWeekPointCut()", returning = "workWeek")
     public void afterReturningUpdate(WorkWeek workWeek) {
         if (currentUserService.getUser().getRole().getRole().equals("ROLE_ADMIN")) {
-
             outBoxService.buildUpdateWorkWeekEmailForDoctor(workWeek);
-        }
-        else {
+        } else {
             outBoxService.buildUpdateWorkWeekEmailForAdmins(workWeek);
         }
+
     }
 
 }

@@ -5,7 +5,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 
 /**
- * Class extends GlobalMethodSecurityConfiguration
+ * Class extends GlobalMethodSecurityConfiguration.
+ *
  * @author Pave1Pal
  */
 @Configuration
