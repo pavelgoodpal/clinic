@@ -1,8 +1,11 @@
 package com.cshop.cosmeticshop.service;
 
+import com.cshop.cosmeticshop.domain.entity.Order;
+import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import lombok.SneakyThrows;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 /**
@@ -23,7 +26,7 @@ public interface WorkWeekService {
     /**
      * Update workWeek.
      *
-     * @param id of updated workWeek
+     * @param id       of updated workWeek
      * @param workWeek containing updated info
      * @return updated workWeek
      */
@@ -43,6 +46,26 @@ public interface WorkWeekService {
      * @param activationCode for activate workWeek
      * @return activated workWeek
      */
-    @SneakyThrows
     WorkWeek activate(UUID activationCode);
+
+    /**
+     * Find WorkWeek by Doctor id.
+     *
+     * @param doctorId id of doctor
+     * @return doctor work week
+     */
+    WorkWeek findByDoctorId(Long doctorId);
+
+    /**
+     *  Get work week by doctor id and LocalDate
+     *
+     * @param doctorId - id of doctor
+     * @param localDate - date of day
+     * @return work week
+     */
+    WorkWeek getWorkWeekByDoctorIdAndDate(Long doctorId, LocalDate localDate);
+
+    void setDaysOfWeekDate(WorkWeek workWeek, LocalDate localDate);
+
+//    boolean addOrderTreatmentPeriodToDayOfWeek(Order order);
 }

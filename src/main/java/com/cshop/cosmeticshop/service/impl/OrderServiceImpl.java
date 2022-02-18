@@ -3,10 +3,9 @@ package com.cshop.cosmeticshop.service.impl;
 import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.Treatment;
+import com.cshop.cosmeticshop.exception.TimePeriodIsBusyException;
 import com.cshop.cosmeticshop.repository.OrderRepository;
-import com.cshop.cosmeticshop.service.CartService;
-import com.cshop.cosmeticshop.service.OrderService;
-import com.cshop.cosmeticshop.service.OutBoxService;
+import com.cshop.cosmeticshop.service.*;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
@@ -27,6 +26,7 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final CartService cartService;
+    private final WorkWeekService workWeekService;
     private final OutBoxService outBoxService;
 
 
@@ -37,9 +37,13 @@ public class OrderServiceImpl implements OrderService {
         var updatedCart = cartService.updateToNoActiveCart(cart);
         order.setCart(updatedCart);
         calculateFinishTime(order);
-        Order savedOrder = orderRepository.save(order);
-        outBoxService.buildOrderEmail(savedOrder);
-        return savedOrder;
+        if(workWeekService.addOrderTreatmentPeriodToDayOfWeek(order)) {
+            Order savedOrder = orderRepository.save(order);
+            outBoxService.buildOrderEmail(savedOrder);
+            return savedOrder;
+        } else {
+            throw new TimePeriodIsBusyException("Doctor is busy at this time");
+        }
     }
 
     /**
@@ -48,14 +52,14 @@ public class OrderServiceImpl implements OrderService {
      * @param order Order information
      */
     private void calculateFinishTime(Order order) {
-        order.setFinishAt(
+        order.getTreatmentPeriod().setFinishAt(
                 Optional.of(order)
                         .map(Order::getCart)
                         .map(Cart::getTreatments)
                         .stream()
                         .flatMap(Collection::stream)
                         .map(Treatment::getTreatmentTime)
-                        .reduce(order.getStartAt(), LocalDateTime::plusMinutes,
+                        .reduce(order.getTreatmentPeriod().getStartAt(), LocalDateTime::plusMinutes,
                                 (r, l) -> r)
         );
     }

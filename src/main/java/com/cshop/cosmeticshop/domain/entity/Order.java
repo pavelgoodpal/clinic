@@ -9,13 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Table;
-import javax.persistence.OneToOne;
-import javax.persistence.ManyToOne;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -43,12 +37,8 @@ public class Order extends BaseEntity {
 
     private String additionalInfo;
 
-    @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime startAt;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime finishAt;
+    @Embedded
+    private TreatmentPeriod treatmentPeriod;
 
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -67,4 +57,7 @@ public class Order extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     @CreatedBy
     private User user;
+
+    @ManyToOne(targetEntity = Doctor.class)
+    private Doctor doctor;
 }

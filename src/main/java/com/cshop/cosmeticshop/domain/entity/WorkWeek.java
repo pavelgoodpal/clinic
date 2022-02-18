@@ -6,11 +6,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static javax.persistence.CascadeType.*;
 
 /**
  * WorkWeek entity
@@ -25,47 +30,12 @@ import java.util.UUID;
 @Table(name = "work_weeks")
 public class WorkWeek extends BaseEntity {
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime mondayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime mondayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime tuesdayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime tuesdayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime wednesdayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime wednesdayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime thursdayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime thursdayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime fridayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime fridayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime saturdayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime saturdayFinish;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime sundayStart;
-
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-    private LocalTime sundayFinish;
+    @OneToMany(cascade = {DETACH, MERGE, REFRESH, PERSIST})
+    @JoinTable(name = "day_of_week_mapping",
+            joinColumns = {@JoinColumn(name = "work_week_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "day_id", referencedColumnName = "id")})
+    @MapKeyEnumerated(EnumType.STRING)
+    private Map<DayOfWeek, WorkDay> daysOfWeek = makeDaysOfWeek();
 
     @OneToOne(targetEntity = Doctor.class)
     private Doctor doctor;
@@ -75,4 +45,16 @@ public class WorkWeek extends BaseEntity {
 
     @Type(type = "uuid-char")
     private UUID activationCode;
+
+    @Transient
+    private int numberOfWeek;
+
+    @Transient
+    private LocalDate date;
+
+
+    private Map<DayOfWeek, WorkDay> makeDaysOfWeek() {
+        return Stream.of(DayOfWeek.values())
+                .collect(Collectors.toMap(dayOfWeek -> dayOfWeek, WorkDay::new));
+    }
 }

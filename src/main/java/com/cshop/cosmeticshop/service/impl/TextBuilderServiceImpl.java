@@ -70,4 +70,4 @@ public class TextBuilderServiceImpl implements TextBuilderService {
                 "If you accept this work week schedule click on link below\n" +
                 "http://localhost:8080/work-weeks/activation-code/" + workWeek.getActivationCode();
     }
-}
+} 

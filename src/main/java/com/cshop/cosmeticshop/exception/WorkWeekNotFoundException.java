@@ -1,8 +1,6 @@
 package com.cshop.cosmeticshop.exception;
 
-import java.util.UUID;
-
-public class WorkWeekNotFoundException extends Exception {
+public class WorkWeekNotFoundException extends RuntimeException {
 
     public WorkWeekNotFoundException(String message) {
         super(message);

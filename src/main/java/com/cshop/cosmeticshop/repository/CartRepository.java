@@ -4,6 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.BaseEntity;
 import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.User;
 import com.cshop.cosmeticshop.domain.entity.constants.CartStatus;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,7 @@ import java.util.Optional;
  * @author Pave1Pal
  */
 @Repository
-public interface CartRepository extends CrudRepository<Cart, Long> {
+public interface CartRepository extends JpaRepository<Cart, Long> {
 
     /**
      * Find cart using user and status of cart
