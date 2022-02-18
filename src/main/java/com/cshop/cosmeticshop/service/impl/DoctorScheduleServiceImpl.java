@@ -50,6 +50,7 @@ public class DoctorScheduleServiceImpl implements DoctorScheduleService {
 
     @Override
     public boolean addTreatmentPeriodFromOrderToDayOfWeek(Order order) {
+
         Long doctorId = order.getDoctor().getId();
         LocalDateTime dateTime = order.getTreatmentPeriod().getStartAt();
         LocalDate date = LocalDate.of(dateTime.getYear(), dateTime.getMonthValue(), dateTime.getDayOfMonth());
