@@ -6,7 +6,6 @@ import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
 import com.cshop.cosmeticshop.exception.WorkWeekNotFoundException;
 import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.repository.WorkWeekRepository;
-import com.cshop.cosmeticshop.service.WorkDayService;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,7 +25,6 @@ import java.util.UUID;
 public class WorkWeekServiceImpl implements WorkWeekService {
 
     private final WorkWeekRepository workWeekRepository;
-    private final WorkDayService workDayService;
     private final WorkWeekMapper workWeekMapper;
 
     @Override
@@ -72,24 +70,30 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     }
 
     @Override
-    public WorkWeek getWorkWeekByDoctorIdAndDate(Long doctorId, LocalDate localDate) {
-        WorkWeek workWeek = findByDoctorId(doctorId);
-        setDaysOfWeekDate(workWeek, localDate);
-        return workWeek;
-    }
-
-    @Override
-    public void setDaysOfWeekDate(WorkWeek workWeek, LocalDate localDate) {
-        workWeek.setDate(localDate);
+    public void setDaysOfWeekDate(WorkWeek workWeek, LocalDate date) {
+        workWeek.setDate(date);
         workWeek.getDaysOfWeek().forEach(this::setDayOfWeekDate);
     }
 
+    /**
+     * Set date to doctor work day of week.
+     *
+     * @param dayOfWeek day of week enum
+     * @param workDay   doctor work day
+     */
     private void setDayOfWeekDate(DayOfWeek dayOfWeek, WorkDay workDay) {
         LocalDate dateOfDay = getWorkWeekDateFromWorkDay(workDay);
-        LocalDate dayOfWeekDate = findDayOfWeekDate(dayOfWeek ,dateOfDay);
+        LocalDate dayOfWeekDate = findDayOfWeekDate(dayOfWeek, dateOfDay);
         workDay.setDate(dayOfWeekDate);
     }
 
+    /**
+     * Find day of week date by date of one week day.
+     *
+     * @param dayOfWeek day of week enum
+     * @param date      date
+     * @return day of week date
+     */
     private LocalDate findDayOfWeekDate(DayOfWeek dayOfWeek, LocalDate date) {
         int firstDayOfWeekInDayOfMonth = getFirstDayOfWeekInDayOfMonth(date);
         int dayOfMonth = firstDayOfWeekInDayOfMonth + dayOfWeekNumber(dayOfWeek) - 1;
@@ -98,40 +102,41 @@ public class WorkWeekServiceImpl implements WorkWeekService {
         return LocalDate.of(year, month, dayOfMonth);
     }
 
+    /**
+     * Number day of week. Started with 1.
+     *
+     * @param dayOfWeek day of week
+     * @return number day of week
+     */
     private int dayOfWeekNumber(DayOfWeek dayOfWeek) {
         return dayOfWeek.getValue();
     }
 
+    /**
+     * Get first day of week in day of month by date another day.
+     *
+     * @param date another day date
+     * @return day of month number
+     */
     private int getFirstDayOfWeekInDayOfMonth(LocalDate date) {
         int dayOfMonth = date.getDayOfMonth();
         int numberDayOfWeek = date.getDayOfWeek().getValue();
         return dayOfMonth - numberDayOfWeek + 1;
     }
 
+    /**
+     * Get work week date.
+     *
+     * @param workDay doctor work day
+     * @return date from doctor work week
+     */
     private LocalDate getWorkWeekDateFromWorkDay(WorkDay workDay) {
         return workDay.getWorkWeek().getDate();
     }
 
-//    @Override
-//    @Transactional
-//    public boolean addOrderTreatmentPeriodToDayOfWeek(Order order) {
-//        TreatmentPeriod treatmentPeriod = order.getTreatmentPeriod();
-//        WorkWeek workWeek = getWorkWeekByDoctorIdAndDate(getDoctorIdFrom(order), getDateOfOrder(order));
-//        var daysOfWeek = workWeek.getDaysOfWeek();
-//        DayOfWeek dayOfWeek = getDayOfWeekFrom(treatmentPeriod);
-//        WorkDay workDay = daysOfWeek.get(dayOfWeek);
-//        return workDayService.addTreatmentPeriodToWorkDay(treatmentPeriod, workDay);
-//    }
-//
-//    private Long getDoctorIdFrom(Order order) {
-//        return order.getDoctor().getId();
-//    }
-//
-//    private DayOfWeek getDayOfWeekFrom(TreatmentPeriod treatmentPeriod) {
-//        return treatmentPeriod.getStartAt().getDayOfWeek();
-//    }
-//
-//    private LocalDate getDateOfOrder(Order order) {
-//        return LocalDate.from(order.getTreatmentPeriod().getStartAt());
-//    }
+    @Override
+    public WorkDay getWorkDayBy(WorkWeek workWeek, LocalDate date) {
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
+        return workWeek.getDaysOfWeek().get(dayOfWeek);
+    }
 }

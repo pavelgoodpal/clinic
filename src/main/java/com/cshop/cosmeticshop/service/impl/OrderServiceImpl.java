@@ -26,8 +26,8 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final CartService cartService;
-    private final WorkWeekService workWeekService;
     private final OutBoxService outBoxService;
+    private final DoctorScheduleService doctorScheduleService;
 
 
     @Override
@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
         var updatedCart = cartService.updateToNoActiveCart(cart);
         order.setCart(updatedCart);
         calculateFinishTime(order);
-        if(workWeekService.addOrderTreatmentPeriodToDayOfWeek(order)) {
+        if(doctorScheduleService.addTreatmentPeriodFromOrderToDayOfWeek(order)) {
             Order savedOrder = orderRepository.save(order);
             outBoxService.buildOrderEmail(savedOrder);
             return savedOrder;

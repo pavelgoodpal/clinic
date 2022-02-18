@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static javax.persistence.CascadeType.*;
+import static javax.persistence.FetchType.*;
 
 /**
  * WorkWeek entity
@@ -30,7 +31,8 @@ import static javax.persistence.CascadeType.*;
 @Table(name = "work_weeks")
 public class WorkWeek extends BaseEntity {
 
-    @OneToMany(cascade = {DETACH, MERGE, REFRESH, PERSIST})
+    @OneToMany(fetch = LAZY,
+            cascade = {DETACH, MERGE, REFRESH, PERSIST})
     @JoinTable(name = "day_of_week_mapping",
             joinColumns = {@JoinColumn(name = "work_week_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "day_id", referencedColumnName = "id")})

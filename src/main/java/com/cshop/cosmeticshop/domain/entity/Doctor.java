@@ -4,12 +4,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
+
+import static javax.persistence.CascadeType.*;
+import static javax.persistence.FetchType.*;
 
 @Entity
 @Getter
@@ -21,10 +21,14 @@ public class Doctor extends User {
     @OneToOne
     private WorkWeek workWeek;
 
-    @OneToMany
+    @OneToMany(mappedBy = "doctor",
+            fetch = LAZY,
+            cascade = {MERGE, PERSIST, DETACH, REFRESH})
     private List<WeekendDay> weekendDays;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "doctor",
+            fetch = LAZY,
+            cascade = {MERGE, PERSIST, DETACH, REFRESH})
     private List<Order> orders;
 
     @NotBlank

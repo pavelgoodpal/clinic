@@ -31,7 +31,7 @@ public class WorkDayServiceImpl implements WorkDayService {
      */
     @Override
     @Transactional
-    public boolean addTreatmentPeriodToWorkDay(TreatmentPeriod period, WorkDay workDay) {
+    public boolean addTreatmentPeriod(TreatmentPeriod period, WorkDay workDay) {
         if (canAddTreatmentPeriodToWorkDay(period, workDay)) {
             workDay.addTreatmentPeriod(period);
             workDayRepository.save(workDay);

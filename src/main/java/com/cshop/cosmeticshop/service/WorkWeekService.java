@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.service;
 
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
+import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import lombok.SneakyThrows;
 
@@ -57,15 +58,19 @@ public interface WorkWeekService {
     WorkWeek findByDoctorId(Long doctorId);
 
     /**
-     *  Get work week by doctor id and LocalDate
+     * Set days of week properties by date.
      *
-     * @param doctorId - id of doctor
-     * @param localDate - date of day
-     * @return work week
+     * @param workWeek doctor work week
+     * @param localDate date
      */
-    WorkWeek getWorkWeekByDoctorIdAndDate(Long doctorId, LocalDate localDate);
-
     void setDaysOfWeekDate(WorkWeek workWeek, LocalDate localDate);
 
-//    boolean addOrderTreatmentPeriodToDayOfWeek(Order order);
+    /**
+     * Gets doctor work day in chosen date.
+     *
+     * @param workWeek doctor work week
+     * @param date date you want to know doctor schedule
+     * @return doctor work day
+     */
+    WorkDay getWorkDayBy(WorkWeek workWeek, LocalDate date);
 }
