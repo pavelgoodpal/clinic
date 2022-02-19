@@ -53,7 +53,7 @@ public class DoctorServiceImpl implements DoctorService {
     @SneakyThrows
     @Transactional
     @Override
-    public WorkWeek setWorkWeekToDoctor(WorkWeek workWeek, Long id) {
+    public WorkWeek setDoctorWorkWeek(WorkWeek workWeek, Long id) {
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() -> new DoctorNotFoundException("Doctor not found " + id));
         workWeek.setDoctor(doctor);

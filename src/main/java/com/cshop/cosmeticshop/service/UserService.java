@@ -5,12 +5,14 @@ import com.cshop.cosmeticshop.domain.entity.User;
 
 /**
  * Service layer for User entity
+ *
  * @author: Pave1Pal
  */
 public interface UserService {
 
     /**
      * Find user by email
+     *
      * @param email email of user
      * @return found user
      */
@@ -18,6 +20,7 @@ public interface UserService {
 
     /**
      * Save user in data storage
+     *
      * @param user user is needed to save
      * @return saved user
      */
@@ -25,6 +28,7 @@ public interface UserService {
 
     /**
      * Update information about user cart. User takes form SecurityContextHolder.
+     *
      * @param cart user cart
      * @return updated user
      */

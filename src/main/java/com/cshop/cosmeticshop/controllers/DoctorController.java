@@ -85,8 +85,7 @@ public class DoctorController {
     @ApiResponse(responseCode = "200", description = "Returns page with doctors")
     @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
     @GetMapping
-    public String getDoctors(Model model,
-                             @PageableDefault(sort = {"firstName"},
+    public String getDoctors(Model model, @PageableDefault(sort = {"firstName"},
                                      direction = Sort.Direction.DESC) Pageable pageable) {
         List<Doctor> doctors = doctorService.getAllDoctors(pageable);
         model.addAttribute("doctors", doctors);
@@ -130,43 +129,5 @@ public class DoctorController {
                 .map(doctorService::create)
                 .orElseThrow();
         return "redirect:doctors/registration/finish";
-    }
-
-    /**
-     * Get method returns form for doctor work week.
-     *
-     * @param model model for view
-     * @return view with form to create work week schedule for doctor
-     */
-    @Operation(description = "Gets page with doctor work week form")
-    @ApiResponse(responseCode = "200", description = "returns work week form for doctor")
-    @GetMapping(path = "{id}/work-week")
-    public String getWorkWeekForm(Model model) {
-        model.addAttribute("workWeek", new WorkWeek());
-        return "/doctor/work_week";
-    }
-
-    /**
-     * Post method for create work week for doctor.
-     *
-     * @param workWeekDto form containing work week info
-     * @param id          of doctor
-     * @param errors      in form
-     * @return view with doctor info. If form has errors return previous form
-     */
-    @Operation(description = "Create work week for doctor using doctor id")
-    @ApiResponse(responseCode = "200", description = "Create doctor work week and return page with doctor info")
-    @PostMapping(path = "{id}/work-week")
-    public String postWorkWeek(@ModelAttribute("workWeek") WorkWeekDto workWeekDto,
-                               @PathVariable("id") Long id,
-                               Errors errors) {
-        if (errors.hasErrors()) {
-            return "/doctor/work_week";
-        }
-        Optional.ofNullable(workWeekDto)
-                .map(workWeekMapper::fromDto)
-                .map(workWeek -> doctorService.setWorkWeekToDoctor(workWeek, id))
-                .orElseThrow();
-        return "redirect:/doctors/" + id;
     }
 }

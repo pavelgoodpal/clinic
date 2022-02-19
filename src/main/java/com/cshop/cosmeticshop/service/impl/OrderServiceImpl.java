@@ -52,14 +52,14 @@ public class OrderServiceImpl implements OrderService {
      * @param order Order information
      */
     private void calculateFinishTime(Order order) {
-        order.getTreatmentPeriod().setFinishAt(
+        order.setFinishAt(
                 Optional.of(order)
                         .map(Order::getCart)
                         .map(Cart::getTreatments)
                         .stream()
                         .flatMap(Collection::stream)
                         .map(Treatment::getTreatmentTime)
-                        .reduce(order.getTreatmentPeriod().getStartAt(), LocalDateTime::plusMinutes,
+                        .reduce(order.getStartAt(), LocalDateTime::plusMinutes,
                                 (r, l) -> r)
         );
     }

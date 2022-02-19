@@ -2,12 +2,17 @@ package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
 import com.cshop.cosmeticshop.domain.entity.WorkDay;
+import com.cshop.cosmeticshop.domain.entity.WorkWeek;
+import com.cshop.cosmeticshop.exception.WorkDayNotFoundException;
 import com.cshop.cosmeticshop.repository.WorkDayRepository;
 import com.cshop.cosmeticshop.service.WorkDayService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -76,12 +81,12 @@ public class WorkDayServiceImpl implements WorkDayService {
      * @return true if treatment period lay in work day start and finish period, else return false
      */
     private boolean isTreatmentPeriodLayInWorkTimePeriod(TreatmentPeriod period, WorkDay workDay) {
-        var dayDate = workDay.getDate();
-        var workDayStartAt = workDay.getWorkStartAt();
-        var workDayFinishAt = workDay.getWorkFinishAt();
-        LocalDateTime workStartAtDateTime = LocalDateTime.of(dayDate, workDayStartAt);
-        LocalDateTime workFinishAtDateTime = LocalDateTime.of(dayDate, workDayFinishAt);
-        return !(period.getStartAt().isBefore(workStartAtDateTime) || period.getFinishAt().isAfter(workFinishAtDateTime));
+        LocalDate dayDate = workDay.getDate();
+        LocalDateTime treatmentStart = period.getStartAt();
+        LocalDateTime treatmentFinish = period.getFinishAt();
+        LocalDateTime workStartAt = LocalDateTime.of(dayDate, workDay.getWorkStartAt());
+        LocalDateTime workFinishAt = LocalDateTime.of(dayDate,workDay.getWorkFinishAt());
+        return workStartAt.isBefore(treatmentStart) && workFinishAt.isAfter(treatmentFinish);
     }
 
     /**
@@ -108,6 +113,15 @@ public class WorkDayServiceImpl implements WorkDayService {
         LocalDateTime periodFinishAt = period.getFinishAt();
         LocalDateTime otherPeriodStartAt = otherPeriod.getStartAt();
         LocalDateTime otherPeriodFinishAt = otherPeriod.getFinishAt();
-        return otherPeriodStartAt.isBefore(periodFinishAt) || otherPeriodFinishAt.isBefore(periodStartAt);
+        return otherPeriodStartAt.isBefore(periodFinishAt) && otherPeriodFinishAt.isBefore(periodStartAt);
+    }
+
+    @Override
+    @Transactional
+    public WorkDay getWorkDayByWorkWeekAndDayOfWeek(WorkWeek workWeek, DayOfWeek dayOfWeek) {
+        WorkDay workDay = workDayRepository.findByWorkWeekAndDayOfWeek(workWeek, dayOfWeek)
+                .orElseThrow(() -> new WorkDayNotFoundException("work week not found"));
+        Hibernate.initialize(workDay);
+        return workDay;
     }
 }

@@ -18,16 +18,14 @@ import static javax.persistence.FetchType.*;
 @DiscriminatorValue("doctor")
 public class Doctor extends User {
 
-    @OneToOne
+    @OneToOne(mappedBy = "doctor", fetch = LAZY)
     private WorkWeek workWeek;
 
-    @OneToMany(mappedBy = "doctor",
-            fetch = LAZY,
+    @OneToMany(fetch = LAZY,
             cascade = {MERGE, PERSIST, DETACH, REFRESH})
     private List<WeekendDay> weekendDays;
 
-    @OneToMany(mappedBy = "doctor",
-            fetch = LAZY,
+    @OneToMany(fetch = LAZY,
             cascade = {MERGE, PERSIST, DETACH, REFRESH})
     private List<Order> orders;
 

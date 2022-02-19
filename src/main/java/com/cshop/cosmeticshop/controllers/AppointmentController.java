@@ -4,14 +4,18 @@ import com.cshop.cosmeticshop.domain.dto.CartDto;
 import com.cshop.cosmeticshop.domain.dto.OrderDto;
 import com.cshop.cosmeticshop.mapper.CartMapper;
 import com.cshop.cosmeticshop.mapper.OrderMapper;
+import com.cshop.cosmeticshop.service.DoctorService;
 import com.cshop.cosmeticshop.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -40,6 +44,7 @@ public class AppointmentController {
     private final OrderService orderService;
     private final CartMapper cartMapper;
     private final OrderMapper orderMapper;
+    private final DoctorService doctorService;
 
     /**
      * Get method for start making order.
@@ -49,7 +54,9 @@ public class AppointmentController {
     @Operation(description = "Return order form in view")
     @ApiResponse(responseCode = "200", description = "Form view was returned")
     @GetMapping
-    public String formOrder() {
+    public String getFormOrder(Model model,
+                               @PageableDefault(size = 10) Pageable pageable) {
+        model.addAttribute("doctors", doctorService.getAllDoctors(pageable));
         return "appointment/order_form";
     }
 
@@ -75,7 +82,6 @@ public class AppointmentController {
         }
         var cart = cartMapper.fromDto(cartDto);
         var order = orderMapper.fromDto(orderDto);
-
         orderService.saveOrder(order, cart);
         sessionStatus.setComplete();
         return "appointment/finish";

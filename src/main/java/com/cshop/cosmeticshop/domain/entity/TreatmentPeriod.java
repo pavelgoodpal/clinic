@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Embeddable
 @NoArgsConstructor
 public class TreatmentPeriod extends BaseEntity {
 
@@ -25,7 +24,7 @@ public class TreatmentPeriod extends BaseEntity {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime finishAt;
 
-    @ManyToOne(targetEntity = WorkDay.class)
+    @ManyToOne
     private WorkDay workDay;
 
 }

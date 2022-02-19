@@ -14,6 +14,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
+import java.time.Period;
 
 /**
  * Order entity
@@ -37,8 +38,12 @@ public class Order extends BaseEntity {
 
     private String additionalInfo;
 
-    @Embedded
-    private TreatmentPeriod treatmentPeriod;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime startAt;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime finishAt;
+
 
     @CreatedDate
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)

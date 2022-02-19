@@ -4,6 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import lombok.SneakyThrows;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -48,5 +49,5 @@ public interface DoctorService {
      * @param id of doctor
      * @return set workWeek
      */
-    WorkWeek setWorkWeekToDoctor(WorkWeek workWeek, Long id);
+    WorkWeek setDoctorWorkWeek(WorkWeek workWeek, Long id);
 }

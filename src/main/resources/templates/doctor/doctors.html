@@ -9,8 +9,8 @@
 
 <div th:each="doctor : ${doctors}">
     <a th:href="@{/doctors/{id}(id=${doctor.id})}">
-        <h2><span th:text="${doctor.lastName}"></span></h2>
-    </a>
+        <span th:text="${doctor.lastName}"></span></a>
+
     <p>Speciality: <span th:text="${doctor.speciality}"></span></p>
 </div>
 </body>

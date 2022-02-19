@@ -1,10 +1,7 @@
 package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.*;
-import com.cshop.cosmeticshop.service.DoctorScheduleService;
-import com.cshop.cosmeticshop.service.DoctorService;
-import com.cshop.cosmeticshop.service.WorkDayService;
-import com.cshop.cosmeticshop.service.WorkWeekService;
+import com.cshop.cosmeticshop.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,14 +18,15 @@ import java.util.Map;
 public class DoctorScheduleServiceImpl implements DoctorScheduleService {
 
     private final DoctorService doctorService;
+    private final WeekendDayService weekendDayService;
     private final WorkWeekService workWeekService;
     private final WorkDayService workDayService;
 
     @Override
     public WorkWeek getWorkWeekByDoctorIdAndDate(Long doctorId, LocalDate date) {
         Doctor doctor = doctorService.findById(doctorId);
-        WorkWeek doctorWorkWeek = doctor.getWorkWeek();
-        List<WeekendDay> doctorWeekendDays = doctor.getWeekendDays();
+        WorkWeek doctorWorkWeek = workWeekService.findByDoctor(doctor);
+        List<WeekendDay> doctorWeekendDays = weekendDayService.getDoctorWeekendDays(doctor);
         workWeekService.setDaysOfWeekDate(doctorWorkWeek, date);
         setWeekendDaysToWorkWeek(doctorWeekendDays, doctorWorkWeek);
         return doctorWorkWeek;
@@ -73,11 +71,25 @@ public class DoctorScheduleServiceImpl implements DoctorScheduleService {
     @Override
     public boolean addTreatmentPeriodFromOrderToDayOfWeek(Order order) {
         Long doctorId = order.getDoctor().getId();
-        LocalDateTime dateTimeOfOrder = order.getTreatmentPeriod().getStartAt();
-        LocalDate dateOfOrder = dateTimeOfOrder.toLocalDate();
+        LocalDateTime orderStartAt = order.getStartAt();
+        TreatmentPeriod treatmentPeriod = getTreatmentPeriodFrom(order);
+        LocalDate dateOfOrder = orderStartAt.toLocalDate();
         WorkWeek doctorWorkWeek = getWorkWeekByDoctorIdAndDate(doctorId, dateOfOrder);
         WorkDay doctorWorkDay = workWeekService.getWorkDayBy(doctorWorkWeek, dateOfOrder);
-        return workDayService.addTreatmentPeriod(order.getTreatmentPeriod(), doctorWorkDay);
+        return workDayService.addTreatmentPeriod(treatmentPeriod, doctorWorkDay);
+    }
+
+    /**
+     * Make treatment period from order
+     *
+     * @param order order
+     * @return treatment period
+     */
+    private TreatmentPeriod getTreatmentPeriodFrom(Order order) {
+        TreatmentPeriod treatmentPeriod = new TreatmentPeriod();
+        treatmentPeriod.setStartAt(order.getStartAt());
+        treatmentPeriod.setFinishAt(order.getFinishAt());
+        return treatmentPeriod;
     }
 
 }

@@ -2,6 +2,7 @@ package com.cshop.cosmeticshop.domain.dto;
 
 import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
+import com.cshop.cosmeticshop.domain.entity.WeekendDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
@@ -57,6 +58,8 @@ public class DoctorDto {
     private String speciality;
 
     private List<Order> orders;
+
+    private List<WeekendDay> weekendDays;
 
     private Cart cart;
 }

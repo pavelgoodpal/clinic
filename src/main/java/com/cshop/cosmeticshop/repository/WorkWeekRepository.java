@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.repository;
 
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
@@ -25,10 +26,10 @@ public interface WorkWeekRepository extends JpaRepository<WorkWeek, Long> {
     Optional<WorkWeek> findByActivationCode(UUID activationCode);
 
     /**
-     * Finds WorkWeek by doctor id.
+     * Finds WorkWeek by doctor.
      *
-     * @param doctorId id of Doctor
+     * @param doctor doctor
      * @return optional workWeek
      */
-    Optional<WorkWeek> findByDoctorId(Long doctorId);
+    Optional<WorkWeek> findByDoctor(Doctor doctor);
 }

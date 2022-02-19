@@ -26,7 +26,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Schema(name = "User", description = "Info about user")
-public class UserDto {
+public class    UserDto {
 
     @Schema(description = "User id")
     private Long id;

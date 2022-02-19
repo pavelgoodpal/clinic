@@ -45,6 +45,13 @@
             <input id="startAt" type="datetime-local" th:field="*{startAt}"/>
         </div>
         <br/>
+        <select class="form-control" id="task" name="doctor" th:field="*{doctor}">
+            <option value="">Select doctor</option>
+            <option th:each="doctor : ${doctors}"
+                    th:value="${doctor.id}"
+                    th:text="${doctor.lastName}">
+            </option>
+        </select>
     </div>
 
     <button>Submit</button>

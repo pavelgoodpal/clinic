@@ -26,7 +26,7 @@ public class WorkWeekAspect {
     /**
      * Pointcut for setWorkWeekToDoctor method
      */
-    @Pointcut("execution(* com.cshop.cosmeticshop.service.DoctorService.setWorkWeekToDoctor(..))")
+    @Pointcut("execution(* com.cshop.cosmeticshop.service.DoctorService.setDoctorWorkWeek(..))")
     public void setWorkWeekToDoctorPointCut() {
     }
 

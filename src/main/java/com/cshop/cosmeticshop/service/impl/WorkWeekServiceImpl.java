@@ -1,14 +1,18 @@
 package com.cshop.cosmeticshop.service.impl;
 
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
 import com.cshop.cosmeticshop.exception.WorkWeekNotFoundException;
 import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.repository.WorkWeekRepository;
+import com.cshop.cosmeticshop.service.WorkDayService;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -24,6 +28,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class WorkWeekServiceImpl implements WorkWeekService {
 
+    private final WorkDayService workDayService;
     private final WorkWeekRepository workWeekRepository;
     private final WorkWeekMapper workWeekMapper;
 
@@ -64,15 +69,17 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     }
 
     @Override
-    public WorkWeek findByDoctorId(Long doctorId) {
-        return workWeekRepository.findByDoctorId(doctorId)
+    @Transactional
+    public WorkWeek findByDoctor(Doctor doctor) {
+        WorkWeek workWeek = workWeekRepository.findByDoctor(doctor)
                 .orElseThrow(() -> new WorkWeekNotFoundException("Week not found"));
+        return workWeek;
     }
 
     @Override
     public void setDaysOfWeekDate(WorkWeek workWeek, LocalDate date) {
         workWeek.setDate(date);
-        workWeek.getDaysOfWeek().forEach(this::setDayOfWeekDate);
+        workWeek.getDaysOfWeek().forEach((dayOfWeek, workDay) -> this.setDayOfWeekDate(dayOfWeek, workDay, date));
     }
 
     /**
@@ -81,9 +88,8 @@ public class WorkWeekServiceImpl implements WorkWeekService {
      * @param dayOfWeek day of week enum
      * @param workDay   doctor work day
      */
-    private void setDayOfWeekDate(DayOfWeek dayOfWeek, WorkDay workDay) {
-        LocalDate dateOfDay = getWorkWeekDateFromWorkDay(workDay);
-        LocalDate dayOfWeekDate = findDayOfWeekDate(dayOfWeek, dateOfDay);
+    private void setDayOfWeekDate(DayOfWeek dayOfWeek, WorkDay workDay, LocalDate date) {
+        LocalDate dayOfWeekDate = findDayOfWeekDate(dayOfWeek, date);
         workDay.setDate(dayOfWeekDate);
     }
 
@@ -124,19 +130,10 @@ public class WorkWeekServiceImpl implements WorkWeekService {
         return dayOfMonth - numberDayOfWeek + 1;
     }
 
-    /**
-     * Get work week date.
-     *
-     * @param workDay doctor work day
-     * @return date from doctor work week
-     */
-    private LocalDate getWorkWeekDateFromWorkDay(WorkDay workDay) {
-        return workDay.getWorkWeek().getDate();
-    }
 
     @Override
     public WorkDay getWorkDayBy(WorkWeek workWeek, LocalDate date) {
         DayOfWeek dayOfWeek = date.getDayOfWeek();
-        return workWeek.getDaysOfWeek().get(dayOfWeek);
+        return workDayService.getWorkDayByWorkWeekAndDayOfWeek(workWeek, dayOfWeek);
     }
 }

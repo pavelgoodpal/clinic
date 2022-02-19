@@ -1,10 +1,8 @@
 package com.cshop.cosmeticshop.service;
 
-import com.cshop.cosmeticshop.domain.entity.Order;
-import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
-import lombok.SneakyThrows;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -50,12 +48,12 @@ public interface WorkWeekService {
     WorkWeek activate(UUID activationCode);
 
     /**
-     * Find WorkWeek by Doctor id.
+     * Find WorkWeek by Doctor.
      *
-     * @param doctorId id of doctor
+     * @param doctor doctor
      * @return doctor work week
      */
-    WorkWeek findByDoctorId(Long doctorId);
+    WorkWeek findByDoctor(Doctor doctor);
 
     /**
      * Set days of week properties by date.

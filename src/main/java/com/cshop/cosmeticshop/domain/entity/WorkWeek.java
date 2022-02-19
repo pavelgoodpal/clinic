@@ -1,6 +1,7 @@
 package com.cshop.cosmeticshop.domain.entity;
 
 import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
+import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +32,7 @@ import static javax.persistence.FetchType.*;
 @Table(name = "work_weeks")
 public class WorkWeek extends BaseEntity {
 
-    @OneToMany(fetch = LAZY,
+    @OneToMany(fetch = EAGER,
             cascade = {DETACH, MERGE, REFRESH, PERSIST})
     @JoinTable(name = "day_of_week_mapping",
             joinColumns = {@JoinColumn(name = "work_week_id", referencedColumnName = "id")},

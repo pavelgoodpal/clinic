@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/doctors/{doctorId}/work-week(doctorId=${doctorId})}" th:object="${workWeekForm}">
+
+    <div th:each="dayOfWeek : ${workWeekForm.getDaysOfWeek()}">
+
+        <span th:text="${dayOfWeek.key.toString()}">Day of week</span>
+        <br/>
+        <label for="workStartAt">Start at:</label>
+        <input id="workStartAt" th:type="time" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workStartAt}">
+        <br/>
+        <label for="workFinishAt">Finish at</label>
+        <input id="workFinishAt" th:type="time" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workFinishAt}">
+        <br/>
+        <label for="isWorkDay">work day</label>
+        <input id="isWorkDay" th:type="checkbox" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workDay}">
+
+    </div>
+
+    <button>Submit</button>
+
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+</form>
+</body>
+</html>

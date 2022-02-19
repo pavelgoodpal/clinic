@@ -1,6 +1,8 @@
 package com.cshop.cosmeticshop.domain.dto;
 
 import com.cshop.cosmeticshop.domain.entity.Cart;
+import com.cshop.cosmeticshop.domain.entity.Doctor;
+import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
 import com.cshop.cosmeticshop.domain.entity.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -41,12 +43,10 @@ public class OrderDto {
     @Schema(description = "Additional info")
     private String additionalInfo;
 
-    @Schema(description = "When treatments will be started")
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime startAt;
 
-    @Schema(description = "When treatments will be finished")
-    @DateTimeFormat(iso= DateTimeFormat.ISO.DATE_TIME)
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime finishAt;
 
     @Schema(description = "Order creation time")
@@ -62,4 +62,6 @@ public class OrderDto {
 
     @Schema(description = "User who made the order")
     private User user;
+
+    private Doctor doctor;
 }
