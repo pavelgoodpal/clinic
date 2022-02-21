@@ -3,7 +3,7 @@ package com.cshop.cosmeticshop.service.impl;
 import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.Treatment;
-import com.cshop.cosmeticshop.exception.TimePeriodIsBusyException;
+import com.cshop.cosmeticshop.exception.DoctorTimePeriodIsBusyException;
 import com.cshop.cosmeticshop.repository.OrderRepository;
 import com.cshop.cosmeticshop.service.*;
 import lombok.RequiredArgsConstructor;
@@ -31,7 +31,6 @@ public class OrderServiceImpl implements OrderService {
 
 
     @Override
-    @SneakyThrows
     @Transactional
     public Order saveOrder(Order order, Cart cart) {
         var updatedCart = cartService.updateToNoActiveCart(cart);
@@ -42,7 +41,8 @@ public class OrderServiceImpl implements OrderService {
             outBoxService.buildOrderEmail(savedOrder);
             return savedOrder;
         } else {
-            throw new TimePeriodIsBusyException("Doctor is busy at this time");
+            throw new DoctorTimePeriodIsBusyException("Doctor " +
+                    order.getDoctor().getLastName() +" is busy at this time");
         }
     }
 

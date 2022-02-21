@@ -36,7 +36,7 @@ public class WorkWeek extends BaseEntity {
             cascade = {DETACH, MERGE, REFRESH, PERSIST})
     @JoinTable(name = "day_of_week_mapping",
             joinColumns = {@JoinColumn(name = "work_week_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "day_id", referencedColumnName = "id")})
+            inverseJoinColumns = {@JoinColumn(name = "work_day_id", referencedColumnName = "id")})
     @MapKeyEnumerated(EnumType.STRING)
     private Map<DayOfWeek, WorkDay> daysOfWeek = makeDaysOfWeek();
 

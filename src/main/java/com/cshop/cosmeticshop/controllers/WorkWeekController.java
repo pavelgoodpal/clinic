@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -45,7 +46,7 @@ public class WorkWeekController {
     @GetMapping(path = "/activation-code/{uuid}")
     public String activate(@PathVariable("uuid") UUID activationCode) {
         workWeekService.activate(activationCode);
-        return "/work_week/activate";
+        return "/doctor/schedule/work_week/activate";
     }
 
     /**
@@ -74,28 +75,20 @@ public class WorkWeekController {
      *
      * @param id          of updated work week
      * @param newWorkWeek form with updated fields
-     * @return view of successful update
+     * @return doctor of work week page if form without errors, else returns form page to update fields
      */
     @Operation(description = "Update work week using its id")
     @ApiResponse(responseCode = "200", description = "returns updated page")
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_DOCTOR')")
     @PostMapping("/{id}/update")
-    public String update(@PathVariable("id") Long id, @ModelAttribute("newWorkWeek") WorkWeek newWorkWeek) {
-        Optional.of(newWorkWeek)
+    public String update(@PathVariable("id") Long id,
+                         @ModelAttribute("newWorkWeek") WorkWeek newWorkWeek, Errors errors) {
+        if (errors.hasErrors()) {
+            return "doctor/schedule/work_week/update";
+        }
+        WorkWeek updatedWorkWeek = Optional.of(newWorkWeek)
                 .map(workWeek -> workWeekService.update(id, workWeek))
                 .orElseThrow();
-        return "redirect:/work-weeks/updated";
-    }
-
-    /**
-     * Get method returning successful work week update view.
-     *
-     * @return successful work week update view
-     */
-    @Operation(description = "Returns finish update page")
-    @ApiResponse(responseCode = "200", description = "returns finish update page")
-    @GetMapping("/updated")
-    public String finishUpdate() {
-        return "/work_week/updated";
+        return "redirect:/doctors/" + updatedWorkWeek.getDoctor().getId();
     }
 }

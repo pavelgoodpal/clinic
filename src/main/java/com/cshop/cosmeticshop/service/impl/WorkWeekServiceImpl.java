@@ -100,11 +100,8 @@ public class WorkWeekServiceImpl implements WorkWeekService {
      * @return day of week date
      */
     private LocalDate findDayOfWeekDate(DayOfWeek dayOfWeek, LocalDate date) {
-        int firstDayOfWeekInDayOfMonth = getFirstDayOfWeekInDayOfMonth(date);
-        int dayOfMonth = firstDayOfWeekInDayOfMonth + dayOfWeekNumber(dayOfWeek) - 1;
-        int month = date.getMonthValue();
-        int year = date.getYear();
-        return LocalDate.of(year, month, dayOfMonth);
+        LocalDate firstDayOfWeekInDayOfMonth = getFirstDayOfWeekInDayOfMonth(date);
+        return firstDayOfWeekInDayOfMonth.plusDays(dayOfWeekNumber(dayOfWeek)-1);
     }
 
     /**
@@ -113,8 +110,8 @@ public class WorkWeekServiceImpl implements WorkWeekService {
      * @param dayOfWeek day of week
      * @return number day of week
      */
-    private int dayOfWeekNumber(DayOfWeek dayOfWeek) {
-        return dayOfWeek.getValue();
+    private Long dayOfWeekNumber(DayOfWeek dayOfWeek) {
+        return (long) dayOfWeek.getValue();
     }
 
     /**
@@ -123,10 +120,9 @@ public class WorkWeekServiceImpl implements WorkWeekService {
      * @param date another day date
      * @return day of month number
      */
-    private int getFirstDayOfWeekInDayOfMonth(LocalDate date) {
-        int dayOfMonth = date.getDayOfMonth();
+    private LocalDate getFirstDayOfWeekInDayOfMonth(LocalDate date) {
         int numberDayOfWeek = date.getDayOfWeek().getValue();
-        return dayOfMonth - numberDayOfWeek + 1;
+        return date.minusDays(numberDayOfWeek-1);
     }
 
 

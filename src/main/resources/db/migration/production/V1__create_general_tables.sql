@@ -52,8 +52,11 @@ create table orders
     phone_number       varchar(255) null,
     start_at           datetime(6)  null,
     cart_id            bigint       null,
+    doctor_id          bigint       null,
     constraint FK594fgx8wpklcf3t41jq3grhlh
-        foreign key (cart_id) references carts (id)
+        foreign key (cart_id) references carts (id),
+    constraint fr_order_doctor_id
+        foreign key (doctor_id) references users (id)
 );
 
 create table treatment_cart
@@ -75,17 +78,6 @@ create table order_user
         foreign key (user_id) references users (id),
     constraint FKm7muior2ynl30n8qh9yqembso
         foreign key (order_id) references orders (id)
-);
-
-create table cart_user
-(
-    user_id bigint null,
-    cart_id bigint not null
-        primary key,
-    constraint FK7i2mrarb8tdwxlpg12h8bhw7b
-        foreign key (cart_id) references carts (id),
-    constraint FKqya4aa7ab1jpi9mag9u40m65f
-        foreign key (user_id) references users (id)
 );
 
 insert into hibernate_sequence (next_val)

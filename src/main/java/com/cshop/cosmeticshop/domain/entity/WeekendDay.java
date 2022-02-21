@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@Table(name = "weeknd_days")
+@Table(name = "weekend_days")
 @NoArgsConstructor
 public class WeekendDay extends BaseEntity {
 
