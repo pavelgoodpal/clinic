@@ -48,7 +48,7 @@ public class WorkDay extends BaseEntity {
     private LocalDate date;
 
     @ManyToOne(targetEntity = WorkWeek.class)
-    @JoinTable(name = "day_of_week_mapping", joinColumns = @JoinColumn(name = "day_id"))
+    @JoinTable(name = "day_of_week_mapping", joinColumns = @JoinColumn(name = "work_day_id"))
     private WorkWeek workWeek;
 
     public boolean addTreatmentPeriod(TreatmentPeriod period) {

@@ -1,13 +1,13 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/cosmetic_shop?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false
-    username: 
+    username:
     password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: false
     properties:
       hibernate:

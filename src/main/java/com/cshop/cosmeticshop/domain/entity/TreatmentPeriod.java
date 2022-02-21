@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @NoArgsConstructor
-@Table(name = "treatmen_periods")
+@Table(name = "treatment_periods")
 public class TreatmentPeriod extends BaseEntity {
 
     @NotNull

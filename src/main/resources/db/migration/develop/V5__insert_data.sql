@@ -3,4 +3,4 @@ values (3, 'pd271828@gmail.com', 'Pavel', 'Deshevov', '$2a$12$zYALA0.9FzUETlAMcW
         '89880222745', 'ADMIN', 'ACTIVE', 'user');
 
 insert into treatments (id, description, name, price, treatment_time)
-values (1, 'really cool service', 'cool service', 2000, 6);
+values (1, 'really cool service', 'cool service', 2000, 20);
