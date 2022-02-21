@@ -58,10 +58,16 @@ public class TextBuilderServiceImpl implements TextBuilderService {
                 "http://localhost:8080/work-weeks/activation-code/" + workWeek.getActivationCode();
     }
 
+    /**
+     * Make text from work day.
+     *
+     * @param workDay work day
+     * @return string information containing in work day.
+     */
     private String makeTextFromWorkDay(WorkDay workDay) {
-        String text = getLowCaseDayOfWeek(workDay) + "\n";
+        String text = makeLowCaseDayOfWeek(workDay) + "\n";
         if (workDay.isWorkDay()) {
-            text += "start at: " + workDay.getWorkStartAt()  + "\n";
+            text += "start at: " + workDay.getWorkStartAt() + "\n";
             text += "finish at: " + workDay.getWorkFinishAt() + "\n";
         } else {
             text += "Is not work day\n";
@@ -69,7 +75,13 @@ public class TextBuilderServiceImpl implements TextBuilderService {
         return text;
     }
 
-    private String getLowCaseDayOfWeek(WorkDay workDay) {
+    /**
+     * Make low case day of week from work day
+     *
+     * @param workDay day of week
+     * @return string day of week
+     */
+    private String makeLowCaseDayOfWeek(WorkDay workDay) {
         return workDay.getDayOfWeek().toString().toLowerCase(Locale.ROOT);
     }
 } 
