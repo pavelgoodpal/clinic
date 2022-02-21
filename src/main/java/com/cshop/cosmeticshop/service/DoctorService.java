@@ -1,6 +1,7 @@
 package com.cshop.cosmeticshop.service;
 
 import com.cshop.cosmeticshop.domain.entity.Doctor;
+import com.cshop.cosmeticshop.domain.entity.WeekendDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import lombok.SneakyThrows;
@@ -50,4 +51,14 @@ public interface DoctorService {
      * @return set workWeek
      */
     WorkWeek setDoctorWorkWeek(WorkWeek workWeek, Long id);
+
+    /**
+     * Set weekend day to doctor.
+     *
+     * @param doctorId doctor id
+     * @param weekendDay doctor weekend day for setting
+     * @return set weekend day
+     */
+    WeekendDay setDoctorWeekendDay(Long doctorId, WeekendDay weekendDay);
+
 }

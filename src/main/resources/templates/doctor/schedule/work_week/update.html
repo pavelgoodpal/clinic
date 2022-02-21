@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+</head>
+<body>
+<form method="post"
+      th:action="@{/work-weeks/{workWeekId}/update (workWeekId=${oldWorkWeek.id})}"
+      th:object="${newWorkWeek}">
+
+    <div th:each="dayOfWeek : ${oldWorkWeek.daysOfWeek}">
+        <h3><span th:text="${dayOfWeek.key.toString()}">Day of week</span><br/></h3>
+        <div th:if="${dayOfWeek.value.isWorkDay()}">
+            Start at <span th:text="${dayOfWeek.value.workStartAt}">work start at </span> <br/>
+            Finish at <span th:text="${dayOfWeek.value.workFinishAt}">work finish at</span> <br/>
+        </div>
+        <div th:if="${!dayOfWeek.value.isWorkDay()}">
+            <span>Not work day</span> <br/>
+        </div>
+        <br/>
+        <div>
+            <label for="newWorkDayStartAt">Set new time for start work day</label>
+            <input id="newWorkDayStartAt" type="time" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workStartAt}">
+            <br/>
+            <label for="newWorkDayFinishAt">Set new time for finish work day</label>
+            <input id="newWorkDayFinishAt" type="time" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workFinishAt}">
+            <br/>
+            <label for="isWorkDay">Work day</label>
+            <input id="isWorkDay" type="checkbox" th:field="*{daysOfWeek[__${dayOfWeek.key}__].workDay}">
+        </div>
+        <br/>
+    </div>
+
+    <button>Update</button>
+
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
+</form>
+</body>
+</html>

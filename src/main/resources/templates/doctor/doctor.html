@@ -10,5 +10,6 @@ First name: <span th:text="${doctor.firstName}">First name</span><br/>
 Last name: <span th:text="${doctor.lastName}">Last name</span><br/>
 Speciality: <span th:text="${doctor.speciality}">Speciality</span><br/>
 <a th:href="@{/doctors/{id}/work-week/create (id=${doctor.id})}">Create Schedule</a>
+<a th:href="@{/doctors/{id}/work-week (id=${doctor.id})}">Show doctor work week</a>
 </body>
 </html>

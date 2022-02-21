@@ -1,12 +1,14 @@
 package com.cshop.cosmeticshop.service.impl;
 
 import com.cshop.cosmeticshop.domain.entity.Doctor;
+import com.cshop.cosmeticshop.domain.entity.WeekendDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.domain.entity.constants.Status;
 import com.cshop.cosmeticshop.exception.DoctorNotFoundException;
 import com.cshop.cosmeticshop.repository.DoctorRepository;
 import com.cshop.cosmeticshop.service.DoctorService;
+import com.cshop.cosmeticshop.service.WeekendDayService;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -26,9 +28,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DoctorServiceImpl implements DoctorService {
 
-    private final DoctorRepository doctorRepository;
     private final PasswordEncoder encoder;
+    private final DoctorRepository doctorRepository;
     private final WorkWeekService workWeekService;
+    private final WeekendDayService weekendDayService;
 
     @Override
     public Doctor create(Doctor doctor) {
@@ -50,13 +53,21 @@ public class DoctorServiceImpl implements DoctorService {
         return doctorRepository.findById(id).orElseThrow(() -> new DoctorNotFoundException("Doctor not found " + id));
     }
 
+    @Override
     @SneakyThrows
     @Transactional
-    @Override
     public WorkWeek setDoctorWorkWeek(WorkWeek workWeek, Long id) {
-        Doctor doctor = doctorRepository.findById(id)
-                .orElseThrow(() -> new DoctorNotFoundException("Doctor not found " + id));
+        Doctor doctor = findById(id);
         workWeek.setDoctor(doctor);
         return workWeekService.create(workWeek);
     }
+
+    @Override
+    @Transactional
+    public WeekendDay setDoctorWeekendDay(Long doctorId, WeekendDay weekendDay) {
+        Doctor doctor = findById(doctorId);
+        weekendDay.setDoctor(doctor);
+        return weekendDayService.create(weekendDay);
+    }
+
 }

@@ -6,8 +6,16 @@
     <title>Schedule</title>
 </head>
 <body>
-<form method="post" >
+<form method="post" th:action="@{doctros/{doctorId}/weekend-days(doctorId=${doctorId})}"  th:object="${weekendDay}">
+    <label for="weekendDayName">Weekend day name: </label>
+    <input id="weekendDayName" type="text" th:field="*{name}">
+    <br/>
+    <label for="weekendDayDate">Weekend date: </label>
+    <input id="weekendDayDate" type="date" th:field="*{date}">
 
+    <button>Submit</button>
+
+    <input th:type='hidden' th:value='${_csrf.token}' th:name='${_csrf.parameterName}'/>
 </form>
 
 </body>

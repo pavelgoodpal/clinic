@@ -4,6 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.Doctor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ public class WeekendDayDto {
 
     private String name;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate date;
 
     private Doctor doctor;

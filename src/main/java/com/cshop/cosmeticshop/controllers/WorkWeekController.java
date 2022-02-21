@@ -1,6 +1,8 @@
 package com.cshop.cosmeticshop.controllers;
 
+import com.cshop.cosmeticshop.domain.dto.WorkWeekDto;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
+import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -20,13 +23,14 @@ import java.util.UUID;
  */
 @Controller
 @RequiredArgsConstructor
-@PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
+@PreAuthorize("hasAnyAuthority('ROLE_ADMIN')")
 @RequestMapping("work-weeks")
 @Tag(name = "WorkWeek", description = "Controller manages doctor work week")
 @ApiResponse(responseCode = "500", description = "Internal error")
 @ApiResponse(responseCode = "400", description = "Validation failed")
 public class WorkWeekController {
 
+    private final WorkWeekMapper workWeekMapper;
     private final WorkWeekService workWeekService;
 
     /**
@@ -37,6 +41,7 @@ public class WorkWeekController {
      */
     @Operation(description = "Activate doctor work week")
     @ApiResponse(responseCode = "200", description = "returns activation work week page")
+    @PreAuthorize("permitAll()")
     @GetMapping(path = "/activation-code/{uuid}")
     public String activate(@PathVariable("uuid") UUID activationCode) {
         workWeekService.activate(activationCode);
@@ -52,11 +57,16 @@ public class WorkWeekController {
      */
     @Operation(description = "Get doctor work week in page by work week id")
     @ApiResponse(responseCode = "200", description = "Returns work week info")
-    @GetMapping("/{id}")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_DOCTOR')")
+    @GetMapping("/{id}/update")
     public String getById(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("oldWorkWeek", workWeekService.get(id));
-        model.addAttribute("newWorkWeek", new WorkWeek());
-        return "work_week/work_week";
+        Optional.of(id)
+                .map(workWeekService::get)
+                .map(workWeekMapper::toDto)
+                .map(workWeekDto -> model.addAttribute("oldWorkWeek", workWeekDto))
+                .orElseThrow();
+        model.addAttribute("newWorkWeek", new WorkWeekDto());
+        return "doctor/schedule/work_week/update";
     }
 
     /**
@@ -68,9 +78,12 @@ public class WorkWeekController {
      */
     @Operation(description = "Update work week using its id")
     @ApiResponse(responseCode = "200", description = "returns updated page")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_DOCTOR')")
     @PostMapping("/{id}/update")
     public String update(@PathVariable("id") Long id, @ModelAttribute("newWorkWeek") WorkWeek newWorkWeek) {
-        workWeekService.update(id, newWorkWeek);
+        Optional.of(newWorkWeek)
+                .map(workWeek -> workWeekService.update(id, workWeek))
+                .orElseThrow();
         return "redirect:/work-weeks/updated";
     }
 
@@ -85,5 +98,4 @@ public class WorkWeekController {
     public String finishUpdate() {
         return "/work_week/updated";
     }
-
 }

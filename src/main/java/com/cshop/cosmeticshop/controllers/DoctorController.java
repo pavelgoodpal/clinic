@@ -1,11 +1,8 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.dto.DoctorDto;
-import com.cshop.cosmeticshop.domain.dto.WorkWeekDto;
 import com.cshop.cosmeticshop.domain.entity.Doctor;
-import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.mapper.DoctorMapper;
-import com.cshop.cosmeticshop.mapper.WorkWeekMapper;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.DoctorService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -45,7 +42,6 @@ public class DoctorController {
 
     private final DoctorMapper doctorMapper;
     private final DoctorService doctorService;
-    private final WorkWeekMapper workWeekMapper;
     private final CurrentUserService currentUserService;
 
     /**
@@ -83,7 +79,7 @@ public class DoctorController {
      */
     @Operation(description = "Returns page with doctors")
     @ApiResponse(responseCode = "200", description = "Returns page with doctors")
-    @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
+    @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN', 'ROLE_CUSTOMER')")
     @GetMapping
     public String getDoctors(Model model, @PageableDefault(sort = {"firstName"},
                                      direction = Sort.Direction.DESC) Pageable pageable) {

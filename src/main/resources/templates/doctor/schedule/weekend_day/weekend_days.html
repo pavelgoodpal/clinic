@@ -1,0 +1,18 @@
+!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule</title>
+</head>
+<body>
+<div th:each="weekendDay : ${weekendDays}">
+
+    <span th:text="${weekendDay.name}">Weekend day name</span><br/>
+    <span th:text="${weekendDay.date}">Weekend day date</span><br/>
+    <br/>
+    <br/>
+
+</div>
+</body>
+</html>

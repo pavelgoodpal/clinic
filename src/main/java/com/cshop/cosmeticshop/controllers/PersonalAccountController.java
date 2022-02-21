@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("personal-account")
-@PreAuthorize("hasAnyAuthority('ROLE_ADMIN', 'ROLE_USER', 'ROLE_DOCTOR')")
+@PreAuthorize("permitAll()")
 public class PersonalAccountController {
 
     private final CurrentUserService currentUserService;

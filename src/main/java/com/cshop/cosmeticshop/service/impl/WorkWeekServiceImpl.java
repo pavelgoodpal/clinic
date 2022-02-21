@@ -10,7 +10,6 @@ import com.cshop.cosmeticshop.repository.WorkWeekRepository;
 import com.cshop.cosmeticshop.service.WorkDayService;
 import com.cshop.cosmeticshop.service.WorkWeekService;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.Hibernate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

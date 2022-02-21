@@ -3,6 +3,7 @@ package com.cshop.cosmeticshop.domain.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -18,6 +19,7 @@ public class WeekendDay extends BaseEntity {
 
     private String name;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate date;
 
     @ManyToOne
