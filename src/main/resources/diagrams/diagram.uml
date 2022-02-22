@@ -1,0 +1,2303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Project/CosmeticShop</OriginalElement>
+  <nodes>
+    <node x="5970.901561832555" y="3478.7714020136646">com.cshop.cosmeticshop.domain.entity.constants.Status</node>
+    <node x="7089.266293027343" y="2998.1604495702686">com.cshop.cosmeticshop.domain.entity.TreatmentPeriod</node>
+    <node x="6773.55687765011" y="354.3380190742164">com.cshop.cosmeticshop.controllers.DoctorController</node>
+    <node x="5597.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.WorkWeekNotFoundException</node>
+    <node x="4304.0" y="4067.0770594084825">com.cshop.cosmeticshop.CosmeticShopApplication</node>
+    <node x="6877.783442482578" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl</node>
+    <node x="4770.692929907751" y="2618.015237509301">com.cshop.cosmeticshop.repository.UserRepository</node>
+    <node x="6752.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.CreatingWorkWeekException</node>
+    <node x="9695.397534655138" y="1320.491507464018">com.cshop.cosmeticshop.job.EmailJob</node>
+    <node x="6436.692929907751" y="2630.812174143799">com.cshop.cosmeticshop.repository.OrderRepository</node>
+    <node x="4394.886807025946" y="354.3380190742164">com.cshop.cosmeticshop.controllers.PersonalAccountController</node>
+    <node x="3242.1290722421945" y="1456.5641361708551">com.cshop.cosmeticshop.service.impl.EmailServiceImpl</node>
+    <node x="4233.8790722421945" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.TreatmentServiceImpl</node>
+    <node x="9588.897534655138" y="1126.2295601164792">com.cshop.cosmeticshop.security.CustomPermissionEvaluator</node>
+    <node x="5284.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.DoctorTimePeriodIsBusyException</node>
+    <node x="5893.692929907751" y="2641.812174143799">com.cshop.cosmeticshop.repository.WorkDayRepository</node>
+    <node x="10331.284540304856" y="2102.609153236555">com.cshop.cosmeticshop.mapper.CartMapper</node>
+    <node x="9664.397534655138" y="1522.3976185976553">com.cshop.cosmeticshop.aspect.OrderAspect</node>
+    <node x="7372.979977846242" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.UserServiceImpl</node>
+    <node x="4333.692929907751" y="2618.015237509301">com.cshop.cosmeticshop.repository.CartRepository</node>
+    <node x="6035.704229420805" y="1010.4724624141768">com.cshop.cosmeticshop.service.WorkDayService</node>
+    <node x="10331.284540304856" y="2310.54727450892">com.cshop.cosmeticshop.mapper.CartMapperImpl</node>
+    <node x="5489.692929907751" y="2630.812174143799">com.cshop.cosmeticshop.repository.WeekendDayRepository</node>
+    <node x="5647.721842338029" y="354.3380190742164">com.cshop.cosmeticshop.controllers.AppointmentController</node>
+    <node x="9543.388601390754" y="3433.761096650288">com.cshop.cosmeticshop.domain.dto.DoctorDto</node>
+    <node x="5527.693836391583" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.WeekendDayServiceImpl</node>
+    <node x="2950.1484383823276" y="1007.0540377919854">com.cshop.cosmeticshop.service.OrderService</node>
+    <node x="4978.241270374185" y="160.0">com.cshop.cosmeticshop.configuration.PersistenceConfig</node>
+    <node x="6470.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.WorkDayNotFoundException</node>
+    <node x="6599.970098295973" y="2998.1604495702686">com.cshop.cosmeticshop.domain.entity.WorkDay</node>
+    <node x="10040.341037479997" y="2310.54727450892">com.cshop.cosmeticshop.mapper.DoctorMapperImpl</node>
+    <node x="6227.673903564602" y="3467.2714020136646">com.cshop.cosmeticshop.domain.entity.constants.Permission</node>
+    <node x="5537.00769405714" y="1010.4724624141767">com.cshop.cosmeticshop.service.WeekendDayService</node>
+    <node x="6441.278532546083" y="354.3380190742164">com.cshop.cosmeticshop.controllers.WorkWeekController</node>
+    <node x="6588.40076478447" y="1010.4724624141767">com.cshop.cosmeticshop.service.CurrentUserService</node>
+    <node x="8396.313215485021" y="3423.1043737810714">com.cshop.cosmeticshop.domain.dto.OrderDto</node>
+    <node x="8444.934648520055" y="2310.547274508921">com.cshop.cosmeticshop.mapper.UserMapperImpl</node>
+    <node x="7033.0" y="4067.0770594084825">com.cshop.cosmeticshop.repository.TreatmentPeriodRepository</node>
+    <node x="4581.1290722421945" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl</node>
+    <node x="3261.9429299077515" y="1007.0540377919854">com.cshop.cosmeticshop.service.EmailService</node>
+    <node x="5814.87752128925" y="1998.3395532658512">com.cshop.cosmeticshop.security.UserDetailsServiceImpl</node>
+    <node x="3856.3967351763813" y="3661.8302092973654">com.cshop.cosmeticshop.domain.entity.constants.EventType</node>
+    <node x="6184.673903564602" y="2998.1604495702686">com.cshop.cosmeticshop.domain.entity.Doctor</node>
+    <node x="5837.377708833232" y="2997.0783646980444">com.cshop.cosmeticshop.domain.entity.User</node>
+    <node x="7571.0" y="4067.0770594084825">com.cshop.cosmeticshop.configuration.MethodSecurityConfig</node>
+    <node x="9682.397534655138" y="2310.547274508921">com.cshop.cosmeticshop.mapper.WeekendDayMapperImpl</node>
+    <node x="7715.490370875463" y="955.4724624141767">com.cshop.cosmeticshop.service.DoctorService</node>
+    <node x="5013.785319370492" y="3565.757415899695">com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus</node>
+    <node x="5890.0" y="4067.0770594084825">com.cshop.cosmeticshop.CosmeticShopApplicationTests</node>
+    <node x="9051.145067985715" y="2320.402393793215">com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl</node>
+    <node x="5158.3790722421945" y="1998.3395532658512">com.cshop.cosmeticshop.aspect.WorkWeekAspect</node>
+    <node x="5515.081514101862" y="2997.0783646980444">com.cshop.cosmeticshop.domain.entity.WeekendDay</node>
+    <node x="4721.165152129974" y="354.3380190742164">com.cshop.cosmeticshop.controllers.DoctorWorkWeekController</node>
+    <node x="8711.222588762736" y="2310.547274508921">com.cshop.cosmeticshop.mapper.TreatmentMapperImpl</node>
+    <node x="8711.222588762736" y="2102.609153236555">com.cshop.cosmeticshop.mapper.TreatmentMapper</node>
+    <node x="3994.6084619219187" y="354.3380190742164">com.cshop.cosmeticshop.controllers.TreatmentController</node>
+    <node x="9410.271301320427" y="2310.547274508921">com.cshop.cosmeticshop.mapper.OrderMapperImpl</node>
+    <node x="3314.0" y="4067.0770594084825">com.cshop.cosmeticshop.controllers.ExceptionHandlingController</node>
+    <node x="6887.097300148134" y="966.4724624141767">com.cshop.cosmeticshop.service.OutBoxService</node>
+    <node x="5217.443497234001" y="354.3380190742164">com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController</node>
+    <node x="2922.0" y="4067.0770594084825">com.cshop.cosmeticshop.configuration.SecurityConfiguration</node>
+    <node x="3933.6290722421945" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.CartServiceImpl</node>
+    <node x="2590.0" y="1456.5641361708551">com.cshop.cosmeticshop.service.impl.AdminServiceImpl</node>
+    <node x="9307.449764338453" y="3433.761096650287">com.cshop.cosmeticshop.domain.dto.TreatmentDto</node>
+    <node x="8444.934648520055" y="2102.609153236555">com.cshop.cosmeticshop.mapper.UserMapper</node>
+    <node x="9039.51052900542" y="2091.609153236555">com.cshop.cosmeticshop.mapper.WorkWeekMapper</node>
+    <node x="6183.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.TreatmentNotFoundException</node>
+    <node x="5013.785319370492" y="2997.0783646980444">com.cshop.cosmeticshop.domain.entity.WorkWeek</node>
+    <node x="4622.489124639122" y="3395.6223708055013">com.cshop.cosmeticshop.domain.entity.constants.CartStatus</node>
+    <node x="3550.6929299077515" y="1007.0540377919854">com.cshop.cosmeticshop.service.TextBuilderService</node>
+    <node x="7706.176513209906" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.DoctorServiceImpl</node>
+    <node x="10040.341037479997" y="2102.609153236555">com.cshop.cosmeticshop.mapper.DoctorMapper</node>
+    <node x="4930.0" y="4067.0770594084825">com.cshop.cosmeticshop.configuration.WebConfig</node>
+    <node x="7448.562487758712" y="2998.1604495702686">com.cshop.cosmeticshop.domain.entity.Order</node>
+    <node x="5131.8790722421945" y="955.0067935028336">com.cshop.cosmeticshop.service.WorkWeekService</node>
+    <node x="4565.0" y="4067.0770594084825">com.cshop.cosmeticshop.validation.annotation.PhoneNumberValidator</node>
+    <node x="5785.87752128925" y="2160.513690979086">com.cshop.cosmeticshop.security.UserPrincipal</node>
+    <node x="6984.247266684193" y="2618.312174143799">com.cshop.cosmeticshop.repository.DoctorRepository</node>
+    <node x="3541.3790722421945" y="1456.5641361708551">com.cshop.cosmeticshop.service.impl.TextBuilderServiceImpl</node>
+    <node x="8670.57209023385" y="3433.761096650287">com.cshop.cosmeticshop.domain.dto.WorkWeekDto</node>
+    <node x="10095.266275495356" y="3433.761096650288">com.cshop.cosmeticshop.domain.dto.CartDto</node>
+    <node x="4600.489124639122" y="2997.0783646980444">com.cshop.cosmeticshop.domain.entity.Cart</node>
+    <node x="6545.586907118913" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl</node>
+    <node x="9066.510927286152" y="3444.761096650287">com.cshop.cosmeticshop.domain.dto.WeekendDayDto</node>
+    <node x="4014.6929299077515" y="2612.848570842634">com.cshop.cosmeticshop.repository.TreatmentRepository</node>
+    <node x="5553.129220100507" y="3478.7714020136646">com.cshop.cosmeticshop.domain.entity.constants.Role</node>
+    <node x="3942.9429299077515" y="1007.0540377919854">com.cshop.cosmeticshop.service.CartService</node>
+    <node x="5331.165635395886" y="3921.0770594084825">com.cshop.cosmeticshop.domain.entity.BaseEntity</node>
+    <node x="4256.192929907751" y="3008.1339135337985">com.cshop.cosmeticshop.domain.entity.Treatment</node>
+    <node x="9404.454031830279" y="2102.609153236555">com.cshop.cosmeticshop.mapper.OrderMapper</node>
+    <node x="7407.7938355117985" y="999.4724624141767">com.cshop.cosmeticshop.service.UserService</node>
+    <node x="5989.008600540972" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.WorkDayServiceImpl</node>
+    <node x="6093.000187442056" y="354.3380190742164">com.cshop.cosmeticshop.controllers.RegistrationController</node>
+    <node x="4590.442929907751" y="1010.4724624141767">com.cshop.cosmeticshop.service.DoctorScheduleService</node>
+    <node x="2590.0" y="4067.0770594084825">MavenWrapperDownloader</node>
+    <node x="6675.970098295973" y="2618.312174143799">com.cshop.cosmeticshop.repository.OutBoxRepository</node>
+    <node x="2873.5645361210973" y="1456.5641361708551">com.cshop.cosmeticshop.service.impl.OrderServiceImpl</node>
+    <node x="9682.397534655138" y="2102.609153236555">com.cshop.cosmeticshop.mapper.WeekendDayMapper</node>
+    <node x="4009.0" y="4067.0770594084825">com.cshop.cosmeticshop.validation.annotation.PhoneNumber</node>
+    <node x="9853.327438443055" y="3433.761096650288">com.cshop.cosmeticshop.domain.dto.UserDto</node>
+    <node x="7304.0" y="4067.0770594084825">com.cshop.cosmeticshop.exception.DoctorNotFoundException</node>
+    <node x="5088.692929907751" y="2630.812174143799">com.cshop.cosmeticshop.repository.WorkWeekRepository</node>
+    <node x="5104.3790722421945" y="1430.8669323879033">com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl</node>
+    <node x="7811.0" y="4067.0770594084825">com.cshop.cosmeticshop.repository.DayRepository</node>
+    <node x="3866.8967351763813" y="3008.1339135337985">com.cshop.cosmeticshop.domain.entity.OutBox</node>
+    <node x="4258.692929907751" y="1007.0540377919854">com.cshop.cosmeticshop.service.TreatmentService</node>
+    <node x="2614.5" y="1007.0540377919854">com.cshop.cosmeticshop.service.AdminService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.cshop.cosmeticshop.service.UserService" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-93.99983551179866" y="-4.624141766953471E-4" />
+      <point x="7331.0" y="1049.4720000000002" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.OutBox" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="2.648236186360009E-4" y="-60.99991353379846" />
+      <point x="3968.397" y="2981.0" />
+      <point x="5770.5" y="2981.0" />
+      <point x="5770.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.WorkWeekAspect" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="-128.5" y="4.4673414868157124E-4" />
+      <point x="5071.193" y="2081.84" />
+      <point x="5071.193" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.OrderAspect" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="TO_ONE">
+      <point x="4.6534486318705603E-4" y="61.5" />
+      <point x="9789.398000000001" y="1835.0" />
+      <point x="6801.087" y="1835.0" />
+      <point x="6801.087" y="1049.4720000000002" />
+      <point x="-200.5" y="-4.624141766953471E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="TO_ONE">
+      <point x="-113.0" y="14.999550429731244" />
+      <point x="7197.5" y="3140.16" />
+      <point x="7197.5" y="3399.0" />
+      <point x="4906.0" y="3399.0" />
+      <point x="4906.0" y="3095.078" />
+      <point x="113.49987536087838" y="14.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.mapper.CartMapper" relationship="DEPENDENCY">
+      <point x="-29.99984233802843" y="94.49998092578363" />
+      <point x="5802.222000000001" y="713.0" />
+      <point x="10401.285" y="713.0" />
+      <point x="-14.999540304855145" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="-14.999648520055416" y="38.99972549107906" />
+      <point x="8516.435" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="59.99968062950802" y="94.49963530195555" />
+      <point x="5231.285" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.WorkDayService" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="225.30477057919506" y="38.99953758582319" />
+      <point x="6489.509" y="1554.5" />
+      <point x="6630.0" y="1554.5" />
+      <point x="6630.0" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="REALIZATION">
+      <point x="-15.00007224219462" y="-171.5" />
+      <point x="-15.00007224219462" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.TreatmentRepository" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="7.009224850662577E-5" y="-27.999570842634057" />
+      <point x="4135.692999999999" y="2565.0" />
+      <point x="10185.341" y="2565.0" />
+      <point x="10185.341" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WeekendDay" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="4.858981378674798E-4" y="49.99963530195555" />
+      <point x="5583.082" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.mapper.WeekendDayMapper" relationship="TO_ONE">
+      <point x="150.06419682313845" y="83.5" />
+      <point x="5544.50769405714" y="769.0" />
+      <point x="10077.841037479997" y="769.0" />
+      <point x="10077.841037479997" y="2065.8395532658515" />
+      <point x="9815.897534655138" y="2065.8395532658515" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.constants.CartStatus" relationship="TO_ONE">
+      <point x="14.999875360878377" y="82.99963530195555" />
+      <point x="4728.989" y="3375.0" />
+      <point x="4713.9890000000005" y="3375.0" />
+      <point x="-1.2463912116800202E-4" y="-61.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.WorkWeekController" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="DEPENDENCY">
+      <point x="-14.999532546083174" y="72.49998092578363" />
+      <point x="6554.2789999999995" y="1313.0" />
+      <point x="5301.879" y="1313.0" />
+      <point x="14.99992775780538" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.TextBuilderServiceImpl" target="com.cshop.cosmeticshop.service.TextBuilderService" relationship="REALIZATION">
+      <point x="9.313857665556952" y="-94.5" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.service.UserService" relationship="DEPENDENCY">
+      <point x="-15.00007224219462" y="-94.4999323879033" />
+      <point x="4031.629" y="1294.0" />
+      <point x="7501.794" y="1294.0" />
+      <point x="1.6448820133518893E-4" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.service.WorkDayService" relationship="DEPENDENCY">
+      <point x="14.99992775780538" y="-171.4999323879033" />
+      <point x="5301.879" y="1334.0" />
+      <point x="6279.204" y="1334.0" />
+      <point x="14.999770579195228" y="38.99953758582319" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="14.999962520004374" y="38.99972549107997" />
+      <point x="10155.341" y="2469.0" />
+      <point x="5472.0" y="2469.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="DEPENDENCY">
+      <point x="-50.248708833232286" y="115.99963530195555" />
+      <point x="5867.628999999999" y="3445.604" />
+      <point x="7141.766" y="3445.604" />
+      <point x="7141.766" y="3786.261" />
+      <point x="5729.128999999999" y="3786.261" />
+      <point x="14.999779899492296" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.DoctorService" relationship="TO_ONE">
+      <point x="-224.5" y="6.761209670003154E-5" />
+      <point x="4563.629" y="1558.367" />
+      <point x="4563.629" y="664.0" />
+      <point x="7893.49" y="664.0" />
+      <point x="-3.708754629769828E-4" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="DEPENDENCY">
+      <point x="-114.49960139075483" y="1.4999033497119854" />
+      <point x="9314.95" y="3595.261" />
+      <point x="9314.95" y="3752.0" />
+      <point x="6036.402" y="3752.0" />
+      <point x="-14.999561832554718" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WeekendDayServiceImpl" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="REALIZATION">
+      <point x="-5.685836391583507" y="-61.5" />
+      <point x="-14.999694057140005" y="50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.DoctorScheduleService" relationship="DEPENDENCY">
+      <point x="-14.999536121097265" y="-83.5" />
+      <point x="3006.565" y="1368.0" />
+      <point x="4760.628999999999" y="1368.0" />
+      <point x="-22.81392990775157" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="DEPENDENCY">
+      <point x="-30.00007224219462" y="-127.4999323879033" />
+      <point x="4775.629" y="1313.0" />
+      <point x="5301.879" y="1313.0" />
+      <point x="14.99992775780538" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-113.0" y="-4.4957026875636075E-4" />
+      <point x="7331.0" y="3125.16" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="CREATE">
+      <point x="0.0" y="50.0" />
+      <point x="9188.145067985715" y="2430.402393793215" />
+      <point x="5171.285319370492" y="2430.402393793215" />
+      <point x="0.0" y="-94.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="-14.999708833232035" y="-116.0" />
+      <point x="5902.878" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="182.49992775780538" y="57.0000676120967" />
+      <point x="6630.0" y="1659.367" />
+      <point x="6630.0" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.TreatmentServiceImpl" target="com.cshop.cosmeticshop.repository.TreatmentRepository" relationship="DEPENDENCY">
+      <point x="-129.0" y="83.5" />
+      <point x="105.68614233444305" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-7.22421946193208E-5" y="94.5" />
+      <point x="4046.629" y="1638.064" />
+      <point x="4296.0" y="1638.064" />
+      <point x="4296.0" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapper" target="com.cshop.cosmeticshop.domain.dto.UserDto" relationship="DEPENDENCY">
+      <point x="86.5" y="-15.00015323655498" />
+      <point x="8650.435000000001" y="2126.609" />
+      <point x="8650.435000000001" y="2726.312174143799" />
+      <point x="10339.766275495356" y="2726.312174143799" />
+      <point x="10339.766275495356" y="3639.261096650288" />
+      <point x="80.5" y="78.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="-7.22421946193208E-5" y="-94.4999323879033" />
+      <point x="4046.629" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.constants.Role" target="com.cshop.cosmeticshop.domain.entity.constants.Permission" relationship="DEPENDENCY">
+      <point x="161.0" y="46.0" />
+      <point x="6149.401561832555" y="3630.7714020136646" />
+      <point x="6149.401561832555" y="3525.2714020136646" />
+      <point x="-93.0" y="-15.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="-4.619219187134149E-4" y="160.99998092578358" />
+      <point x="4156.607999999999" y="800.0" />
+      <point x="3925.443" y="800.0" />
+      <point x="3925.443" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapperImpl" target="com.cshop.cosmeticshop.mapper.OrderMapper" relationship="REALIZATION">
+      <point x="-5.817269490147737" y="-39.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="4.638789027353596E-4" y="83.49986382914494" />
+      <point x="3021.565" y="2817.0" />
+      <point x="9623.0" y="2817.0" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.repository.WorkWeekRepository" relationship="TO_ONE">
+      <point x="-146.0" y="171.5" />
+      <point x="-109.81385766555695" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.WorkWeekRepository" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="-161.99992990775127" y="-1.7414379908586852E-4" />
+      <point x="5060.0" y="2669.812" />
+      <point x="5060.0" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WeekendDayDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="15.000072713847658" y="-61.0" />
+      <point x="9161.510999999999" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.service.CartService" relationship="REALIZATION">
+      <point x="-45.00007224219462" y="-94.5" />
+      <point x="-54.31392990775157" y="50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="TO_MANY">
+      <point x="3.98609245166881E-4" y="159.99990334971199" />
+      <point x="9657.889" y="3816.5" />
+      <point x="5902.878000000001" y="3816.5" />
+      <point x="5902.878000000001" y="3338.0" />
+      <point x="5568.082" y="3338.0" />
+      <point x="-14.999514101862133" y="49.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.CurrentUserService" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="2.3521553021055297E-4" y="-39.0" />
+      <point x="6673.901" y="937.507" />
+      <point x="7331.0" y="937.507" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.job.EmailJob" target="com.cshop.cosmeticshop.service.EmailService" relationship="DEPENDENCY">
+      <point x="-94.0" y="-36.991507464018014" />
+      <point x="9456.954" y="1334.0" />
+      <point x="9456.954" y="877.507" />
+      <point x="3378.9429299077515" y="877.507" />
+      <point x="15.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="-15.000438443055828" y="-127.0" />
+      <point x="9918.827" y="3382.0" />
+      <point x="9623.0" y="3382.0" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="14.999706972656895" y="-50.0" />
+      <point x="7190.766" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkDay" target="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" relationship="DEPENDENCY">
+      <point x="14.999901704027252" y="-105.5" />
+      <point x="6766.47" y="2745.0" />
+      <point x="7160.766" y="2745.0" />
+      <point x="-15.000293027343105" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.WorkDayRepository" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="237.5" y="-1.7414379908586852E-4" />
+      <point x="6403.0" y="2669.812" />
+      <point x="6403.0" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="19.00939860924518" y="-160.0" />
+      <point x="9676.898" y="3367.0" />
+      <point x="7217.5" y="3367.0" />
+      <point x="7217.5" y="3302.0" />
+      <point x="10287.841" y="3302.0" />
+      <point x="10287.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.repository.OrderRepository" relationship="DEPENDENCY">
+      <point x="-148.0" y="13.0" />
+      <point x="2650.5" y="1553.0641361708551" />
+      <point x="2650.5" y="2760.0" />
+      <point x="6522.0" y="2760.0" />
+      <point x="6.307070092248523" y="15.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.DoctorService" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="177.99962912453702" y="-4.624141766953471E-4" />
+      <point x="8234.0" y="1027.4720000000002" />
+      <point x="8234.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-119.49997784624247" y="6.761209670003154E-5" />
+      <point x="7331.0" y="1514.367" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.service.UserService" relationship="REALIZATION">
+      <point x="24.314022153757833" y="-83.5" />
+      <point x="15.000164488201335" y="50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="DEPENDENCY">
+      <point x="-14.99984233802843" y="94.49998092578363" />
+      <point x="5817.222000000001" y="627.0" />
+      <point x="7908.49" y="627.0" />
+      <point x="14.999629124537023" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="TO_ONE">
+      <point x="-1.5212997368507786E-4" y="94.49998092578363" />
+      <point x="4931.165" y="664.0" />
+      <point x="7893.49" y="664.0" />
+      <point x="-3.708754629769828E-4" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-4.3844305582751986E-4" y="-127.0" />
+      <point x="9933.827" y="3367.0" />
+      <point x="7217.5" y="3367.0" />
+      <point x="7217.5" y="3302.0" />
+      <point x="10287.841" y="3302.0" />
+      <point x="10287.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="DEPENDENCY">
+      <point x="-65.24870883323229" y="115.99963530195555" />
+      <point x="5852.628999999999" y="3430.604" />
+      <point x="5917.878000000001" y="3430.604" />
+      <point x="5917.878000000001" y="3752.0" />
+      <point x="6036.402" y="3752.0" />
+      <point x="-14.999561832554718" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.CartService" relationship="TO_ONE">
+      <point x="-88.91653612109724" y="-83.5" />
+      <point x="2932.648" y="989.0" />
+      <point x="3890.0" y="989.0" />
+      <point x="3890.0" y="1057.054" />
+      <point x="-112.9999299077515" y="-3.7791985391777416E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-2.754953575276886E-4" y="-94.0" />
+      <point x="10208.766" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="DEPENDENCY">
+      <point x="2.2153757527121343E-5" y="83.5" />
+      <point x="7492.48" y="1854.0" />
+      <point x="4876.192999999999" y="1854.0" />
+      <point x="-14.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.mapper.TreatmentMapper" relationship="DEPENDENCY">
+      <point x="-162.0" y="-15.000019074216368" />
+      <point x="2542.5" y="500.338" />
+      <point x="2542.5" y="3861.5" />
+      <point x="10416.285" y="3861.5" />
+      <point x="10416.285" y="2691.812174143799" />
+      <point x="8963.722588762736" y="2691.812174143799" />
+      <point x="8963.722588762736" y="2141.609153236555" />
+      <point x="117.5" y="0.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.AdminServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="TO_ONE">
+      <point x="-30.0" y="39.49986382914494" />
+      <point x="2665.5" y="1943.0" />
+      <point x="4861.192999999999" y="1943.0" />
+      <point x="-29.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.UserDetailsServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="TO_ONE">
+      <point x="-14.999521289249515" y="-39.49955326585132" />
+      <point x="5931.878000000001" y="1943.0" />
+      <point x="4861.192999999999" y="1943.0" />
+      <point x="-29.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="DEPENDENCY">
+      <point x="114.5" y="-56.26109665028798" />
+      <point x="9828.0" y="3537.5" />
+      <point x="9828.0" y="3335.0" />
+      <point x="10031.827000000001" y="3335.0" />
+      <point x="10031.827000000001" y="3786.261" />
+      <point x="5729.128999999999" y="3786.261" />
+      <point x="14.999779899492296" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-3.7479995626199525E-5" y="38.99972549107997" />
+      <point x="10140.341" y="2517.0" />
+      <point x="7331.0" y="2517.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapper" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="3.5147994458384346E-4" y="-39.0" />
+      <point x="8531.435" y="1887.0" />
+      <point x="7331.0" y="1887.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="TO_ONE">
+      <point x="-30.000215485021727" y="-138.0" />
+      <point x="8479.312999999998" y="3399.0" />
+      <point x="4906.0" y="3399.0" />
+      <point x="4906.0" y="3095.078" />
+      <point x="113.49987536087838" y="14.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="TO_MANY">
+      <point x="80.5" y="-0.4183646980445701" />
+      <point x="6075.878000000001" y="3112.66" />
+      <point x="6075.878000000001" y="3236.578" />
+      <point x="6895.47" y="3236.578" />
+      <point x="6895.47" y="3269.0" />
+      <point x="7546.562" y="3269.0" />
+      <point x="-15.000487758712552" y="126.99955042973124" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="-14.999877650110648" y="116.99998092578363" />
+      <point x="6883.557" y="739.0" />
+      <point x="3910.443" y="739.0" />
+      <point x="3910.443" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.WorkWeekController" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="DEPENDENCY">
+      <point x="4.6745391682634363E-4" y="-72.5" />
+      <point x="6569.2789999999995" y="332.0" />
+      <point x="9161.511000000002" y="332.0" />
+      <point x="-14.99952900541848" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.configuration.PersistenceConfig" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="177.49972962581523" y="0.0" />
+      <point x="7331.0" y="188.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapper" target="com.cshop.cosmeticshop.domain.dto.DoctorDto" relationship="DEPENDENCY">
+      <point x="100.0" y="14.99984676344502" />
+      <point x="10287.841" y="2156.609" />
+      <point x="10287.841" y="2517.0" />
+      <point x="10491.285" y="2517.0" />
+      <point x="10491.285" y="3816.5" />
+      <point x="9672.889" y="3816.5" />
+      <point x="15.000398609245167" y="160.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.WeekendDayService" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="3.059428599954117E-4" y="-50.0" />
+      <point x="5738.508" y="922.507" />
+      <point x="10007.398000000001" y="922.507" />
+      <point x="10007.398000000001" y="2469.0" />
+      <point x="5472.0" y="2469.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="45.000459695144855" y="38.99972549107997" />
+      <point x="10461.285" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-2.1548502172663575E-4" y="-138.0" />
+      <point x="8509.312999999998" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapperImpl" target="com.cshop.cosmeticshop.domain.dto.WeekendDayDto" relationship="CREATE">
+      <point x="-51.008933264381994" y="39.0" />
+      <point x="9764.888601390756" y="2646.312" />
+      <point x="10369.766275495356" y="2646.312" />
+      <point x="10369.766275495356" y="3170.1604495702686" />
+      <point x="9218.145" y="3170.1604495702686" />
+      <point x="71.63407271384767" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.TreatmentService" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="121.0" y="-3.7791985391777416E-5" />
+      <point x="4545.0" y="1079.054" />
+      <point x="4545.0" y="2565.0" />
+      <point x="10185.341" y="2565.0" />
+      <point x="10185.341" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="2.9116676796547836E-4" y="115.99963530195555" />
+      <point x="5917.878" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="DEPENDENCY">
+      <point x="-80.5" y="-23.261096650287982" />
+      <point x="9828.0" y="3537.5" />
+      <point x="9828.0" y="3335.0" />
+      <point x="10031.827000000001" y="3335.0" />
+      <point x="10031.827000000001" y="3786.261" />
+      <point x="5729.128999999999" y="3786.261" />
+      <point x="14.999779899492296" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WeekendDay" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="-14.999514101862133" y="-50.00036469804445" />
+      <point x="5568.082" y="2981.0" />
+      <point x="5770.5" y="2981.0" />
+      <point x="5770.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="TO_ONE">
+      <point x="29.99992775780538" y="171.5" />
+      <point x="5316.879" y="1915.0" />
+      <point x="9191.511000000002" y="1915.0" />
+      <point x="15.00047099458152" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.AdminServiceImpl" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="0.0" y="39.49986382914494" />
+      <point x="2695.5" y="1887.0" />
+      <point x="7331.0" y="1887.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkDay" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="-6.970098295973003" y="105.49955042973124" />
+      <point x="6744.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="TO_ONE">
+      <point x="114.5" y="-9.665028801464359E-5" />
+      <point x="9813.0" y="3593.761" />
+      <point x="9813.0" y="3560.761" />
+      <point x="9832.5" y="3560.761" />
+      <point x="9832.5" y="3801.5" />
+      <point x="5714.128999999999" y="3801.5" />
+      <point x="-2.2010050770404632E-4" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.AdminServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="DEPENDENCY">
+      <point x="-15.0" y="39.49986382914494" />
+      <point x="2680.5" y="1854.0" />
+      <point x="4876.192999999999" y="1854.0" />
+      <point x="-14.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" target="com.cshop.cosmeticshop.repository.DoctorRepository" relationship="TO_ONE">
+      <point x="15.000092881087312" y="50.5" />
+      <point x="6679.5869999999995" y="1735.0" />
+      <point x="7111.747" y="1735.0" />
+      <point x="14.999733315807134" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapper" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="99.99996252000437" y="-1.5323655497923028E-4" />
+      <point x="10257.841" y="2141.609" />
+      <point x="10257.841" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="-10.990601390754819" y="-160.0" />
+      <point x="9646.898" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="-6.79857139402884E-5" y="49.99960620678485" />
+      <point x="9188.145" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.CartService" relationship="TO_ONE">
+      <point x="-162.0" y="-1.907421636815343E-5" />
+      <point x="3890.0" y="515.338" />
+      <point x="3890.0" y="1057.054" />
+      <point x="-112.9999299077515" y="-3.7791985391777416E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.UserPrincipal" target="com.cshop.cosmeticshop.domain.entity.User" relationship="TO_ONE">
+      <point x="-160.99952128924951" y="3.090209143010725E-4" />
+      <point x="5430.193" y="2265.514" />
+      <point x="5430.193" y="2832.0" />
+      <point x="4582.989" y="2832.0" />
+      <point x="4582.989" y="3320.0" />
+      <point x="5932.878" y="3320.0" />
+      <point x="15.000291166767965" y="115.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.service.TextBuilderService" relationship="DEPENDENCY">
+      <point x="15.0" y="-138.5" />
+      <point x="7093.283442482578" y="1334.0" />
+      <point x="7629.479977846242" y="1334.0" />
+      <point x="7629.479977846242" y="892.507" />
+      <point x="3694.6929299077515" y="892.507" />
+      <point x="-15.0" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="TO_ONE">
+      <point x="15.000022153757527" y="83.5" />
+      <point x="7507.48" y="1943.0" />
+      <point x="4861.192999999999" y="1943.0" />
+      <point x="-29.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="DEPENDENCY">
+      <point x="15.000486790093419" y="-116.4999323879033" />
+      <point x="7899.177" y="1399.0" />
+      <point x="5471.0" y="1399.0" />
+      <point x="5471.0" y="1064.007" />
+      <point x="-201.49969405714" y="3.534537585823273" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="9.643539760872955E-5" y="60.999550429731244" />
+      <point x="6299.174" y="3246.578" />
+      <point x="5453.0" y="3246.578" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="-3.193704919794982E-4" y="-94.5" />
+      <point x="5171.285" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.WorkWeekAspect" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="TO_ONE">
+      <point x="-7.22421946193208E-5" y="-83.49955326585132" />
+      <point x="5286.879" y="1835.0" />
+      <point x="6801.087" y="1835.0" />
+      <point x="6801.087" y="1049.4720000000002" />
+      <point x="-200.5" y="-4.624141766953471E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.User" relationship="TO_ONE">
+      <point x="14.999724504642472" y="-94.0" />
+      <point x="10223.766" y="3320.0" />
+      <point x="5932.878" y="3320.0" />
+      <point x="15.000291166767965" y="115.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" relationship="DEPENDENCY">
+      <point x="-52.436072242194314" y="127.5" />
+      <point x="4753.193" y="2745.0" />
+      <point x="7160.766" y="2745.0" />
+      <point x="-15.000293027343105" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="TO_MANY">
+      <point x="34.00939860924518" y="-160.0" />
+      <point x="9691.898" y="3269.0" />
+      <point x="7546.562" y="3269.0" />
+      <point x="-15.000487758712552" y="126.99955042973124" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.RegistrationController" target="com.cshop.cosmeticshop.service.UserService" relationship="DEPENDENCY">
+      <point x="135.9998125579441" y="78.99998092578363" />
+      <point x="6504.509" y="516.838" />
+      <point x="6504.509" y="1294.0" />
+      <point x="7501.794" y="1294.0" />
+      <point x="1.6448820133518893E-4" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WorkDayService" relationship="TO_ONE">
+      <point x="29.99992775780538" y="-127.4999323879033" />
+      <point x="4835.629" y="1415.0" />
+      <point x="6264.204" y="1415.0" />
+      <point x="-2.294208047715074E-4" y="38.99953758582319" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.repository.DoctorRepository" relationship="TO_ONE">
+      <point x="15.000486790093419" y="116.5" />
+      <point x="7899.177" y="1735.0" />
+      <point x="7111.747" y="1735.0" />
+      <point x="14.999733315807134" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="-4.499588762736494" y="38.99972549107906" />
+      <point x="8824.222999999998" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="4.59695144854777E-4" y="38.99972549107997" />
+      <point x="10416.285" y="2565.0" />
+      <point x="10185.341" y="2565.0" />
+      <point x="10185.341" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="DEPENDENCY">
+      <point x="-172.50007224219462" y="-171.4999323879033" />
+      <point x="5114.379" y="860.0" />
+      <point x="5199.943" y="860.0" />
+      <point x="5199.943" y="332.0" />
+      <point x="9161.511000000002" y="332.0" />
+      <point x="-14.99952900541848" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="DEPENDENCY">
+      <point x="-80.5" y="-53.26109665028798" />
+      <point x="9789.889" y="3507.5" />
+      <point x="9789.889" y="3335.0" />
+      <point x="9289.011" y="3335.0" />
+      <point x="9289.011" y="3752.0" />
+      <point x="6036.402" y="3752.0" />
+      <point x="-14.999561832554718" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.mapper.WeekendDayMapper" relationship="DEPENDENCY">
+      <point x="165.06419682313845" y="83.5" />
+      <point x="5559.50769405714" y="754.0" />
+      <point x="10092.841037479997" y="754.0" />
+      <point x="10092.841037479997" y="2020.8395532658512" />
+      <point x="9789.398000000001" y="2020.8395532658512" />
+      <point x="-26.499534655136813" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Treatment" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="7.009224850662577E-5" y="-60.99991353379846" />
+      <point x="4335.192999999999" y="2981.0" />
+      <point x="5770.5" y="2981.0" />
+      <point x="5770.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="182.49992775780538" y="6.761209670003154E-5" />
+      <point x="5499.0" y="1602.367" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.service.AdminService" relationship="DEPENDENCY">
+      <point x="-25.5" y="-138.5" />
+      <point x="7052.783442482578" y="1156.0067935028337" />
+      <point x="6870.783442482578" y="1156.0067935028337" />
+      <point x="6870.783442482578" y="819.5" />
+      <point x="2695.5" y="819.5" />
+      <point x="0.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.constants.CartStatus" relationship="TO_ONE">
+      <point x="29.999724504642472" y="-94.0" />
+      <point x="10238.766" y="3214.66" />
+      <point x="7812.062" y="3214.66" />
+      <point x="7812.062" y="3375.0" />
+      <point x="4713.9890000000005" y="3375.0" />
+      <point x="-1.2463912116800202E-4" y="-61.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="15.000096435397609" y="-61.0" />
+      <point x="6314.174" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="-4.877587125520222E-4" y="-127.0" />
+      <point x="7561.562" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.WorkWeekService" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="154.99992775780538" y="2.0649716634579818E-4" />
+      <point x="5499.0" y="1049.007" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.CartRepository" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-179.9999299077515" y="-2.3750930131427594E-4" />
+      <point x="4296.0" y="2646.015" />
+      <point x="4296.0" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="TO_ONE">
+      <point x="-14.999513209906581" y="-116.4999323879033" />
+      <point x="7869.177" y="1383.0" />
+      <point x="5738.508" y="1383.0" />
+      <point x="3.059428599954117E-4" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.service.TextBuilderService" relationship="TO_ONE">
+      <point x="0.0" y="-138.5" />
+      <point x="7078.283442482578" y="1190.0" />
+      <point x="7310.0" y="1190.0" />
+      <point x="7310.0" y="907.507" />
+      <point x="3709.6929299077515" y="907.507" />
+      <point x="0.0" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="29.999875360878377" y="82.99963530195555" />
+      <point x="4743.989" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.WorkWeekService" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="154.99992775780538" y="-56.03479350283362" />
+      <point x="5957.508" y="992.9720000000001" />
+      <point x="5957.508" y="1659.367" />
+      <point x="6630.0" y="1659.367" />
+      <point x="6630.0" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapperImpl" target="com.cshop.cosmeticshop.domain.dto.CartDto" relationship="CREATE">
+      <point x="75.00045969514485" y="39.0" />
+      <point x="10491.285" y="2469.0" />
+      <point x="10401.285" y="2469.0" />
+      <point x="10401.285" y="3512.761" />
+      <point x="113.5" y="-15.000096650288015" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" target="com.cshop.cosmeticshop.repository.DoctorRepository" relationship="DEPENDENCY">
+      <point x="-14.999907118912688" y="50.5" />
+      <point x="6649.5869999999995" y="1762.0" />
+      <point x="7096.747" y="1762.0" />
+      <point x="-2.666841928657959E-4" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.OrderAspect" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="DEPENDENCY">
+      <point x="-14.999534655136813" y="61.5" />
+      <point x="9774.398000000001" y="1816.0" />
+      <point x="6816.087" y="1816.0" />
+      <point x="6816.087" y="1064.4720000000002" />
+      <point x="-200.5" y="14.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WorkDayService" relationship="DEPENDENCY">
+      <point x="44.99992775780538" y="-127.4999323879033" />
+      <point x="4850.629" y="1334.0" />
+      <point x="6279.204" y="1334.0" />
+      <point x="14.999770579195228" y="38.99953758582319" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WeekendDayServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="1.6360841664209147E-4" y="61.5" />
+      <point x="5729.1939999999995" y="1872.0" />
+      <point x="5472.0" y="1872.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.TreatmentService" relationship="DEPENDENCY">
+      <point x="139.5" y="161.0" />
+      <point x="-83.58446798583282" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="TO_ONE">
+      <point x="114.5" y="-4.4957026875636075E-4" />
+      <point x="6507.0" y="3059.16" />
+      <point x="6507.0" y="3383.0" />
+      <point x="5156.285" y="3383.0" />
+      <point x="-15.00031937049198" y="94.49963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="14.99968062950802" y="94.49963530195555" />
+      <point x="5186.285" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="14.99992775780538" y="-94.4999323879033" />
+      <point x="4061.629" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.service.OrderService" relationship="TO_ONE">
+      <point x="-93.71384233802883" y="94.5" />
+      <point x="5738.508" y="580.8380190742164" />
+      <point x="4677.386807025946" y="580.8380190742164" />
+      <point x="4677.386807025946" y="332.0" />
+      <point x="3051.6484383823276" y="332.0" />
+      <point x="0.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.DoctorService" relationship="DEPENDENCY">
+      <point x="188.3139277578057" y="-127.4999323879033" />
+      <point x="4993.943" y="627.0" />
+      <point x="7908.49" y="627.0" />
+      <point x="14.999629124537023" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WeekendDayServiceImpl" target="com.cshop.cosmeticshop.repository.WeekendDayRepository" relationship="DEPENDENCY">
+      <point x="-71.50090648383184" y="61.5" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapper" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="4.7099458151933504E-4" y="-50.0" />
+      <point x="9176.511000000002" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.job.EmailJob" target="com.cshop.cosmeticshop.service.EmailService" relationship="TO_ONE">
+      <point x="94.0" y="0.0" />
+      <point x="10047.841037479997" y="1370.991507464018" />
+      <point x="10047.841037479997" y="845.0" />
+      <point x="3363.9429299077515" y="845.0" />
+      <point x="0.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.UserDetailsServiceImpl" target="com.cshop.cosmeticshop.repository.UserRepository" relationship="DEPENDENCY">
+      <point x="4.7871075048533385E-4" y="-39.49955326585132" />
+      <point x="5946.878000000001" y="1854.0" />
+      <point x="4876.192999999999" y="1854.0" />
+      <point x="-14.999929907751266" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapper" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="-117.4995887627365" y="-1.5323655497923028E-4" />
+      <point x="8635.435000000001" y="2141.609" />
+      <point x="8635.435000000001" y="2565.0" />
+      <point x="10185.341" y="2565.0" />
+      <point x="10185.341" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="TO_MANY">
+      <point x="14.999561556944172" y="-127.0" />
+      <point x="9948.827" y="3269.0" />
+      <point x="7546.562" y="3269.0" />
+      <point x="-15.000487758712552" y="126.99955042973124" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapper" target="com.cshop.cosmeticshop.domain.dto.OrderDto" relationship="DEPENDENCY">
+      <point x="-15.0" y="-39.0" />
+      <point x="9482.954031830279" y="1943.0" />
+      <point x="8427.434648520055" y="1943.0" />
+      <point x="-81.87856696496601" y="-138.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.constants.Role" target="com.cshop.cosmeticshop.domain.entity.constants.Permission" relationship="TO_MANY">
+      <point x="161.0" y="75.99959798633563" />
+      <point x="6164.401561832555" y="3660.771" />
+      <point x="6164.401561832555" y="3540.2714020136646" />
+      <point x="-93.0" y="0.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapperImpl" target="com.cshop.cosmeticshop.mapper.CartMapper" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.EmailServiceImpl" target="com.cshop.cosmeticshop.service.EmailService" relationship="REALIZATION">
+      <point x="9.313857665556952" y="-72.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.repository.DoctorRepository" relationship="DEPENDENCY">
+      <point x="-14.999513209906581" y="116.5" />
+      <point x="7869.177" y="1762.0" />
+      <point x="7096.747" y="1762.0" />
+      <point x="-2.666841928657959E-4" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus" relationship="DEPENDENCY">
+      <point x="-25.500090233849733" y="-105.5" />
+      <point x="8802.572" y="3229.66" />
+      <point x="8309.0" y="3229.66" />
+      <point x="8309.0" y="3660.771" />
+      <point x="7111.766" y="3660.771" />
+      <point x="7111.766" y="3771.261" />
+      <point x="4996.285" y="3771.261" />
+      <point x="4996.285" y="3460.5" />
+      <point x="5265.0" y="3460.5" />
+      <point x="5265.0" y="3642.257" />
+      <point x="109.49968062950802" y="14.999584100305128" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-14.999708833232035" y="115.99963530195555" />
+      <point x="5902.878" y="3302.0" />
+      <point x="10287.841" y="3302.0" />
+      <point x="10287.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="-1.2463912162274937E-4" y="-83.0" />
+      <point x="4713.989" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="14.99968062950802" y="-94.5" />
+      <point x="5186.285" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.mapper.CartMapper" relationship="TO_ONE">
+      <point x="161.9995380780813" y="-1.907421636815343E-5" />
+      <point x="4489.887" y="515.338" />
+      <point x="4489.887" y="686.0" />
+      <point x="10416.285" y="686.0" />
+      <point x="4.59695144854777E-4" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkDay" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="8.029901704026997" y="105.49955042973124" />
+      <point x="6759.5" y="3246.578" />
+      <point x="5453.0" y="3246.578" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.service.DoctorScheduleService" relationship="TO_ONE">
+      <point x="14.999847870026315" y="-94.5" />
+      <point x="4946.165" y="302.0" />
+      <point x="2902.648" y="302.0" />
+      <point x="2902.648" y="1345.0" />
+      <point x="4745.628999999999" y="1345.0" />
+      <point x="-37.81392990775157" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.DoctorScheduleService" relationship="REALIZATION">
+      <point x="-75.00007224219462" y="-127.5" />
+      <point x="-52.81392990775157" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="4.009398609245181" y="-160.0" />
+      <point x="9661.898" y="2781.0" />
+      <point x="5472.0" y="2781.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="3.5147994458384346E-4" y="38.99972549107906" />
+      <point x="8531.435" y="2817.0" />
+      <point x="9623.0" y="2817.0" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.dto.DoctorDto" relationship="CREATE">
+      <point x="83.42496252000365" y="39.0" />
+      <point x="10223.766" y="2580.0" />
+      <point x="10384.766275495356" y="2580.0" />
+      <point x="10384.766275495356" y="3705.261096650288" />
+      <point x="114.5" y="111.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkDay" target="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" relationship="TO_MANY">
+      <point x="151.5" y="-70.50044957026876" />
+      <point x="-86.5" y="-15.000449570268756" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="TO_MANY">
+      <point x="-113.5" y="-3.646980444500514E-4" />
+      <point x="4499.0" y="3080.078" />
+      <point x="4499.0" y="3069.134" />
+      <point x="79.0" y="8.646620153740514E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.constants.CartStatus" relationship="DEPENDENCY">
+      <point x="-21.000275495357528" y="-94.0" />
+      <point x="10187.766" y="2964.5" />
+      <point x="5742.082" y="2964.5" />
+      <point x="5742.082" y="3224.5" />
+      <point x="4603.0" y="3224.5" />
+      <point x="4603.0" y="3457.122" />
+      <point x="-91.5" y="-3.70805501461291E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="CREATE">
+      <point x="10.500411237263506" y="39.0" />
+      <point x="8839.222999999998" y="2842.5" />
+      <point x="4285.5" y="2842.5" />
+      <point x="-49.69292990775148" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.mapper.CartMapper" relationship="DEPENDENCY">
+      <point x="-15.000461921918713" y="160.99998092578358" />
+      <point x="4141.607999999999" y="713.0" />
+      <point x="10401.285" y="713.0" />
+      <point x="-14.999540304855145" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="TO_ONE">
+      <point x="-4.3844305582751986E-4" y="126.99990334971199" />
+      <point x="9933.827" y="3771.261" />
+      <point x="7197.5" y="3771.261" />
+      <point x="7197.5" y="3399.0" />
+      <point x="4906.0" y="3399.0" />
+      <point x="4906.0" y="3095.078" />
+      <point x="113.49987536087838" y="14.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="CREATE">
+      <point x="68.42496252000365" y="39.0" />
+      <point x="10208.766" y="2796.0" />
+      <point x="6567.0" y="2796.0" />
+      <point x="6567.0" y="3044.16" />
+      <point x="114.5" y="-15.000449570268756" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="TO_ONE">
+      <point x="60.52429116676785" y="115.99963530195555" />
+      <point x="5978.402" y="3338.0" />
+      <point x="7962.062" y="3338.0" />
+      <point x="7962.062" y="3244.66" />
+      <point x="9806.0" y="3244.66" />
+      <point x="9806.0" y="3353.0" />
+      <point x="9274.011" y="3353.0" />
+      <point x="9274.011" y="3731.604" />
+      <point x="6051.402" y="3731.604" />
+      <point x="4.381674452815787E-4" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.RegistrationController" target="com.cshop.cosmeticshop.mapper.UserMapper" relationship="TO_ONE">
+      <point x="29.999812557944097" y="83.5" />
+      <point x="6259.0" y="785.0" />
+      <point x="8516.435" y="785.0" />
+      <point x="-14.999648520055416" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.repository.OrderRepository" relationship="TO_ONE">
+      <point x="-148.0" y="28.0" />
+      <point x="2635.5" y="1568.0641361708551" />
+      <point x="2635.5" y="2796.0" />
+      <point x="6507.0" y="2796.0" />
+      <point x="-8.692929907751477" y="15.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.CartService" relationship="DEPENDENCY">
+      <point x="4.638789027353596E-4" y="-83.5" />
+      <point x="3021.565" y="1190.0" />
+      <point x="4186.0" y="1190.0" />
+      <point x="4186.0" y="1072.054" />
+      <point x="113.0" y="14.999962208014608" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="112.99978451497827" y="-3.7378107163021923E-4" />
+      <point x="8647.0" y="3561.104" />
+      <point x="8647.0" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="TO_ONE">
+      <point x="-15.000152129973685" y="94.49998092578363" />
+      <point x="4916.165" y="646.0" />
+      <point x="9206.511" y="646.0" />
+      <point x="9206.511" y="1915.0" />
+      <point x="9191.511000000002" y="1915.0" />
+      <point x="15.00047099458152" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapper" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="133.5" y="-1.5323655497923028E-4" />
+      <point x="9966.898000000001" y="2141.609" />
+      <point x="9966.898000000001" y="2469.0" />
+      <point x="5472.0" y="2469.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapper" target="com.cshop.cosmeticshop.domain.dto.WeekendDayDto" relationship="DEPENDENCY">
+      <point x="133.5" y="-15.00015323655498" />
+      <point x="9981.898000000001" y="2126.609" />
+      <point x="9981.898000000001" y="2406.047274508921" />
+      <point x="10446.285" y="2406.047274508921" />
+      <point x="10446.285" y="3125.1604495702686" />
+      <point x="9176.510999999999" y="3125.1604495702686" />
+      <point x="30.000072713847658" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="14.999512241287448" y="-127.00044957026876" />
+      <point x="7576.562" y="2981.0" />
+      <point x="5770.5" y="2981.0" />
+      <point x="5770.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.TreatmentService" relationship="TO_ONE">
+      <point x="154.5" y="161.0" />
+      <point x="-68.58446798583282" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WeekendDayServiceImpl" target="com.cshop.cosmeticshop.repository.WeekendDayRepository" relationship="TO_ONE">
+      <point x="-14.999836391583358" y="61.5" />
+      <point x="56.50107009224848" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.service.OrderService" relationship="DEPENDENCY">
+      <point x="0.0" y="-94.5" />
+      <point x="5832.221842338029" y="317.0" />
+      <point x="10558.5" y="317.0" />
+      <point x="10558.5" y="3831.5" />
+      <point x="2572.5" y="3831.5" />
+      <point x="2572.5" y="668.8380190742164" />
+      <point x="3036.6484383823276" y="668.8380190742164" />
+      <point x="-15.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.RegistrationController" target="com.cshop.cosmeticshop.service.UserService" relationship="TO_ONE">
+      <point x="-1.8744205590337515E-4" y="83.49998092578363" />
+      <point x="6229.0" y="830.0" />
+      <point x="5972.508" y="830.0" />
+      <point x="5972.508" y="1171.0" />
+      <point x="7486.794" y="1171.0" />
+      <point x="-14.999835511798665" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapperImpl" target="com.cshop.cosmeticshop.mapper.UserMapper" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="4.6534486318705603E-4" y="38.99972549107906" />
+      <point x="9815.898000000001" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="DEPENDENCY">
+      <point x="14.999502765998841" y="83.49998092578363" />
+      <point x="5409.443" y="627.0" />
+      <point x="7908.49" y="627.0" />
+      <point x="14.999629124537023" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.OutBoxService" target="com.cshop.cosmeticshop.domain.entity.OutBox" relationship="DEPENDENCY">
+      <point x="-200.5" y="-15.000462414176695" />
+      <point x="6847.0" y="1034.4720000000002" />
+      <point x="6847.0" y="2580.0" />
+      <point x="3953.397" y="2580.0" />
+      <point x="-14.999735176381364" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapperImpl" target="com.cshop.cosmeticshop.domain.entity.User" relationship="CREATE">
+      <point x="-37.121648520055714" y="39.0" />
+      <point x="8494.312999999998" y="2726.312174143799" />
+      <point x="5876.192929907751" y="2726.312174143799" />
+      <point x="-41.684778925480714" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.AdminService" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="81.0" y="-3.7791985391777416E-5" />
+      <point x="2856.065" y="1035.054" />
+      <point x="2856.065" y="1887.0" />
+      <point x="7331.0" y="1887.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" relationship="DEPENDENCY">
+      <point x="-5.685977846242167" y="-83.5" />
+      <point x="7486.794" y="1259.0" />
+      <point x="6738.0" y="1259.0" />
+      <point x="73.41309288108732" y="-50.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="94.0747245046432" y="-94.0" />
+      <point x="10302.841" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.OutBoxRepository" target="com.cshop.cosmeticshop.domain.entity.OutBox" relationship="DEPENDENCY">
+      <point x="95.81290170402735" y="-28.0" />
+      <point x="6885.283" y="2580.0" />
+      <point x="3953.397" y="2580.0" />
+      <point x="-14.999735176381364" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapper" target="com.cshop.cosmeticshop.domain.dto.TreatmentDto" relationship="DEPENDENCY">
+      <point x="-117.5" y="14.99984676344502" />
+      <point x="8678.722588762736" y="2156.609" />
+      <point x="8678.722588762736" y="3050.6604495702686" />
+      <point x="9357.645067985713" y="3050.6604495702686" />
+      <point x="-27.304696352739484" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.CurrentUserService" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="2.3521553021055297E-4" y="38.999537585823305" />
+      <point x="6673.901" y="1413.367" />
+      <point x="7310.0" y="1413.367" />
+      <point x="7310.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus" relationship="DEPENDENCY">
+      <point x="44.99968062950802" y="94.49963530195555" />
+      <point x="5216.285" y="3235.0" />
+      <point x="5265.0" y="3235.0" />
+      <point x="5265.0" y="3642.257" />
+      <point x="109.49968062950802" y="14.999584100305128" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.CartService" relationship="DEPENDENCY">
+      <point x="109.58453807808132" y="160.99998092578358" />
+      <point x="4266.192999999999" y="785.0" />
+      <point x="4186.0" y="785.0" />
+      <point x="4186.0" y="1072.054" />
+      <point x="113.0" y="14.999962208014608" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus" relationship="TO_ONE">
+      <point x="-10.500090233849733" y="-105.5" />
+      <point x="8817.572" y="3410.104" />
+      <point x="7043.5" y="3410.104" />
+      <point x="7043.5" y="3719.0" />
+      <point x="5296.0" y="3719.0" />
+      <point x="5296.0" y="3627.257" />
+      <point x="109.49968062950802" y="-4.158996948717686E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="-3.0132042593322694E-4" y="38.99972549107906" />
+      <point x="9503.771" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.EmailServiceImpl" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="TO_ONE">
+      <point x="-7.224219450563396E-5" y="72.49986382914494" />
+      <point x="3354.629" y="1835.0" />
+      <point x="6801.087" y="1835.0" />
+      <point x="6801.087" y="1049.4720000000002" />
+      <point x="-200.5" y="-4.624141766953471E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.DoctorService" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="-3.708754629769828E-4" y="71.9995375858233" />
+      <point x="7893.49" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="TO_ONE">
+      <point x="-80.5" y="-9.665028801464359E-5" />
+      <point x="9832.5" y="3560.761" />
+      <point x="9832.5" y="3801.5" />
+      <point x="5714.128999999999" y="3801.5" />
+      <point x="-2.2010050770404632E-4" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.OrderService" relationship="REALIZATION">
+      <point x="-133.91653612109724" y="-83.5" />
+      <point x="2887.648" y="1035.054" />
+      <point x="-101.5" y="-3.7791985391777416E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.WorkWeekController" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="TO_ONE">
+      <point x="15.000467453916826" y="72.49998092578363" />
+      <point x="6584.2789999999995" y="646.0" />
+      <point x="9206.511" y="646.0" />
+      <point x="9206.511" y="1915.0" />
+      <point x="9191.511000000002" y="1915.0" />
+      <point x="15.00047099458152" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="TO_ONE">
+      <point x="-106.38860139075496" y="-160.0" />
+      <point x="9551.5" y="3383.0" />
+      <point x="5156.285" y="3383.0" />
+      <point x="-15.00031937049198" y="94.49963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-15.000215485021727" y="-138.0" />
+      <point x="8494.312999999998" y="3367.0" />
+      <point x="7217.5" y="3367.0" />
+      <point x="7217.5" y="3302.0" />
+      <point x="10287.841" y="3302.0" />
+      <point x="10287.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl" target="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" relationship="CREATE">
+      <point x="-137.0" y="35.64488071570577" />
+      <point x="8858.723000000002" y="2406.047274508921" />
+      <point x="30.650909766150107" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapperImpl" target="com.cshop.cosmeticshop.domain.dto.OrderDto" relationship="CREATE">
+      <point x="14.999698679574067" y="39.0" />
+      <point x="9518.771" y="2661.312" />
+      <point x="8554.312999999998" y="2661.312" />
+      <point x="44.99978451497827" y="-138.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkDay" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="TO_ONE">
+      <point x="-151.50000000000045" y="-4.4957026875636075E-4" />
+      <point x="6507.0" y="3103.66" />
+      <point x="6507.0" y="3383.0" />
+      <point x="5156.285" y="3383.0" />
+      <point x="-15.00031937049198" y="94.49963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.service.DoctorScheduleService" relationship="DEPENDENCY">
+      <point x="-15.000152129973685" y="-94.5" />
+      <point x="4916.165" y="317.0" />
+      <point x="2917.648" y="317.0" />
+      <point x="2917.648" y="1368.0" />
+      <point x="4760.628999999999" y="1368.0" />
+      <point x="-22.81392990775157" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.UserPrincipal" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="4.7871075048533385E-4" y="105.0" />
+      <point x="5946.878000000001" y="2517.0" />
+      <point x="7331.0" y="2517.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="TO_MANY">
+      <point x="-88.99990356460239" y="60.999550429731244" />
+      <point x="6210.174" y="3689.0" />
+      <point x="5902.878000000001" y="3689.0" />
+      <point x="5902.878000000001" y="3338.0" />
+      <point x="5568.082" y="3338.0" />
+      <point x="-14.999514101862133" y="49.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.service.UserService" relationship="TO_ONE">
+      <point x="-30.00007224219462" y="-94.4999323879033" />
+      <point x="4016.629" y="1171.0" />
+      <point x="7486.794" y="1171.0" />
+      <point x="-14.999835511798665" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapperImpl" target="com.cshop.cosmeticshop.domain.dto.TreatmentDto" relationship="CREATE">
+      <point x="45.000411237263506" y="39.0" />
+      <point x="8873.722999999998" y="3020.6604495702686" />
+      <point x="9417.771301320425" y="3020.6604495702686" />
+      <point x="32.8215369819718" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.constants.CartStatus" relationship="DEPENDENCY">
+      <point x="-15.000124639121623" y="82.99963530195555" />
+      <point x="4698.989" y="3209.5" />
+      <point x="4603.0" y="3209.5" />
+      <point x="4603.0" y="3457.122" />
+      <point x="-91.5" y="-3.70805501461291E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.DoctorService" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="177.99962912453702" y="-15.000462414176695" />
+      <point x="10007.398000000001" y="1012.4720000000001" />
+      <point x="10007.398000000001" y="2469.0" />
+      <point x="5472.0" y="2469.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="TO_ONE">
+      <point x="-29.999708833232035" y="115.99963530195555" />
+      <point x="5887.878" y="3399.0" />
+      <point x="4906.0" y="3399.0" />
+      <point x="4906.0" y="3095.078" />
+      <point x="113.49987536087838" y="14.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="TO_ONE">
+      <point x="114.5" y="-71.26109665028798" />
+      <point x="9806.0" y="3522.5" />
+      <point x="9806.0" y="3353.0" />
+      <point x="9274.011" y="3353.0" />
+      <point x="9274.011" y="3731.604" />
+      <point x="6051.402" y="3731.604" />
+      <point x="4.381674452815787E-4" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.User" relationship="TO_ONE">
+      <point x="-1.2463912162274937E-4" y="82.99963530195555" />
+      <point x="4713.989" y="3320.0" />
+      <point x="5932.878" y="3320.0" />
+      <point x="15.000291166767965" y="115.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="DEPENDENCY">
+      <point x="15.000463878902735" y="83.49986382914494" />
+      <point x="3036.565" y="1816.0" />
+      <point x="6816.087" y="1816.0" />
+      <point x="6816.087" y="1064.4720000000002" />
+      <point x="-200.5" y="14.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.WorkWeekController" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="TO_ONE">
+      <point x="4.6745391682634363E-4" y="72.49998092578363" />
+      <point x="6569.2789999999995" y="1368.0" />
+      <point x="5286.879" y="1368.0" />
+      <point x="-7.22421946193208E-5" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="-14.999903564602391" y="-61.0" />
+      <point x="6284.174" y="2781.0" />
+      <point x="5472.0" y="2781.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WeekendDay" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="4.858981378674798E-4" y="-50.0" />
+      <point x="5583.082" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.UserDto" target="com.cshop.cosmeticshop.domain.entity.constants.Status" relationship="TO_ONE">
+      <point x="-80.5" y="-38.26109665028798" />
+      <point x="9806.0" y="3522.5" />
+      <point x="9806.0" y="3353.0" />
+      <point x="9274.011" y="3353.0" />
+      <point x="9274.011" y="3731.604" />
+      <point x="6051.402" y="3731.604" />
+      <point x="4.381674452815787E-4" y="61.49959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.OrderAspect" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="-124.99953465513681" y="3.814023446011561E-4" />
+      <point x="9411.954" y="1583.898" />
+      <point x="9411.954" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.TreatmentServiceImpl" target="com.cshop.cosmeticshop.service.TreatmentService" relationship="REALIZATION">
+      <point x="9.313857665556952" y="-83.5" />
+      <point x="0.0" y="72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.repository.OutBoxRepository" relationship="TO_ONE">
+      <point x="-178.00044248257745" y="138.5" />
+      <point x="110.81290170402735" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkDayServiceImpl" target="com.cshop.cosmeticshop.repository.WorkDayRepository" relationship="DEPENDENCY">
+      <point x="0.0" y="105.5" />
+      <point x="99.31567063322063" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="14.99993201428606" y="49.99960620678485" />
+      <point x="9203.145" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.CustomPermissionEvaluator" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="4.6534486318705603E-4" y="-50.49956011647919" />
+      <point x="9789.398000000001" y="739.0" />
+      <point x="3910.443" y="739.0" />
+      <point x="3910.443" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="TO_ONE">
+      <point x="-15.00007224219462" y="-127.4999323879033" />
+      <point x="4790.629" y="1368.0" />
+      <point x="5286.879" y="1368.0" />
+      <point x="-7.22421946193208E-5" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.WorkWeekAspect" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="DEPENDENCY">
+      <point x="14.99992775780538" y="-83.49955326585132" />
+      <point x="5301.879" y="1816.0" />
+      <point x="6816.087" y="1816.0" />
+      <point x="6816.087" y="1064.4720000000002" />
+      <point x="-200.5" y="14.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="TO_ONE">
+      <point x="15.000122349889352" y="116.99998092578363" />
+      <point x="6913.557" y="664.0" />
+      <point x="7893.49" y="664.0" />
+      <point x="-3.708754629769828E-4" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.DoctorScheduleService" relationship="TO_ONE">
+      <point x="-118.91653612109724" y="-83.5" />
+      <point x="2902.648" y="1345.0" />
+      <point x="4745.628999999999" y="1345.0" />
+      <point x="-37.81392990775157" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="REALIZATION">
+      <point x="-15.0" y="-138.5" />
+      <point x="-24.313857665556498" y="83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="-157.5" y="-9.665028710514889E-5" />
+      <point x="8647.0" y="3539.261" />
+      <point x="8647.0" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="224.49992775780538" y="6.761209670003154E-5" />
+      <point x="5060.0" y="1558.367" />
+      <point x="5060.0" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="DEPENDENCY">
+      <point x="14.99992775780538" y="-127.4999323879033" />
+      <point x="4820.629" y="1399.0" />
+      <point x="5471.0" y="1399.0" />
+      <point x="5471.0" y="1064.007" />
+      <point x="-201.49969405714" y="3.534537585823273" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.User" relationship="TO_ONE">
+      <point x="-100.06248775871245" y="126.99955042973124" />
+      <point x="7461.5" y="3320.0" />
+      <point x="5932.878" y="3320.0" />
+      <point x="15.000291166767965" y="115.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapperImpl" target="com.cshop.cosmeticshop.mapper.WeekendDayMapper" relationship="REALIZATION">
+      <point x="15.0" y="-39.0" />
+      <point x="15.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="TO_ONE">
+      <point x="14.999512241287448" y="126.99955042973124" />
+      <point x="7576.562" y="3284.0" />
+      <point x="6284.174" y="3284.0" />
+      <point x="-14.999903564602391" y="60.999550429731244" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="29.999962520004374" y="38.99972549107997" />
+      <point x="10170.341" y="2817.0" />
+      <point x="9623.0" y="2817.0" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.mapper.DoctorMapper" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.repository.WorkWeekRepository" relationship="DEPENDENCY">
+      <point x="-161.0" y="171.5" />
+      <point x="-124.81385766555695" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OrderServiceImpl" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="TO_ONE">
+      <point x="-14.999536121097265" y="83.49986382914494" />
+      <point x="3006.565" y="1835.0" />
+      <point x="6801.087" y="1835.0" />
+      <point x="6801.087" y="1049.4720000000002" />
+      <point x="-200.5" y="-4.624141766953471E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.OrderService" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="101.49956161767238" y="-3.7791985391777416E-5" />
+      <point x="3224.629" y="1035.054" />
+      <point x="3224.629" y="2817.0" />
+      <point x="9623.0" y="2817.0" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.CartDto" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="TO_MANY">
+      <point x="-10.500275495357528" y="-94.0" />
+      <point x="10198.266" y="2940.5" />
+      <point x="4499.0" y="2940.5" />
+      <point x="4499.0" y="3069.134" />
+      <point x="79.0" y="8.646620153740514E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="14.999538078081287" y="160.99998092578358" />
+      <point x="4171.607999999999" y="739.0" />
+      <point x="3910.443" y="739.0" />
+      <point x="3910.443" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.WorkWeekAspect" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="-128.5" y="-14.999553265851318" />
+      <point x="5086.879" y="2066.84" />
+      <point x="5086.879" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="CREATE">
+      <point x="-85.0" y="0.0" />
+      <point x="10316.341" y="2349.54727450892" />
+      <point x="10316.341" y="342.3380190742164" />
+      <point x="2533.0" y="342.3380190742164" />
+      <point x="2533.0" y="3142.1339135337985" />
+      <point x="-113.5" y="62.05554883575405" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="TO_MANY">
+      <point x="15.000096435397609" y="60.999550429731244" />
+      <point x="6314.174" y="3226.66" />
+      <point x="6895.47" y="3226.66" />
+      <point x="6895.47" y="3269.0" />
+      <point x="7546.562" y="3269.0" />
+      <point x="-15.000487758712552" y="126.99955042973124" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.AdminServiceImpl" target="com.cshop.cosmeticshop.service.AdminService" relationship="REALIZATION">
+      <point x="0.0" y="-39.5" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapper" target="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" relationship="DEPENDENCY">
+      <point x="-15.0" y="50.0" />
+      <point x="9161.51052900542" y="2254.109153236555" />
+      <point x="8693.722588762737" y="2254.109153236555" />
+      <point x="-134.3495014711134" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.service.AdminService" relationship="TO_ONE">
+      <point x="200.5" y="112.0" />
+      <point x="9849.398000000001" y="1681.3669323879033" />
+      <point x="9849.398000000001" y="2050.8395532658515" />
+      <point x="10543.5" y="2050.8395532658515" />
+      <point x="10543.5" y="3846.5" />
+      <point x="2557.5" y="3846.5" />
+      <point x="2557.5" y="1035.0540377919854" />
+      <point x="-81.0" y="0.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapper" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="93.4999681697218" y="-1.5323655497923028E-4" />
+      <point x="9623.0" y="2141.609" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.UserMapperImpl" target="com.cshop.cosmeticshop.domain.dto.UserDto" relationship="CREATE">
+      <point x="37.878351479944286" y="39.0" />
+      <point x="8569.312999999998" y="2745.0" />
+      <point x="10354.766275495356" y="2745.0" />
+      <point x="10354.766275495356" y="3654.261096650288" />
+      <point x="80.5" y="93.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="TO_MANY">
+      <point x="-9.023384973261273E-5" y="105.4999033497129" />
+      <point x="8828.072" y="3716.604" />
+      <point x="7217.5" y="3716.604" />
+      <point x="7217.5" y="3430.604" />
+      <point x="6997.0" y="3430.604" />
+      <point x="6997.0" y="3103.66" />
+      <point x="151.49990170402725" y="-4.4957026875636075E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkDayServiceImpl" target="com.cshop.cosmeticshop.repository.WorkDayRepository" relationship="TO_ONE">
+      <point x="-99.31567063322063" y="105.5" />
+      <point x="0.0" y="-28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="4.867900934186764E-4" y="116.5" />
+      <point x="7884.177" y="2469.0" />
+      <point x="5472.0" y="2469.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Cart" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="-15.000124639121623" y="-83.0" />
+      <point x="4698.989" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.TreatmentMapperImpl" target="com.cshop.cosmeticshop.mapper.TreatmentMapper" relationship="REALIZATION">
+      <point x="0.0" y="-39.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="DEPENDENCY">
+      <point x="14.999847870026315" y="94.49998092578363" />
+      <point x="4946.165" y="627.0" />
+      <point x="7908.49" y="627.0" />
+      <point x="14.999629124537023" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.mapper.OrderMapper" relationship="TO_ONE">
+      <point x="164.28675820294347" y="94.5" />
+      <point x="5996.508600540972" y="860.0" />
+      <point x="10107.841037479997" y="860.0" />
+      <point x="10107.841037479997" y="1902.0" />
+      <point x="9497.954031830279" y="1902.0" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkDayServiceImpl" target="com.cshop.cosmeticshop.service.WorkDayService" relationship="REALIZATION">
+      <point x="63.69539945902807" y="-105.5" />
+      <point x="29.99977057919523" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="TO_ONE">
+      <point x="1.5766197157063289E-4" y="94.49998092578363" />
+      <point x="5832.222000000001" y="664.0" />
+      <point x="7893.49" y="664.0" />
+      <point x="-3.708754629769828E-4" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.aspect.OrderAspect" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="-111.49953465513681" y="-61.4996185976554" />
+      <point x="9677.898000000001" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapper" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-84.99954030485515" y="-1.5323655497923028E-4" />
+      <point x="10272.841" y="2141.609" />
+      <point x="10272.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.CartService" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="113.0" y="-3.7791985391777416E-5" />
+      <point x="4201.443" y="1057.054" />
+      <point x="4201.443" y="1638.064" />
+      <point x="4296.0" y="1638.064" />
+      <point x="4296.0" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.OrderMapperImpl" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="CREATE">
+      <point x="-93.5" y="0.0" />
+      <point x="9357.645067985715" y="2349.547274508921" />
+      <point x="9357.645067985715" y="2035.8395532658512" />
+      <point x="8022.062" y="2035.8395532658512" />
+      <point x="8022.062" y="3125.1604495702686" />
+      <point x="113.0" y="0.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="GENERALIZATION">
+      <point x="-2.930273431047681E-4" y="-50.000449570268756" />
+      <point x="7175.766" y="2981.0" />
+      <point x="5770.5" y="2981.0" />
+      <point x="5770.5" y="3267.0" />
+      <point x="5392.9572697355" y="3267.0" />
+      <point x="5392.9572697355" y="3971.577" />
+      <point x="-86.99963539588589" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="9.288108731198008E-5" y="50.5" />
+      <point x="6664.5869999999995" y="1887.0" />
+      <point x="7331.0" y="1887.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.repository.OutBoxRepository" relationship="DEPENDENCY">
+      <point x="-111.53617579838465" y="138.5" />
+      <point x="6966.747266684193" y="2646.312174143799" />
+      <point x="113.5" y="0.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.domain.dto.CartDto" relationship="DEPENDENCY">
+      <point x="-4.619219187134149E-4" y="-161.0" />
+      <point x="4156.607999999999" y="287.0" />
+      <point x="10543.5" y="287.0" />
+      <point x="10543.5" y="1988.0" />
+      <point x="10524.0" y="1988.0" />
+      <point x="10524.0" y="3527.761" />
+      <point x="113.49972450464247" y="-9.665028801464359E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.TreatmentController" target="com.cshop.cosmeticshop.mapper.TreatmentMapper" relationship="TO_ONE">
+      <point x="162.0" y="45.5" />
+      <point x="5173.665152129974" y="560.8380190742164" />
+      <point x="5173.665152129974" y="302.0" />
+      <point x="10431.285" y="302.0" />
+      <point x="10431.285" y="1930.0" />
+      <point x="8828.722588762736" y="1930.0" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="14.999909766150267" y="-105.5" />
+      <point x="8843.072" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="DEPENDENCY">
+      <point x="-29.999877650110648" y="116.99998092578363" />
+      <point x="6868.557" y="627.0" />
+      <point x="7908.49" y="627.0" />
+      <point x="14.999629124537023" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.PersonalAccountController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="1.9297405378893018E-4" y="39.49998092578363" />
+      <point x="4519.887" y="800.0" />
+      <point x="3925.443" y="800.0" />
+      <point x="3925.443" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="DEPENDENCY">
+      <point x="45.00048679009342" y="-116.4999323879033" />
+      <point x="7929.177" y="1313.0" />
+      <point x="5301.879" y="1313.0" />
+      <point x="14.99992775780538" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WorkWeekMapperImpl" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="REALIZATION">
+      <point x="-11.634538980295474" y="-50.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWorkWeekController" target="com.cshop.cosmeticshop.mapper.WorkWeekMapper" relationship="DEPENDENCY">
+      <point x="-1.5212997368507786E-4" y="-94.5" />
+      <point x="4931.165" y="332.0" />
+      <point x="9161.511000000002" y="332.0" />
+      <point x="-14.99952900541848" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="14.999784514978273" y="-138.0" />
+      <point x="8524.312999999998" y="3338.0" />
+      <point x="8234.0" y="3338.0" />
+      <point x="8234.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="TO_ONE">
+      <point x="119.55650276599863" y="83.49998092578363" />
+      <point x="5514.0" y="1383.0" />
+      <point x="5738.508" y="1383.0" />
+      <point x="3.059428599954117E-4" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.security.CustomPermissionEvaluator" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="4.6534486318705603E-4" y="50.5" />
+      <point x="9789.398000000001" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.OutBox" target="com.cshop.cosmeticshop.domain.entity.constants.EventType" relationship="DEPENDENCY">
+      <point x="0.0" y="61.0" />
+      <point x="0.0" y="-72.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorScheduleServiceImpl" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="TO_ONE">
+      <point x="-7.22421946193208E-5" y="-127.4999323879033" />
+      <point x="4805.629" y="1383.0" />
+      <point x="5738.508" y="1383.0" />
+      <point x="3.059428599954117E-4" y="49.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.DoctorRepository" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="112.49973331580713" y="-1.7414379908586852E-4" />
+      <point x="7310.0" y="2646.312" />
+      <point x="7310.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="DEPENDENCY">
+      <point x="1.223498893523356E-4" y="116.99998092578363" />
+      <point x="6898.557" y="800.0" />
+      <point x="3925.443" y="800.0" />
+      <point x="3925.443" y="1274.0" />
+      <point x="6658.901" y="1274.0" />
+      <point x="-14.99976478446979" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Doctor" target="com.cshop.cosmeticshop.domain.entity.User" relationship="GENERALIZATION">
+      <point x="-114.5" y="0.0" />
+      <point x="80.5" y="-53.917915127775814" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WorkWeekDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="-9.023384973261273E-5" y="-105.5" />
+      <point x="8828.072" y="3338.0" />
+      <point x="8234.0" y="3338.0" />
+      <point x="8234.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="178.0" y="6.761209670003154E-5" />
+      <point x="8234.0" y="1547.367" />
+      <point x="8234.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="TO_MANY">
+      <point x="-30.00031937049198" y="94.49963530195555" />
+      <point x="5141.285" y="3414.0" />
+      <point x="6997.0" y="3414.0" />
+      <point x="6997.0" y="3103.66" />
+      <point x="151.49990170402725" y="-4.4957026875636075E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.OutBoxServiceImpl" target="com.cshop.cosmeticshop.domain.entity.OutBox" relationship="DEPENDENCY">
+      <point x="-200.5" y="6.761209670003154E-5" />
+      <point x="6847.0" y="1569.367" />
+      <point x="6847.0" y="2580.0" />
+      <point x="3953.397" y="2580.0" />
+      <point x="-14.999735176381364" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.mapper.DoctorMapper" relationship="DEPENDENCY">
+      <point x="125.0" y="0.0" />
+      <point x="10140.341037479997" y="471.3380190742164" />
+      <point x="0.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="9.288108731198008E-5" y="-50.4999323879033" />
+      <point x="6664.5869999999995" y="1413.367" />
+      <point x="7310.0" y="1413.367" />
+      <point x="7310.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.repository.CartRepository" relationship="DEPENDENCY">
+      <point x="-49.43614233444305" y="94.5" />
+      <point x="3997.1929299077515" y="2745.0" />
+      <point x="4499.0" y="2745.0" />
+      <point x="-14.692929907751477" y="28.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkDayServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="DEPENDENCY">
+      <point x="241.5" y="18.13306761209674" />
+      <point x="6630.0" y="1554.5" />
+      <point x="6630.0" y="2951.0" />
+      <point x="6751.47" y="2951.0" />
+      <point x="-9.829597274801927E-5" y="-105.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.WorkWeekServiceImpl" target="com.cshop.cosmeticshop.service.WorkDayService" relationship="TO_ONE">
+      <point x="-7.22421946193208E-5" y="-171.4999323879033" />
+      <point x="5286.879" y="1415.0" />
+      <point x="6264.204" y="1415.0" />
+      <point x="-2.294208047715074E-4" y="38.99953758582319" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.service.WeekendDayService" relationship="DEPENDENCY">
+      <point x="29.99950276599884" y="83.49998092578363" />
+      <point x="5424.443" y="612.0" />
+      <point x="5471.0" y="612.0" />
+      <point x="5471.0" y="1064.007" />
+      <point x="-201.49969405714" y="3.534537585823273" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.mapper.CartMapper" relationship="TO_ONE">
+      <point x="15.00015766197157" y="94.49998092578363" />
+      <point x="5847.222000000001" y="686.0" />
+      <point x="10416.285" y="686.0" />
+      <point x="4.59695144854777E-4" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.Order" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="DEPENDENCY">
+      <point x="-4.877587125520222E-4" y="126.99955042973124" />
+      <point x="7561.562" y="3302.0" />
+      <point x="10287.841" y="3302.0" />
+      <point x="10287.841" y="2890.0" />
+      <point x="4728.989" y="2890.0" />
+      <point x="14.999875360878377" y="-83.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.WorkWeek" target="com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus" relationship="TO_ONE">
+      <point x="29.99968062950802" y="94.49963530195555" />
+      <point x="5201.285" y="3250.0" />
+      <point x="5296.0" y="3250.0" />
+      <point x="5296.0" y="3627.257" />
+      <point x="109.49968062950802" y="-4.158996948717686E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.OrderDto" target="com.cshop.cosmeticshop.domain.entity.User" relationship="TO_ONE">
+      <point x="29.999784514978273" y="-138.0" />
+      <point x="8539.312999999998" y="3320.0" />
+      <point x="5932.878" y="3320.0" />
+      <point x="15.000291166767965" y="115.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.AppointmentController" target="com.cshop.cosmeticshop.mapper.OrderMapper" relationship="DEPENDENCY">
+      <point x="140.28615766197117" y="94.5" />
+      <point x="5972.508" y="580.8380190742164" />
+      <point x="6519.509" y="580.8380190742164" />
+      <point x="6519.509" y="830.0" />
+      <point x="10122.841037479997" y="830.0" />
+      <point x="10122.841037479997" y="2005.8395532658512" />
+      <point x="9512.954031830279" y="2005.8395532658512" />
+      <point x="15.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorWeekendDaysController" target="com.cshop.cosmeticshop.service.DoctorService" relationship="TO_ONE">
+      <point x="-4.972340011590859E-4" y="83.49998092578363" />
+      <point x="5394.443" y="664.0" />
+      <point x="7893.49" y="664.0" />
+      <point x="-3.708754629769828E-4" y="-72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.UserRepository" target="com.cshop.cosmeticshop.domain.entity.User" relationship="DEPENDENCY">
+      <point x="7.009224873399944E-5" y="-39.0" />
+      <point x="4891.192999999999" y="2517.0" />
+      <point x="7331.0" y="2517.0" />
+      <point x="7331.0" y="2853.0" />
+      <point x="5917.878" y="2853.0" />
+      <point x="2.9116676796547836E-4" y="-116.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.PersonalAccountController" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="TO_ONE">
+      <point x="-14.999807025946211" y="39.49998092578363" />
+      <point x="4504.887" y="739.0" />
+      <point x="3910.443" y="739.0" />
+      <point x="3910.443" y="1205.0" />
+      <point x="6738.0" y="1205.0" />
+      <point x="64.09923521552992" y="38.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.User" target="com.cshop.cosmeticshop.domain.entity.constants.Role" relationship="TO_ONE">
+      <point x="30.000291166767965" y="115.99963530195555" />
+      <point x="5947.878" y="3801.5" />
+      <point x="5714.128999999999" y="3801.5" />
+      <point x="-2.2010050770404632E-4" y="105.99959798633563" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.service.DoctorService" relationship="REALIZATION">
+      <point x="60.00048679009342" y="-116.5" />
+      <point x="50.68662912453692" y="72.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.DoctorScheduleService" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="193.0" y="-4.624141766953471E-4" />
+      <point x="5060.0" y="1049.4720000000002" />
+      <point x="5060.0" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.RegistrationController" target="com.cshop.cosmeticshop.mapper.UserMapper" relationship="DEPENDENCY">
+      <point x="14.999812557944097" y="83.5" />
+      <point x="6244.0" y="612.0" />
+      <point x="10062.841037479997" y="612.0" />
+      <point x="10062.841037479997" y="1872.0" />
+      <point x="8546.435" y="1872.0" />
+      <point x="15.000351479944584" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.TreatmentServiceImpl" target="com.cshop.cosmeticshop.repository.TreatmentRepository" relationship="TO_ONE">
+      <point x="-89.37907224219452" y="83.5" />
+      <point x="4281.0" y="2646.015" />
+      <point x="121.0" y="5.1664291573656556" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.UserServiceImpl" target="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" relationship="TO_ONE">
+      <point x="-14.999977846242473" y="83.5" />
+      <point x="7477.48" y="1796.5" />
+      <point x="6694.5869999999995" y="1796.5" />
+      <point x="30.000092881086857" y="50.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.service.WorkWeekService" relationship="TO_ONE">
+      <point x="30.00048679009342" y="-116.4999323879033" />
+      <point x="7914.177" y="1368.0" />
+      <point x="5286.879" y="1368.0" />
+      <point x="-7.22421946193208E-5" y="94.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.TreatmentServiceImpl" target="com.cshop.cosmeticshop.domain.entity.Treatment" relationship="DEPENDENCY">
+      <point x="136.49992775780538" y="6.761209670003154E-5" />
+      <point x="4545.0" y="1514.367" />
+      <point x="4545.0" y="2565.0" />
+      <point x="10185.341" y="2565.0" />
+      <point x="10185.341" y="2872.0" />
+      <point x="4320.192999999999" y="2872.0" />
+      <point x="-14.999929907751493" y="-60.99991353379846" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.Order" relationship="DEPENDENCY">
+      <point x="-68.11760139075523" y="-160.0" />
+      <point x="9589.770999999999" y="3403.122" />
+      <point x="9623.0" y="3403.122" />
+      <point x="9623.0" y="2908.0" />
+      <point x="7591.562" y="2908.0" />
+      <point x="29.999512241287448" y="-127.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.WeekendDayDto" target="com.cshop.cosmeticshop.domain.entity.Doctor" relationship="DEPENDENCY">
+      <point x="7.271384765772382E-5" y="-61.0" />
+      <point x="9146.510999999999" y="3338.0" />
+      <point x="8234.0" y="3338.0" />
+      <point x="8234.0" y="2926.0" />
+      <point x="6299.174" y="2926.0" />
+      <point x="9.643539760872955E-5" y="-61.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.OutBox" target="com.cshop.cosmeticshop.domain.entity.constants.EventType" relationship="TO_ONE">
+      <point x="15.0" y="61.0" />
+      <point x="15.0" y="-72.5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.EmailServiceImpl" target="com.cshop.cosmeticshop.service.OutBoxService" relationship="DEPENDENCY">
+      <point x="14.999927757805494" y="72.49986382914494" />
+      <point x="3369.629" y="1816.0" />
+      <point x="6816.087" y="1816.0" />
+      <point x="6816.087" y="1064.4720000000002" />
+      <point x="-200.5" y="14.999537585823305" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.WeekendDayMapperImpl" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="CREATE">
+      <point x="-123.99953465513681" y="39.0" />
+      <point x="9691.898000000001" y="2832.0" />
+      <point x="5598.082" y="2832.0" />
+      <point x="15.000485898137867" y="-50.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.CartMapper" target="com.cshop.cosmeticshop.domain.dto.CartDto" relationship="DEPENDENCY">
+      <point x="85.0" y="-1.5323655497923028E-4" />
+      <point x="10524.0" y="2141.609" />
+      <point x="10524.0" y="3527.761" />
+      <point x="113.49972450464247" y="-9.665028801464359E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CurrentUserServiceImpl" target="com.cshop.cosmeticshop.service.CurrentUserService" relationship="REALIZATION">
+      <point x="24.314092881087163" y="-50.5" />
+      <point x="15.000235215529756" y="39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.mapper.DoctorMapperImpl" target="com.cshop.cosmeticshop.domain.entity.BaseEntity" relationship="DEPENDENCY">
+      <point x="-15.000037479995626" y="38.99972549107997" />
+      <point x="10125.341" y="2450.0" />
+      <point x="10506.285" y="2450.0" />
+      <point x="10506.285" y="3971.577" />
+      <point x="87.00036460411411" y="-5.9408482229628135E-5" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.repository.WeekendDayRepository" target="com.cshop.cosmeticshop.domain.entity.WeekendDay" relationship="DEPENDENCY">
+      <point x="7.009224873399944E-5" y="38.999825856200914" />
+      <point x="5657.692999999999" y="2781.0" />
+      <point x="5472.0" y="2781.0" />
+      <point x="5472.0" y="3047.078" />
+      <point x="-67.99951410186213" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.DoctorServiceImpl" target="com.cshop.cosmeticshop.domain.entity.WorkWeek" relationship="DEPENDENCY">
+      <point x="4.867900934186764E-4" y="-116.4999323879033" />
+      <point x="7884.177" y="1352.0" />
+      <point x="5499.0" y="1352.0" />
+      <point x="5499.0" y="1796.5" />
+      <point x="5453.0" y="1796.5" />
+      <point x="5453.0" y="3091.578" />
+      <point x="157.49968062950802" y="-3.646980444500514E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.entity.TreatmentPeriod" target="com.cshop.cosmeticshop.domain.entity.WorkDay" relationship="TO_ONE">
+      <point x="-86.5" y="-4.4957026875636075E-4" />
+      <point x="6997.0" y="3048.16" />
+      <point x="6997.0" y="3103.66" />
+      <point x="151.49990170402725" y="-4.4957026875636075E-4" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.domain.dto.DoctorDto" target="com.cshop.cosmeticshop.domain.entity.Cart" relationship="TO_ONE">
+      <point x="-91.38860139075496" y="-160.0" />
+      <point x="9566.5" y="3399.0" />
+      <point x="4906.0" y="3399.0" />
+      <point x="4906.0" y="3095.078" />
+      <point x="113.49987536087838" y="14.99963530195555" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.controllers.DoctorController" target="com.cshop.cosmeticshop.mapper.DoctorMapper" relationship="TO_ONE">
+      <point x="125.0" y="-15.0" />
+      <point x="10155.341037479997" y="456.3380190742164" />
+      <point x="15.0" y="-39.0" />
+    </edge>
+    <edge source="com.cshop.cosmeticshop.service.impl.CartServiceImpl" target="com.cshop.cosmeticshop.repository.CartRepository" relationship="TO_ONE">
+      <point x="-78.23207224219459" y="94.5" />
+      <point x="3968.397" y="2781.0" />
+      <point x="4514.0" y="2781.0" />
+      <point x="0.307070092248523" y="28.0" />
+    </edge>
+  </edges>
+  <settings layout="Components" zoom="0.1" showDependencies="true" x="5162.0" y="3191.8262870434282" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
