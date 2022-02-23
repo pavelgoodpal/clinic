@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
@@ -6,7 +6,7 @@
     <title>Schedule</title>
 </head>
 <body>
-<form method="post" th:action="@{doctros/{doctorId}/weekend-days(doctorId=${doctorId})}"  th:object="${weekendDay}">
+<form method="post" th:action="@{/doctors/{doctorId}/weekend-days(doctorId=${doctorId})}" th:object="${weekendDay}">
     <label for="weekendDayName">Weekend day name: </label>
     <input id="weekendDayName" type="text" th:field="*{name}">
     <br/>

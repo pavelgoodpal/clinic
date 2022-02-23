@@ -1,7 +1,6 @@
 package com.cshop.cosmeticshop.aspect;
 
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
-import com.cshop.cosmeticshop.domain.entity.constants.Role;
 import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.OutBoxService;
 import lombok.RequiredArgsConstructor;

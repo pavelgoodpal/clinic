@@ -35,7 +35,7 @@ import javax.validation.Valid;
 @Slf4j
 @RequestMapping("/treatments")
 @SessionAttributes({"treatment_order", "treatment_cart"})
-@PreAuthorize("hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')")
+@PreAuthorize("hasAnyAuthority('ROLE_CUSTOMER', 'ROLE_ADMIN', 'ROLE_DOCTOR')")
 @RequiredArgsConstructor
 @Tag(name = "Treatment", description = "Controller manages treatments")
 @ApiResponse(responseCode = "500", description = "Internal error")

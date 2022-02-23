@@ -1,11 +1,13 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.domain.dto.WeekendDayDto;
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.WeekendDay;
 import com.cshop.cosmeticshop.mapper.WeekendDayMapper;
 import com.cshop.cosmeticshop.service.DoctorService;
 import com.cshop.cosmeticshop.service.WeekendDayService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -14,7 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -61,7 +62,7 @@ public class DoctorWeekendDaysController {
                                    @ModelAttribute("weekendDay") WeekendDayDto weekendDayDto,
                                    Errors errors) {
         if (errors.hasErrors()) {
-            return "doctor/schedule/weekend_day/create_form";
+            return "/doctor/schedule/weekend_day/create_form";
         }
         Optional.of(weekendDayDto)
                 .map(weekendDayMapper::fromDto)
@@ -81,7 +82,8 @@ public class DoctorWeekendDaysController {
     @PreAuthorize("permitAll()")
     @GetMapping(path = "{doctorId}/weekend-days")
     public String getDoctorWeekendDays(@PathVariable Long doctorId, Model model, @PageableDefault(value = 10) Pageable pageable) {
-        List<WeekendDay> weekendDays = weekendDayService.getAllDoctorWeekendDaysBy(doctorId, pageable);
+        Doctor doctor = doctorService.findById(doctorId);
+        Page<WeekendDay> weekendDays = weekendDayService.getAllDoctorWeekendDaysBy(doctor, pageable);
         model.addAttribute("weekendDays", weekendDays);
         return "doctor/schedule/weekend_day/weekend_days";
     }

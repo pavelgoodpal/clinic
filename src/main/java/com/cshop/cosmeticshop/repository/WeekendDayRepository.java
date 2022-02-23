@@ -14,5 +14,5 @@ public interface WeekendDayRepository extends JpaRepository<WeekendDay, Long> {
 
     List<WeekendDay> findByDoctor(Doctor doctor);
 
-    Page<WeekendDay> findByDoctorId(Long doctorId, Pageable pageable);
+    Page<WeekendDay> findByDoctor(Doctor doctor, Pageable pageable);
 }

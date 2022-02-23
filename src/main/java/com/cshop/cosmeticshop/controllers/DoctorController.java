@@ -98,6 +98,7 @@ public class DoctorController {
      */
     @Operation(description = "Returns doctor info by id")
     @ApiResponse(responseCode = "200", description = "Returns found doctor")
+    @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN', 'ROLE_CUSTOMER')")
     @GetMapping(path = "{id}")
     public String getDoctor(@PathVariable("id") Long id, Model model) {
         Doctor doctor = doctorService.findById(id);

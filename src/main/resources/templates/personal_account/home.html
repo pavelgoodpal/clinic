@@ -10,12 +10,18 @@
     <p>
         Working <a href="/doctors">Doctors</a>
     </p>
+    <div>
+        Register <a th:href="@{/doctors/registration}"> new doctor</a>
+    </div>
 </div>
 
 <div th:if="${user.role.getRole().equals('ROLE_DOCTOR')}">
     <p>
         Job <a th:href="@{/doctors/{id}(id=${user.id})}">information</a>
     </p>
+    <div>
+        <a th:href="@{/doctors/{id}/work-week (id=${user.id})}">Work week</a>
+    </div>
 </div>
 
 </body>

@@ -32,7 +32,7 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @ServletSecurity
-@PreAuthorize("hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')")
+@PreAuthorize("hasAnyAuthority('ROLE_CUSTOMER', 'ROLE_ADMIN')")
 @SessionAttributes({"treatment_order", "treatment_cart"})
 @RequestMapping("appointment-orders")
 @RequiredArgsConstructor

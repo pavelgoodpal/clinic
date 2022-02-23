@@ -5,6 +5,7 @@ import com.cshop.cosmeticshop.domain.entity.WeekendDay;
 import com.cshop.cosmeticshop.repository.WeekendDayRepository;
 import com.cshop.cosmeticshop.service.WeekendDayService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class WeekendDayServiceImpl implements WeekendDayService {
     }
 
     @Override
-    public List<WeekendDay> getAllDoctorWeekendDaysBy(Long doctorId, Pageable pageable) {
-        return weekendDayRepository.findByDoctorId(doctorId, pageable).getContent();
+    public Page<WeekendDay> getAllDoctorWeekendDaysBy(Doctor doctor, Pageable pageable) {
+        return weekendDayRepository.findByDoctor(doctor, pageable);
     }
 }

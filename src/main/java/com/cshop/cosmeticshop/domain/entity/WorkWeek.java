@@ -1,7 +1,6 @@
 package com.cshop.cosmeticshop.domain.entity;
 
 import com.cshop.cosmeticshop.domain.entity.constants.WorkWeekStatus;
-import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static javax.persistence.CascadeType.*;
-import static javax.persistence.FetchType.*;
+import static javax.persistence.FetchType.EAGER;
 
 /**
  * WorkWeek entity
