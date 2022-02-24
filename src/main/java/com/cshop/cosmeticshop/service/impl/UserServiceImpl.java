@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -26,12 +27,7 @@ public class UserServiceImpl implements UserService {
     private final CurrentUserServiceImpl authService;
 
     @Override
-    public User findByEmail(String email) throws UsernameNotFoundException {
-         return userRepository.findByEmail(email).orElseThrow(() ->
-                 new UsernameNotFoundException("User not found"));
-    }
-
-    @Override
+    @Transactional
     public User create(User newUser) {
         var foundedUser = userRepository.findByEmail(newUser.getEmail());
         if (foundedUser.isEmpty()) {
@@ -45,6 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public User updateUserCart(Cart cart) {
         var user = authService.getUser();
         user.setCart(cart);

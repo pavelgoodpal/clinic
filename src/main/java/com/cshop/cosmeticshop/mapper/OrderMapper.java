@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 
 /**
  * Mapper for Order and OrderDto
+ *
  * @author Pave1Pal
  */
 @Mapper(componentModel = "spring")
@@ -13,6 +14,7 @@ public interface OrderMapper {
 
     /**
      * Convert Order into OrderDto
+     *
      * @param order Order convert into OrderDto
      * @return OrderDto
      */
@@ -20,6 +22,7 @@ public interface OrderMapper {
 
     /**
      * Convert OrderDto into Order
+     *
      * @param orderDto OrderDto convert into Order
      * @return OrderDto
      */

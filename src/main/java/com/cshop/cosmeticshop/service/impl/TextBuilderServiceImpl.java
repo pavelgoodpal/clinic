@@ -5,6 +5,8 @@ import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.WorkDay;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 import com.cshop.cosmeticshop.service.TextBuilderService;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.time.format.DateTimeFormatter;
@@ -19,6 +21,8 @@ import java.util.Locale;
 @Service
 public class TextBuilderServiceImpl implements TextBuilderService {
 
+    @Value("${base.path}")
+    private String basePath;
     private final static DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm");
 
     @Override
@@ -55,7 +59,7 @@ public class TextBuilderServiceImpl implements TextBuilderService {
         return workDays.stream()
                 .reduce(text, (s, workDay) -> s + makeTextFromWorkDay(workDay), String::concat) +
                 "If you accept this work week schedule click on link below\n" +
-                "http://localhost:8080/work-weeks/activation-code/" + workWeek.getActivationCode();
+                basePath +"work-weeks/activation-code/" + workWeek.getActivationCode();
     }
 
     /**
@@ -84,4 +88,14 @@ public class TextBuilderServiceImpl implements TextBuilderService {
     private String makeLowCaseDayOfWeek(WorkDay workDay) {
         return workDay.getDayOfWeek().toString().toLowerCase(Locale.ROOT);
     }
-} 
+
+    @Override
+    public String buildDoctorWorkWeekActivationMessage(Doctor doctor) {
+        return "Hello " + doctor.getFirstName() + " your work week was accepted";
+    }
+
+    @Override
+    public String buildAdminWorkWeekActivationMessage(Doctor doctor) {
+        return "Doctor " + doctor.getLastName() + " accept work week";
+    }
+}

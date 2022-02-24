@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Repository for Order entity
+ *
  * @author Pave1Pal
  */
 @Repository

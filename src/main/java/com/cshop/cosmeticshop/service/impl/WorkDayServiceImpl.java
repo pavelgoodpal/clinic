@@ -54,12 +54,11 @@ public class WorkDayServiceImpl implements WorkDayService {
      */
     private boolean canAddTreatmentPeriodToWorkDay(TreatmentPeriod period, WorkDay workDay) {
         List<TreatmentPeriod> treatmentPeriods = workDay.getTreatmentPeriods();
-        if (workDay.isWorkDay()) {
-            if (!isTreatmentPeriodLayInWorkTimePeriod(period, workDay)) {
-                return false;
-            } else return !isPeriodOverridesOtherPeriods(period, treatmentPeriods) && isPeriodGreaterNow(period);
-        }
-        return false;
+        return workDay.isWorkDay() &&
+                isTreatmentPeriodLayInWorkTimePeriod(period, workDay) &&
+                !isPeriodOverridesOtherPeriods(period, treatmentPeriods) &&
+                isPeriodGreaterNow(period);
+
     }
 
     /**
@@ -85,7 +84,7 @@ public class WorkDayServiceImpl implements WorkDayService {
         LocalDateTime treatmentStart = period.getStartAt();
         LocalDateTime treatmentFinish = period.getFinishAt();
         LocalDateTime workStartAt = LocalDateTime.of(dayDate, workDay.getWorkStartAt());
-        LocalDateTime workFinishAt = LocalDateTime.of(dayDate,workDay.getWorkFinishAt());
+        LocalDateTime workFinishAt = LocalDateTime.of(dayDate, workDay.getWorkFinishAt());
         return workStartAt.isBefore(treatmentStart) && workFinishAt.isAfter(treatmentFinish);
     }
 
@@ -113,7 +112,8 @@ public class WorkDayServiceImpl implements WorkDayService {
         LocalDateTime periodFinishAt = period.getFinishAt();
         LocalDateTime otherPeriodStartAt = otherPeriod.getStartAt();
         LocalDateTime otherPeriodFinishAt = otherPeriod.getFinishAt();
-        return otherPeriodStartAt.isBefore(periodFinishAt) && otherPeriodFinishAt.isBefore(periodStartAt);
+        return (periodStartAt.isBefore(otherPeriodFinishAt) && periodStartAt.isAfter(otherPeriodStartAt))
+                || (periodFinishAt.isAfter(otherPeriodStartAt) && periodFinishAt.isBefore(otherPeriodFinishAt));
     }
 
     @Override

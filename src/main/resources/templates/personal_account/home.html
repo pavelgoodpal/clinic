@@ -13,6 +13,9 @@
     <div>
         Register <a th:href="@{/doctors/registration}"> new doctor</a>
     </div>
+    <div>
+        Crate new <a th:href="@{/treatments/create}">treatment</a>
+    </div>
 </div>
 
 <div th:if="${user.role.getRole().equals('ROLE_DOCTOR')}">

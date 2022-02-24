@@ -42,7 +42,7 @@ public class WorkWeekController {
      */
     @Operation(description = "Activate doctor work week")
     @ApiResponse(responseCode = "200", description = "returns activation work week page")
-    @PreAuthorize("permitAll()")
+    @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
     @GetMapping(path = "/activation-code/{uuid}")
     public String activate(@PathVariable("uuid") UUID activationCode) {
         workWeekService.activate(activationCode);

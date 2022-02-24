@@ -32,6 +32,7 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     private final WorkWeekMapper workWeekMapper;
 
     @Override
+    @Transactional
     public WorkWeek create(WorkWeek workWeek) {
         workWeek.setStatus(WorkWeekStatus.DENIED);
         workWeek.setActivationCode(UUID.randomUUID());
@@ -39,6 +40,7 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     }
 
     @Override
+    @Transactional
     public WorkWeek update(Long id, WorkWeek workWeek) {
         return Optional.of(id)
                 .map(this::get)
@@ -53,15 +55,23 @@ public class WorkWeekServiceImpl implements WorkWeekService {
     }
 
     @Override
+    @Transactional
     public WorkWeek activate(UUID activationCode) {
-        WorkWeek workWeek = workWeekRepository.findByActivationCode(activationCode)
-                .orElseThrow(() -> new WorkWeekNotFoundException(activationCode.toString()));
+        WorkWeek workWeek = getByActivationCode(activationCode);
         workWeek.setStatus(WorkWeekStatus.ACCEPTED);
         workWeek.setActivationCode(null);
         return workWeekRepository.save(workWeek);
     }
 
     @Override
+    @Transactional
+    public WorkWeek getByActivationCode(UUID activationCode) {
+        return workWeekRepository.findByActivationCode(activationCode)
+                .orElseThrow(() -> new WorkWeekNotFoundException(activationCode.toString()));
+    }
+
+    @Override
+    @Transactional
     public WorkWeek get(Long id) {
         return workWeekRepository.findById(id)
                 .orElseThrow(() -> new WorkWeekNotFoundException(id.toString()));

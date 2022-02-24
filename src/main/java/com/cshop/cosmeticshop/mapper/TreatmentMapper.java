@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 
 /**
  * Mapper for Treatment and TreatmentDto
+ *
  * @author Pave1Pal
  */
 @Mapper(componentModel = "spring")
@@ -13,6 +14,7 @@ public interface TreatmentMapper {
 
     /**
      * Convert TreatmentDto into Treatment
+     *
      * @param treatmentDto TreatmentDto convert into Treatment
      * @return TreatmentDto
      */
@@ -20,6 +22,7 @@ public interface TreatmentMapper {
 
     /**
      * Convert Treatment into TreatmentDto
+     *
      * @param treatment Treatment convert into TreatmentDto
      * @return Treatment
      */

@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 
 /**
  * Mapper for User and UserDto
+ *
  * @author Pave1Pal
  */
 @Mapper(componentModel = "spring")
@@ -13,6 +14,7 @@ public interface UserMapper {
 
     /**
      * Convert User into UserDto
+     *
      * @param user User convert into UserDto
      * @return UserDto
      */
@@ -20,6 +22,7 @@ public interface UserMapper {
 
     /**
      * Convert User into UserDto
+     *
      * @param userDto UserDto convert into User
      * @return User
      */

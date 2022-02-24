@@ -35,13 +35,6 @@ public interface TreatmentService {
     Treatment create(Treatment treatment);
 
     /**
-     * Update treatment info in data storage.
-     * @param treatment treatment
-     * @return updated treatment
-     */
-    Treatment update(Treatment treatment);
-
-    /**
      * Delete treatment by id from data storage.
      * @param id of treatment
      */

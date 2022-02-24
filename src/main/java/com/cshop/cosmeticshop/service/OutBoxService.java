@@ -3,9 +3,9 @@ package com.cshop.cosmeticshop.service;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.OutBox;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Service to control outbox info.
@@ -19,7 +19,6 @@ public interface OutBoxService {
      *
      * @param order info
      * @return OutBox - information in table
-     * @throws JsonProcessingException if it take place
      */
     OutBox buildOrderEmail(Order order);
 
@@ -60,4 +59,20 @@ public interface OutBoxService {
      * @param outBox info
      */
     void delete(OutBox outBox);
+
+    /**
+     * Build and save in outbox table activation work week email for doctor.
+     *
+     * @param activationCode UUID activation code
+     * @return saved OutBox
+     */
+    OutBox buildActivateWorkWeekEmailForDoctor(UUID activationCode);
+
+    /**
+     * Build and save in outbox table activation work week email for admins.
+     *
+     * @param activationCode code for activate work week
+     * @return list of saved outboxes
+     */
+    List<OutBox> buildActivateWorkWeekEmailForAdmins(UUID activationCode);
 }

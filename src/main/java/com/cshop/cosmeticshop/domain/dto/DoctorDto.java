@@ -28,6 +28,7 @@ import java.util.List;
 @Schema(name = "Doctor", description = "Info about doctor")
 public class DoctorDto {
 
+    @Schema(description = "doctor id")
     private Long id;
 
     @NotBlank(message = "first name is required")

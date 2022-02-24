@@ -6,6 +6,7 @@ import org.mapstruct.Mapper;
 
 /**
  * Mapper for Cart and CartDto
+ *
  * @author Pave1Pal
  */
 @Mapper(componentModel = "spring")
@@ -13,6 +14,7 @@ public interface CartMapper {
 
     /**
      * Convert Cart into CartDto
+     *
      * @param cart Cart convert into CartDto
      * @return CartDto
      */
@@ -20,6 +22,7 @@ public interface CartMapper {
 
     /**
      * Convert CartDto into Cart
+     *
      * @param cartDto CartDto convert into Cart
      * @return Cart
      */

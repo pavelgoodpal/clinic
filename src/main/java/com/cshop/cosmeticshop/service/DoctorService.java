@@ -40,7 +40,6 @@ public interface DoctorService {
      * @param id of doctor
      * @return found Doctor
      */
-    @SneakyThrows
     Doctor findById(Long id);
 
     /**

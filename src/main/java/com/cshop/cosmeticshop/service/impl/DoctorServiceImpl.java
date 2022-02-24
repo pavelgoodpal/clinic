@@ -34,6 +34,7 @@ public class DoctorServiceImpl implements DoctorService {
     private final WeekendDayService weekendDayService;
 
     @Override
+    @Transactional
     public Doctor create(Doctor doctor) {
         doctor.setStatus(Status.ACTIVE);
         doctor.setRole(Role.DOCTOR);
@@ -43,18 +44,18 @@ public class DoctorServiceImpl implements DoctorService {
 
 
     @Override
+    @Transactional
     public List<Doctor> getAllDoctors(Pageable pageable) {
         return doctorRepository.findAll(pageable).getContent();
     }
 
-    @SneakyThrows
     @Override
+    @Transactional
     public Doctor findById(Long id) {
         return doctorRepository.findById(id).orElseThrow(() -> new DoctorNotFoundException("Doctor not found " + id));
     }
 
     @Override
-    @SneakyThrows
     @Transactional
     public WorkWeek setDoctorWorkWeek(WorkWeek workWeek, Long id) {
         Doctor doctor = findById(id);

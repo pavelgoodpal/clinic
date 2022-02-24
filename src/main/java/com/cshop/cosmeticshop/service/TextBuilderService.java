@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.service;
 
+import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.Order;
 import com.cshop.cosmeticshop.domain.entity.WorkWeek;
 
@@ -33,4 +34,20 @@ public interface TextBuilderService {
      * @return text for admin about doctor work week
      */
     String buildWorkWeekEmailForAdmin(WorkWeek workWeek);
+
+    /**
+     * Build message for doctor that his work week was activated by admin
+     *
+     * @param doctor doctor
+     * @return String text message for doctor that his work week was activated by admin
+     */
+    String buildDoctorWorkWeekActivationMessage(Doctor doctor);
+
+    /**
+     * Build message for admin that doctor accepted and activate work week
+     *
+     * @param doctor doctor
+     * @return text that doctor accepted and activate work week for admin
+     */
+    String buildAdminWorkWeekActivationMessage(Doctor doctor);
 }

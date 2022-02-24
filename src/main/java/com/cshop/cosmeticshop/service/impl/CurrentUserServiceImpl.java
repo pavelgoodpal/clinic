@@ -28,7 +28,7 @@ public class CurrentUserServiceImpl implements CurrentUserService {
         return principal.getUser();
     }
 
-    @SneakyThrows
+
     @Override
     public Doctor getDoctor() {
         User user = getUser();

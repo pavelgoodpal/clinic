@@ -1,6 +1,9 @@
 package com.cshop.cosmeticshop.controllers;
 
 import com.cshop.cosmeticshop.service.CurrentUserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequiredArgsConstructor
+@Tag(name = "Personal account", description = "Controller to manage personal account")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 @RequestMapping("personal-account")
 @PreAuthorize("permitAll()")
 public class PersonalAccountController {
@@ -27,6 +33,8 @@ public class PersonalAccountController {
      * @param model for view
      * @return view with user information
      */
+    @Operation(description = "get personal account page")
+    @ApiResponse(responseCode = "200", description = "get home personal account page")
     @GetMapping
     public String getIndexPage(Model model) {
         model.addAttribute("user", currentUserService.getUser());

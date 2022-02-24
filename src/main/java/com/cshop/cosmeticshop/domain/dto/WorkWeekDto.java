@@ -29,18 +29,26 @@ import static javax.persistence.FetchType.LAZY;
 @Schema(name = "WorkWeek", description = "Info about doctor work week")
 public class WorkWeekDto {
 
+    @Schema(description = "work week id")
     private Long id;
 
+    @Schema(description = "days of week map: name of week in caps is key, value is work days object",
+            required = true)
     private Map<DayOfWeek, WorkDay> daysOfWeek = makeDaysOfWeek();
 
+    @Schema(description = "doctor object, just use id", required = true)
     private Doctor doctor;
 
+    @Schema(description = "work week status. ACCEPTED, DENIED")
     private WorkWeekStatus status;
 
+    @Schema(description = "activation code in uuid", required = false)
     private UUID activationCode;
 
+    @Schema(description = "number of week in year")
     private int numberOfWeek;
 
+    @Schema(description = "date of week", type = "LocalDate")
     private LocalDate date;
 
     private Map<DayOfWeek, WorkDay> makeDaysOfWeek() {

@@ -2,7 +2,6 @@ package com.cshop.cosmeticshop.job;
 
 import com.cshop.cosmeticshop.service.EmailService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Component;
  *
  * @author Pave1Pal
  */
-@Slf4j
 @Component
 @RequiredArgsConstructor
 public class EmailJob {

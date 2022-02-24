@@ -13,6 +13,7 @@ import java.util.Optional;
 
 /**
  * Repository for Cart entity
+ *
  * @author Pave1Pal
  */
 @Repository
@@ -20,7 +21,8 @@ public interface CartRepository extends JpaRepository<Cart, Long> {
 
     /**
      * Find cart using user and status of cart
-     * @param user from UserPrincipal
+     *
+     * @param user   from UserPrincipal
      * @param status status of cart
      * @return list of carts
      */

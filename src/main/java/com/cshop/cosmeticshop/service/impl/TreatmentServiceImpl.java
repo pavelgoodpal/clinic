@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Class implements TreatmentService.
@@ -21,27 +22,26 @@ public class TreatmentServiceImpl implements TreatmentService {
     private final TreatmentRepository treatmentRepository;
 
     @Override
+    @Transactional
     public Page<Treatment> findAll(Pageable pageable) {
         return treatmentRepository.findAll(pageable);
     }
 
     @Override
+    @Transactional
     public Treatment findById(Long id) throws TreatmentNotFoundException {
         return treatmentRepository.findById(id).orElseThrow(() ->
                 new TreatmentNotFoundException("Treatment not Found"));
     }
 
     @Override
+    @Transactional
     public Treatment create(Treatment treatment) {
         return treatmentRepository.save(treatment);
     }
 
     @Override
-    public Treatment update(Treatment treatment) {
-        return treatmentRepository.save(treatment);
-    }
-
-    @Override
+    @Transactional
     public void delete(Long id) {
         treatmentRepository.deleteById(id);
     }

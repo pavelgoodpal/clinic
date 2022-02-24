@@ -7,6 +7,7 @@ import com.cshop.cosmeticshop.service.DoctorScheduleService;
 import com.cshop.cosmeticshop.service.DoctorService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +29,9 @@ import java.util.Optional;
 @Controller
 @ServletSecurity
 @RequiredArgsConstructor
+@Tag(name = "DoctorWorkWeek", description = "Controller to manage doctor work week")
+@ApiResponse(responseCode = "500", description = "Internal error")
+@ApiResponse(responseCode = "400", description = "Validation failed")
 @PreAuthorize("hasAnyAuthority('ROLE_DOCTOR', 'ROLE_ADMIN')")
 @RequestMapping("doctors")
 public class DoctorWorkWeekController {
@@ -86,13 +90,16 @@ public class DoctorWorkWeekController {
      * @param day      day you need
      * @return view with doctor work week containing information about work days in chosen date.
      */
+    @Operation(description = "Get doctor work week to needed date")
+    @ApiResponse(responseCode = "200", description = "Return doctor work week" +
+            " to needed date using path variables year, month, day")
     @GetMapping(path = "{doctorId}/work-week")
     @PreAuthorize("permitAll()")
     public String getDoctorWorkWeekToDate(Model model,
                                           @PathVariable(name = "doctorId") Long doctorId,
                                           @RequestParam(name = "year", defaultValue = "2022") String year,
                                           @RequestParam(name = "month", defaultValue = "2") String month,
-                                          @RequestParam(name = "day", defaultValue = "19") String day) {
+                                          @RequestParam(name = "day", defaultValue = "23") String day) {
         LocalDate date = LocalDate.of(Integer.parseInt(year), Integer.parseInt(month), Integer.parseInt(day));
         WorkWeek doctorWorkWeek = scheduleService.getWorkWeekByDoctorIdAndDate(doctorId, date);
         model.addAttribute("doctorWorkWeek", doctorWorkWeek);

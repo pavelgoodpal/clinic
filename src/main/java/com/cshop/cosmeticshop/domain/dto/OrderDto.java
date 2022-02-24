@@ -4,6 +4,7 @@ import com.cshop.cosmeticshop.domain.entity.Cart;
 import com.cshop.cosmeticshop.domain.entity.Doctor;
 import com.cshop.cosmeticshop.domain.entity.TreatmentPeriod;
 import com.cshop.cosmeticshop.domain.entity.User;
+import com.cshop.cosmeticshop.validation.annotation.PhoneNumber;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,8 +31,7 @@ public class OrderDto {
             required = true,
             pattern = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
             maxLength = 12)
-    @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
-            message = "invalid phone number")
+    @PhoneNumber(message = "invalid phone number")
     private String phoneNumber;
 
     @Schema(description = "Email",

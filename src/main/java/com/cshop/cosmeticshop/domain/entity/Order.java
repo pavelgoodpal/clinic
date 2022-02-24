@@ -1,5 +1,6 @@
 package com.cshop.cosmeticshop.domain.entity;
 
+import com.cshop.cosmeticshop.validation.annotation.PhoneNumber;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,8 +30,7 @@ import java.time.Period;
 @NoArgsConstructor
 public class Order extends BaseEntity {
 
-    @Pattern(regexp = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$",
-            message = "invalid phone number")
+    @PhoneNumber(message = "invalid phone number")
     private String phoneNumber;
 
     @Email(message = "invalid email")

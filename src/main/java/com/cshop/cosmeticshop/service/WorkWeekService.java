@@ -58,7 +58,7 @@ public interface WorkWeekService {
     /**
      * Set days of week properties by date.
      *
-     * @param workWeek doctor work week
+     * @param workWeek  doctor work week
      * @param localDate date
      */
     void setDaysOfWeekDate(WorkWeek workWeek, LocalDate localDate);
@@ -67,8 +67,16 @@ public interface WorkWeekService {
      * Gets doctor work day in chosen date.
      *
      * @param workWeek doctor work week
-     * @param date date you want to know doctor schedule
+     * @param date     date you want to know doctor schedule
      * @return doctor work day
      */
     WorkDay getWorkDayBy(WorkWeek workWeek, LocalDate date);
+
+    /**
+     * Get doctor work week by activation code.
+     *
+     * @param activationCode UUID code for activating work week
+     * @return found work week by activation code
+     */
+    WorkWeek getByActivationCode(UUID activationCode);
 }

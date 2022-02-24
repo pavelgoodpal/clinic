@@ -9,6 +9,7 @@ import com.cshop.cosmeticshop.service.CurrentUserService;
 import com.cshop.cosmeticshop.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Class implements CartService
@@ -23,6 +24,7 @@ public class CartServiceImpl implements CartService {
     private final UserService userService;
 
     @Override
+    @Transactional
     public Cart saveActiveCart(Cart cart) {
         calculateTotalPrice(cart);
         cart.setStatus(CartStatus.ACTIVE);
@@ -32,12 +34,14 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    @Transactional
     public Cart updateToNoActiveCart(Cart cart) {
         cart.setStatus(CartStatus.DONE);
         return cartRepository.save(cart);
     }
 
     @Override
+    @Transactional
     public Cart findUserActiveCart() {
         var cart = cartRepository.findCartByUserAndStatus(authService.getUser(), CartStatus.ACTIVE);
         return cart.isEmpty() ? new Cart() : cart.get();
